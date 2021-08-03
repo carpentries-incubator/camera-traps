@@ -9,7 +9,7 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-Camera traps provide a non-invasive survey method for detecting animals. Downloading and analyzing camera trap data can be faster and more organized with knowledge of R programming to preprocess data prior to species or individual identification tasks, and postprocess spreadsheet datasets in preparation for modeling.
+Camera traps provide a non-invasive survey method for detecting animals. Downloading and analyzing camera trap data can be faster and more organized with knowledge of R programming to preprocess data prior to species or individual identification tasks, understanding software options and how to use them, and postprocess spreadsheet datasets in preparation for modeling.
 
 This is an introduction to Camera Trap data organization and wranging designed for participants with no programming experience. These lessons can be taught in one and a half days (~ 10 hours). They start with some basic information about R syntax, and move through how to import camera trap files, using the dplyr and camtrapR package to work with camera trap exif data and combine with field survey data frames, an introduction to Megadetector and Wildlife Insights for species level identification, how to import and use the Wildbook platform for individual identification, how to calculate summary information from a data frame, organizing dataframes for occupancy or spatial capture recapture data analysis, running models using the oSCR package. 
 
