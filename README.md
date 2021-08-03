@@ -8,8 +8,8 @@ The workshop uses a single camera trap data set that contains observations about
 
 Overview of the lessons:
 
-  1. Data organization using camTrapR
-  * Camera Trap Data in R 
+  
+  * Camera trap organization in R 
   * Introduction to Python Megadetector (species identification)
   * Introduction to Whiskerbook (individual identification)
   * Data wrangling in R 
