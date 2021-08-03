@@ -1,6 +1,6 @@
 # Camera-Trap-Workshop
 
-## Overview of the Camera Trap Wrangling workshop
+## Overview of the Camera Trap Wrangling and Analysis workshop
 
 Data Carpentry's aim is to teach researchers basic concepts, skills, and tools for working with data so that they can get more done in less time, and with less pain. This workshop uses an raw camera trap dataset and teaches data cleaning, management, analysis and visualization. There are no pre-requisites, and the materials assume no prior knowledge about the tools.
 
