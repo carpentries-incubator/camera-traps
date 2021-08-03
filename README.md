@@ -1,75 +1,46 @@
-# FIXME Lesson title
+# Camera-Trap-Workshop
 
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
+## Overview of the Camera Trap Wrangling workshop
 
-**Thanks for contributing to The Carpentries Incubator!**
-This repository provides a blank starting point for lessons to be developed here.
+Data Carpentry's aim is to teach researchers basic concepts, skills, and tools for working with data so that they can get more done in less time, and with less pain. This workshop uses an raw camera trap dataset and teaches data cleaning, management, analysis and visualization. There are no pre-requisites, and the materials assume no prior knowledge about the tools.
 
-A member of the [Carpentries Curriculum Team](https://carpentries.org/team/)
-will work with you to get your lesson listed on the
-[Community Developed Lessons page][community-lessons]
-and make sure you have everything you need to begin developing your new lesson.
+The workshop uses a single camera trap data set that contains observations about snow leopards (Panthera uncia) in the Wakhan Corridor of Afghanistan. See `data.md` for more information about this data set, including the download location.
 
-## What to do next
+Overview of the lessons:
 
-Before you begin developing your new lesson,
-here are a few things we recommend you do:
+  1. Data organization using camTrapR
+  * Camera Trap Data in R 
+  * Introduction to Python Megadetector (species identification)
+  * Introduction to Whiskerbook (individual identification)
+  * Data wrangling in R 
+  * oSCR for spatial-capture recapture
 
-* [ ] Decide on a title for your new lesson!
-  Once you've chosen a new title, you can set the value for `lesson_title`
-  in [`_config.yml`](_config.yml)
-* [ ] Add the URL to your built lesson pages to the repository description\*
-* [ ] Fill in the fields marked `FIXME` in:
-  * this README
-  * [`_config.yml`](_config.yml)
-* [ ] If you're going to be developing lesson material for the first time
-  according to our design principles,
-  consider reading the [Carpentries Curriculum Development Handbook][cdh]
-* [ ] Consult the [Lesson Example][lesson-example] website to find out more about
-  working with the lesson template
-* [ ] Update this README with relevant information about your lesson
-  and delete this section
+## Detailed structure
 
-\* To set the URL on GitHub, click the gear wheel button next to **About**
-on the right of the repository landing page.
-The lesson URL structure is **https://carpentries-incubator.github.io/<repository-slug\>**:
-a repository at https://github.com/carpentries-incubator/new-lesson/ will have pages at
-the lesson URL https://carpentries-incubator.github.io/new-lesson/.
+### Day 1 morning: Data organization & cleaning
 
+There are two lessons in this section. The first is a camera trap lesson that teaches  good data organization, and some data cleaning and quality control checking in a camera trap program.
 
-## Contributing
+  * [camTrapR lesson](http://###)
+  * [camTrapR repository](http://###)
 
-We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
-questions, concerns, or experience any difficulties along the way.
+The second lesson uses a program called [Megadetector]() to teach species identification, and to introduce scripting and regular expressions.
 
-We'd like to ask you to familiarize yourself with our [Contribution Guide](CONTRIBUTING.md) and have a look at
-the [more detailed guidelines][lesson-example] on proper formatting, ways to render the lesson locally, and even
-how to write new episodes.
+  * [Megadetector lesson](http://###)
+  * [Megadetector repository](http://###)
 
-Please see the current list of [issues][FIXME] for ideas for contributing to this
-repository. For making your contribution, we use the GitHub flow, which is
-nicely explained in the chapter [Contributing to a Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) in Pro Git
-by Scott Chacon.
-Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). This indicates that the maintainers will welcome a pull request fixing this issue.
+### Day 1 afternoon and Day 2 morning: Whiskerbook 
+
+These lessons includes a basic introduction the Whiskerbook platform, importing CSV data, using the main features of the programs. 
+
+  * [Whiskerbook lesson](http://###) 
+  * [Whiskerbook repository](http://###) 
 
 
-## Maintainer(s)
+### Day 2 afternoon: Data Wrangling and oSCR
 
-Current maintainers of this lesson are
+These lessons includes a basic introduction to R syntax for wrangling data for input into the oSCR program. Topics include importing CSV data, and subsetting and merging data. It finishes with calculating summary statistics and running the models. 
 
-* FIXME
-* FIXME
-* FIXME
+  * [SQL lesson](http://datacarpentry.org/sql-ecology-lesson/)
+  * [SQL repository](https://github.com/datacarpentry/sql-ecology-lesson)
 
-
-## Authors
-
-A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
-
-## Citation
-
-To cite this lesson, please consult with [CITATION](CITATION)
-
-[cdh]: https://cdh.carpentries.org
-[community-lessons]: https://carpentries.org/community-lessons
-[lesson-example]: https://carpentries.github.io/lesson-example
