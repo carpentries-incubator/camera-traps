@@ -41,6 +41,6 @@ These lessons includes a basic introduction the Whiskerbook platform, importing 
 
 These lessons includes a basic introduction to R syntax for wrangling data for input into the oSCR program. Topics include importing CSV data, and subsetting and merging data. It finishes with calculating summary statistics and running the models. 
 
-  * [SQL lesson](http://datacarpentry.org/sql-ecology-lesson/)
-  * [SQL repository](https://github.com/datacarpentry/sql-ecology-lesson)
+  * [SQL lesson](http://###)
+  * [SQL repository](http://###)
 
