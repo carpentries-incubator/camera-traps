@@ -7,7 +7,7 @@ questions:
 - "How to setup  single 3 month season oSCR data?"
 - "How to setup our oSCR data that exclude areas of high elevation?"
 - "What is a buffer mask and how to parameterize it?"
-teaching: 160
+teaching: 60
 exercises: 30
 keypoints:
 - "Format data to only include data from a single session"
