@@ -27,7 +27,7 @@ First, set the working directory for the workshop where the snow leopard data ha
 
 ```{r}
 #Set working directory
-setwd("C:/Users/evebo/OneDrive/Desktop/WhiskerbookTrainingMaterials/")
+setwd("YourWorkingDirectory/WhiskerbookTrainingMaterials/")
 #Make sure to have ExifTool installed and bring in the camtrapR package
 library(camtrapR)
 ```
