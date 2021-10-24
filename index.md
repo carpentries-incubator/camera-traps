@@ -12,9 +12,6 @@ maintainers:
 The episodes in this lesson cover how to open, work with, and model camera trapping data in R. 
 Additional topics include Whiskerbook for individual identification and Spatial Capture Recapture Modeling Data Preparation
 
-Data Carpentry's aim is to teach researchers basic concepts, skills, and tools for working with data so that they can get more done in less time, and with less pain. 
-
-
 Interested in teaching these materials? Please contact [evebohnett@yahoo.com](mailto:evebohnett@yahoo.com) so that we can discuss a workshop. 
 
 
@@ -28,7 +25,7 @@ Interested in teaching these materials? Please contact [evebohnett@yahoo.com](ma
 
 > To get started, follow the directions in the [Setup](setup.html) tab to
 > get access to the required software and data for this workshop.
-
+{: .prereq}
 > ## Data
 >
 > The data and lessons in this workshop were originally collected by WCS Afghanistan  
@@ -48,9 +45,7 @@ Interested in teaching these materials? Please contact [evebohnett@yahoo.com](ma
 > | ---- | ------| ---- | 
 > | Camera trap images |  2012_CTdata.zip | Raw camera trap data for 294 images of a subset of data
 > | Camera Trap Metadata | Metadata_CT_2012.csv | Metadata that accompanys the camera trap images only| 
-> | Whiskerbook export | Whiskerbook_export.csv | A subset of raw data downloaded from the Wildbook interface after the data have been individually identified and labeled by side (left, right, back, front) and quality (high, medium, and low) 
+> | Whiskerbook export | Whiskerbook_export.csv | A subset of raw data downloaded from the Wildbook interface after the data have been individually identified and labeled by > > >   side (left, right, back, front) and quality (high, medium, and low) 
 > | Camera Trap Metadata | Metadata_CT_2012_2.csv | Metadata that accompanys the Whiskerbook export file| 
-> > 
-{: .prereq} 
 
-{% include links.md %}
+{: .prereq} 
