@@ -32,7 +32,7 @@ Interested in teaching these materials? Please contact [evebohnett@yahoo.com](ma
 > for a field project located inthe Wakhan Corridor. 
 > for snow leopard detections:
 > There is one data set included, which are available  on figshare
-> * Wakhan Corridor Snow Leopard Data (https://figshare.com/s/5842d402413069e51daf)
+> * Wakhan Corridor Snow Leopard Data ()
 
 > under a CC-BY-04 license. You can download all of the data used in this workshop by clicking 
 > Clicking the download link will download all of the files as a single compressed
