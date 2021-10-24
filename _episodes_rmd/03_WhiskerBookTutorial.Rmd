@@ -26,8 +26,10 @@ source: Rmd
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
->When you are ready to upload an your data formally, please email me @ evebohnett@yahoo.com as I am a volunteer Project Director for the Whiskerbook and first point of contact for any support issues you may have. 
+Here the instructor will show you how to use the Whiskerbook interface using an account already setup. You will also have access to this account. Please do not change or delete anything in this instructional account. It mainly serves as to orient you to using the platform and seeing how it works. This webpage are notes as reference for future dates when you come back to using the Whiskerbook portal, in case you forgot something. 
 
+When you are ready to upload an your data formally, please email me @ evebohnett@yahoo.com as I am a volunteer Project Director for the Whiskerbook and first point of contact for any support issues you may have. 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ![Image Stretch](../images/Whiskerbook/Slide1.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ![Image Stretch](../images/Whiskerbook/Slide2.JPG)
