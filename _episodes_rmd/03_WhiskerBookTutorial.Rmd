@@ -1,13 +1,32 @@
 ---
-title: "WhiskerBookTutorial"
-author: "EveBohnett"
-date: "10/13/2021"
-output: html_document
+title: "Wildbook Data Portal Tutorial"
+objectives:
+- "Learn how to use the Wildbook for individual identification"
+questions: 
+- "How do I bulk import data into the interface?"
+- "What is an an encounter?"
+- "How do I delete an encounter?
+- "How can I run hotspotter on my images?"
+- "How do I use the visual matcher?"
+- "How can I report an encounter?"
+
+teaching: 60
+exercises: 30
+keypoints:
+- "Upload data into the Wildbook"
+- "Understand encounters and how to navigate the encounters page"
+- "Effectively delete encounters"
+- "Use Hotspotter and Visual Matcher for individual identification"
+- "Report an encounter"
+
+source: Rmd
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+>When you are ready to upload an your data formally, please email me @ evebohnett@yahoo.com as I am a volunteer Project Director for the Whiskerbook and first point of contact for any support issues you may have. 
 
 ![Image Stretch](../images/Whiskerbook/Slide1.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
