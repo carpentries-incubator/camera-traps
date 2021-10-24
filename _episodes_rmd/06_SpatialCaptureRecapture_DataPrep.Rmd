@@ -27,7 +27,7 @@ install_github("jaroyle/oSCR")
 ```
 
 Change working directory and load several packages, including oSCR, raster, dplyr, and camtrapR. 
-```{r, message=FALSE}
+```{r load-libraries, echo = FALSE, results='hide', warning = FALSE, message = FALSE}
 library("oSCR")
 library(raster)
 library(dplyr)
