@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Set the working directory, and read in the camera trap data compiled in the previous lesson into this session.
 
 ```{r}
-setwd("C:/Users/evebo/OneDrive/Desktop/WhiskerbookTrainingMaterials/")
+setwd("YourWorkingDirectory/WhiskerbookTrainingMaterials/")
 SnowLeopardBook<-read.csv("SnowLeopard_CameraTrap.csv")
 ```
 
@@ -78,10 +78,12 @@ Here we use the dplyr functions for group_by to group the camera trap photos by 
 
 The mutate function within dplyr allows us to create a new row of data based on some function or command, in this case, we will use the cur_group_id() to ID each of the rows according to which group they are in. 
 
-```{r}
-#use dplyr to 
+```{r load-libraries, echo = FALSE, results='hide', warning = FALSE, message = FALSE}
+#load the dplyr library
 library(dplyr)
+}
 
+```{r}
 Whiskerbook_template<-Whiskerbook_template%>%
   group_by(Encounter.locationID, Encounter.year, Encounter.month, Encounter.day,Encounter.hour)%>%
   mutate(Encounter.occurrenceID = cur_group_id())
