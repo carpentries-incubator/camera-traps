@@ -5,7 +5,7 @@ objectives:
 - "Extract exif data from camera traps"
 - "Combine dataframes with locational information"
 questions: 
--"How can we use program R and package camTrapR to organize camera trap data?"
+- "How can we use program R and package camTrapR to organize camera trap data?"
 teaching: 60
 exercises: 30
 keypoints:
