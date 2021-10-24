@@ -1,7 +1,16 @@
 ---
-layout: lesson
+  layout: lesson
 root: .
+
+maintainers:
+  - Eve Bohnett
 ---
+
+**Lesson Authors:** Eve Bohnett
+
+
+The episodes in this lesson cover how to open, work with, and model camera trapping data in R. 
+Additional topics include Whiskerbook for individual identification and Spatial Capture Recapture Modeling Data Preparation
 
 Data Carpentry's aim is to teach researchers basic concepts, skills, and tools for working with data so that they can get more done in less time, and with less pain. 
 
