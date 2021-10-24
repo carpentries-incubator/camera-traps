@@ -10,26 +10,18 @@ Overview of the lessons:
 
   
   * Camera trap organization in R 
-  * Introduction to Python Megadetector (species identification)
   * Introduction to Whiskerbook (individual identification)
   * Data wrangling in R 
   * oSCR for spatial-capture recapture
 
 ## Detailed structure
 
-### Day 1 morning: Data organization & cleaning
+### Day 1: Data organization & cleaning
 
 There are two lessons in this section. The first is a camera trap lesson that teaches  good data organization, and some data cleaning and quality control checking in a camera trap program.
 
   * [camTrapR lesson](http://###)
   * [camTrapR repository](http://###)
-
-The second lesson uses a program called [Megadetector]() to teach species identification, and to introduce scripting and regular expressions.
-
-  * [Megadetector lesson](http://###)
-  * [Megadetector repository](http://###)
-
-### Day 1 afternoon and Day 2 morning: Whiskerbook 
 
 These lessons includes a basic introduction the Whiskerbook platform, importing CSV data, using the main features of the programs. 
 
@@ -37,7 +29,7 @@ These lessons includes a basic introduction the Whiskerbook platform, importing 
   * [Whiskerbook repository](http://###) 
 
 
-### Day 2 afternoon: Data Wrangling and oSCR
+### Day 2: Data Wrangling and Spatial Capture Recapture
 
 These lessons includes a basic introduction to R syntax for wrangling data for input into the oSCR program. Topics include importing CSV data, and subsetting and merging data. It finishes with calculating summary statistics and running the models. 
 
