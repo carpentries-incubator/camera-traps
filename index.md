@@ -38,8 +38,7 @@ Interested in teaching these materials? Please contact [evebohnett@yahoo.com](ma
 > 
 > | Dataset | File name | Description |
 > | ---- | ------| ---- | 
-> | Camera trap images | NEON-DS-Site-Layout-Files.zip | A set of shapefiles for the NEON's Harvard Forest field site and US and (some) state boundary layers. | 
-> | Meteorological data |  2012_CTdata.zip | Raw camera trap data for 294 images of a subset of data
+> | Camera trap images |  2012_CTdata.zip | Raw camera trap data for 294 images of a subset of data
 > | Camera Trap Metadata | Metadata_CT_2012.csv | Metadata that accompanys the camera trap images only| 
 > | Whiskerbook export | Whiskerbook_export.csv | A subset of raw data downloaded from the Wildbook interface after the data have been individually identified and labeled by side (left, right, back, front) and quality (high, medium, and low) 
 > | Camera Trap Metadata | Metadata_CT_2012_2.csv | Metadata that accompanys the Whiskerbook export file| 
