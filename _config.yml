@@ -7,7 +7,7 @@
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
-carpentry: "Data Carpentry"
+carpentry: "dc"
 
 # Overall title for pages.
 title: "Data Carpentry for Camera Traps" # FIXME
