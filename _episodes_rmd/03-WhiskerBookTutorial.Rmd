@@ -20,8 +20,8 @@ keypoints:
 source: Rmd
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 ```
 
 Here the instructor will show you how to use the Whiskerbook interface using an account already setup. You will also have access to this account. Please do not change or delete anything in this instructional account. It mainly serves as to orient you to using the platform and seeing how it works. This webpage are notes as reference for future dates when you come back to using the Whiskerbook portal, in case you forgot something. 
