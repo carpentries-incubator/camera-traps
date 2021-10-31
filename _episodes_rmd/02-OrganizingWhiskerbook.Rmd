@@ -11,8 +11,8 @@ keypoints:
 - "Casting the file names into long format for Encounter.mediaAsset"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 ```
 
 Set the working directory, and read in the camera trap data compiled in the previous lesson into this session.
