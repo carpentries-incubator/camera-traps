@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Data Carpentry for Camera Traps"
+title: "Introduction"
 teaching: 10
 exercises: 0
 questions:
