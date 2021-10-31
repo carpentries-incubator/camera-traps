@@ -20,8 +20,6 @@ keypoints:
 - "Effectively delete encounters"
 - "Use Hotspotter and Visual Matcher for individual identification"
 - "Report an encounter"
-
-source: Rmd
 ---
 
 
