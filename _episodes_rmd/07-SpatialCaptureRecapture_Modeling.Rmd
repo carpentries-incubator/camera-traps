@@ -13,12 +13,11 @@ exercises: 30
 source: Rmd
 ---
 
-
-```{r setup, echo=FALSE}
-source("../bin/chunk-options.R")
-source("../setup.R")
-knitr_fig_path("06-")
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 ```
+
+
 
 Use the oSCR.fit function with no covariates, use the scrFrame and alltraps_df that we generated earlier.
 
