@@ -17,9 +17,6 @@ keypoints:
 - "Spatial objects can be projected using the st_transform() function"
 ---
   
-```{r setup, include=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 In camera trapping studies, it's common to have a lot of camera photos, sometimes thousands or even millions of images that need to be processed and formatted for analysis tasks. Camera trap data organization requires careful management and data extraction that can be greatly assisted by the use of programming tools, like program R and Python. 
 
