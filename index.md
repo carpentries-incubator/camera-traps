@@ -44,4 +44,6 @@ Interested in teaching these materials? Please contact [evebohnett@yahoo.com](ma
 > | Camera Trap Metadata | Metadata_CT_2012.csv | Metadata that accompanys the camera trap images only|
 > | Whiskerbook export | Whiskerbook_export.csv | A subset of raw data downloaded from the Wildbook interface after the data have been individually identified and labeled by > > >   side (left, right, back, front) and quality (high, medium, and low)
 > | Camera Trap Metadata | Metadata_CT_2012_2.csv | Metadata that accompanys the Whiskerbook export file|
+> | Raster Files | Rasters.zip | Rasters including elevation, roughness, and topographical position index for the study area|
+
 {: .prereq}
