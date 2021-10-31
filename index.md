@@ -1,5 +1,6 @@
 ---
 layout: lesson
+title: "Data Carpentry for Camera Traps"
 ---
 
 **Lesson Authors:** Eve Bohnett
