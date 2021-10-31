@@ -18,17 +18,15 @@ keypoints:
 ---
   
 
-
 In camera trapping studies, it's common to have a lot of camera photos, sometimes thousands or even millions of images that need to be processed and formatted for analysis tasks. Camera trap data organization requires careful management and data extraction that can be greatly assisted by the use of programming tools, like program R and Python. 
 
 In general, if we want to organize our data from raw camera trapping data, there will also be other files including GPS locations, and camera start-times and end times. 
 
 First, set the working directory for the workshop where the snow leopard data have been downloaded.
 
-
-```r
+```{r}
 #Set working directory
-setwd("C:/Users/evebo/OneDrive/Desktop/WhiskerbookTrainingMaterials/")
+setwd("YourWorkingDirectory/CarpentriesforCameraTraps/")
 ```
 
 ```
