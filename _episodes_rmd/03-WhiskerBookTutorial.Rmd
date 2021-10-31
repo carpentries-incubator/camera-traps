@@ -4,8 +4,6 @@ objectives:
 - "Learn how to use the Wildbook for individual identification"
 questions: 
 - "How do I bulk import data into the interface?"
-- "What is an an encounter?"
-- "How do I delete an encounter?
 - "How can I run hotspotter on my images?"
 - "How do I use the visual matcher?"
 - "How can I report an encounter?"

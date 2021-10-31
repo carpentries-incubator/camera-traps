@@ -29,11 +29,11 @@ We will import the Whiskerbook file that was exported from the website interface
 
 
 ```r
-setwd("Your Working Directory/WhiskerbookTrainingMaterials/")
+setwd("YourWorkingDirectory/CarpentriesforCameraTraps/")
 ```
 
 ```
-## Error in setwd("Your Working Directory/WhiskerbookTrainingMaterials/"): cannot change working directory
+## Error in setwd("YourWorkingDirectory/CarpentriesforCameraTraps/"): cannot change working directory
 ```
 
 ```r
