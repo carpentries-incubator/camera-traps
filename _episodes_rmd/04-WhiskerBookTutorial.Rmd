@@ -7,7 +7,6 @@ questions:
 - "How can I run hotspotter on my images?"
 - "How do I use the visual matcher?"
 - "How can I report an encounter?"
-
 teaching: 60
 exercises: 30
 keypoints:
