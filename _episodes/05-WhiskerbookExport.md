@@ -32,10 +32,6 @@ We will import the Whiskerbook file that was exported from the website interface
 Wildbook<-read.csv("data/Whiskerbook_export.csv")
 ```
 
-```
-## Error in file(file, "rt"): cannot open the connection
-```
-
 Let's do some quick data crunching to find out how many individuals we have in our dataset. 
 
 
@@ -43,27 +39,11 @@ Let's do some quick data crunching to find out how many individuals we have in o
 #To find the number of individuals that are in the dataset
 IndividualsCount<-Wildbook%>%
   count(Name0.value, sort = TRUE) 
-```
 
-```
-## Error in count(., Name0.value, sort = TRUE): object 'Wildbook' not found
-```
-
-```r
 IndividualsCount2<-IndividualsCount%>%
   count(n, sort = TRUE) 
-```
 
-```
-## Error in count(., n, sort = TRUE): object 'IndividualsCount' not found
-```
-
-```r
 Individuals<-unique(Wildbook$Name0.value)
-```
-
-```
-## Error in unique(Wildbook$Name0.value): object 'Wildbook' not found
 ```
 
 
@@ -75,10 +55,6 @@ Individuals<-unique(Wildbook$Name0.value)
 Sides<-Wildbook%>%
   group_by(Side, Quality)%>%
   count(sort = TRUE) 
-```
-
-```
-## Error in group_by(., Side, Quality): object 'Wildbook' not found
 ```
  
 
@@ -97,20 +73,9 @@ Sides<-Wildbook%>%
 > > Individuals_Date<-Wildbook%>%
 > >     group_by(Encounter.year)%>%
 > >     count(Name0.value, sort = TRUE) 
-> > ```
-> > 
-> > ```
-> > ## Error in group_by(., Encounter.year): object 'Wildbook' not found
-> > ```
-> > 
-> > ```r
 > > Individuals_Date_Totals<-Individuals_Date%>%
 > >       group_by(Encounter.year)%>%
 > >      count() 
-> > ```
-> > 
-> > ```
-> > ## Error in group_by(., Encounter.year): object 'Individuals_Date' not found
 > > ```
 > {: .solution}
 {: .challenge}
@@ -120,27 +85,9 @@ Sides<-Wildbook%>%
 ```r
 #To format dates into a date object we have to combine the month, day and year columns together
 Wildbook$date_Time<-paste(Wildbook$Encounter.year, Wildbook$Encounter.month, sep="-")
-```
-
-```
-## Error in paste(Wildbook$Encounter.year, Wildbook$Encounter.month, sep = "-"): object 'Wildbook' not found
-```
-
-```r
 Wildbook$date_Time<-paste(Wildbook$date_Time, Wildbook$Encounter.day, sep="-")
-```
-
-```
-## Error in paste(Wildbook$date_Time, Wildbook$Encounter.day, sep = "-"): object 'Wildbook' not found
-```
-
-```r
 dateFormat<-"%Y-%m-%d"
 Wildbook$date_Time<-as.Date(Wildbook$date_Time,format= dateFormat)
-```
-
-```
-## Error in as.Date(Wildbook$date_Time, format = dateFormat): object 'Wildbook' not found
 ```
 
 
@@ -149,26 +96,8 @@ Load the metadata
 
 ```r
 Metadata<-read.csv("Metadata_CT_2012_2.csv")
-```
-
-```
-## Error in file(file, "rt"): cannot open the connection
-```
-
-```r
 setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site)
-```
-
-```
-## Error in setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site): object 'Wildbook' not found
-```
-
-```r
 Wildbook2<-merge(Metadata, Wildbook, by="Trap.site", by.y="Encounter.locationID", all=TRUE)
-```
-
-```
-## Error in merge(Metadata, Wildbook, by = "Trap.site", by.y = "Encounter.locationID", : object 'Metadata' not found
 ```
 
 Challenge how to fix these missed entries? From a previous lesson we learned how to manipulate the data to have matching file names. 
@@ -176,64 +105,18 @@ Challenge how to fix these missed entries? From a previous lesson we learned how
 
 ```r
 Metadata$Trap.site<-str_replace(Metadata$Trap.site,"C18_Khandud","C18_Khundud")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'Metadata' not found
-```
-
-```r
 Metadata$Trap.site<-str_replace(Metadata$Trap.site
 ,"C26_Wargand Payan","C26_Wargand_Payan")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'Metadata' not found
-```
-
-```r
 Metadata$Trap.site<-str_replace(Metadata$Trap.site
 ,"C27_Ragi Jurum","C27_Ragi_Jurem")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'Metadata' not found
-```
-
-```r
 Metadata$Trap.site<-str_replace(Metadata$Trap.site
 ,"C30_Wargand Payan","C30_Wargand_Payan")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'Metadata' not found
-```
-
-```r
 Metadata$Trap.site<-str_replace(Metadata$Trap.site
 ,"C32_Wargand Bala","C32_Wargand_Bala")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'Metadata' not found
-```
-
-```r
 Metadata$Trap.site<-str_replace(Metadata$Trap.site
 ,"C45_Avgarch" ,"C45_Avgach")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'Metadata' not found
-```
-
-```r
 Metadata$Trap.site<-str_replace(Metadata$Trap.site
 ,"C5_Ishmorg" ,"C5_Ishmorgh")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'Metadata' not found
 ```
 
 
@@ -241,17 +124,9 @@ Metadata$Trap.site<-str_replace(Metadata$Trap.site
 setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site)
 ```
 
-```
-## Error in setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site): object 'Wildbook' not found
-```
-
 
 ```r
 Metadata<-Metadata[which(Metadata$Trap.site %in% Wildbook$Encounter.locationID),]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'Metadata' not found
 ```
 
 
@@ -260,36 +135,16 @@ Metadata<-Metadata[which(Metadata$Trap.site %in% Wildbook$Encounter.locationID),
 write.csv(Metadata, "Metadata.csv")
 ```
 
-```
-## Error in is.data.frame(x): object 'Metadata' not found
-```
-
 
 
 Create a subset of data to work with
 
 ```r
 Wildbook_points<-Wildbook2[,c("Name0.value","Encounter.decimalLongitude", "Encounter.decimalLatitude", "Trap.site", "date_Time", "Side","Quality", "Juvenilles") ]
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'Wildbook2' not found
-```
-
-```r
 colnames(Wildbook_points)<-c("Marked.Individual", "Latitude", "Longitude", "Location.ID","date_Time" ,"Side", "Quality","Juvenilles")
-```
 
-```
-## Error in colnames(Wildbook_points) <- c("Marked.Individual", "Latitude", : object 'Wildbook_points' not found
-```
-
-```r
 Wildbook_points_coords<-unique(Wildbook_points[,c(2,3,4)])
-```
-
-```
-## Error in unique(Wildbook_points[, c(2, 3, 4)]): object 'Wildbook_points' not found
 ```
 
 
@@ -300,26 +155,10 @@ wgs84_crs = "+init=EPSG:4326"
 UTM_crs = "+init=EPSG:32643"
 
 Wildbook_points_coords<-Wildbook_points_coords[complete.cases(Wildbook_points_coords),]
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'Wildbook_points_coords' not found
-```
-
-```r
 Wildbook_pts_latlong<-st_as_sf(Wildbook_points_coords, coords = c("Latitude","Longitude"), crs = wgs84_crs)
-```
 
-```
-## Error in st_as_sf(Wildbook_points_coords, coords = c("Latitude", "Longitude"), : object 'Wildbook_points_coords' not found
-```
-
-```r
 Wildbook_pts_utm<-st_transform(Wildbook_pts_latlong, crs = UTM_crs)
-```
-
-```
-## Error in st_transform(Wildbook_pts_latlong, crs = UTM_crs): object 'Wildbook_pts_latlong' not found
 ```
 
 
@@ -328,60 +167,22 @@ Wildbook_pts_utm<-st_transform(Wildbook_pts_latlong, crs = UTM_crs)
 plot(Wildbook_pts_latlong[1])
 ```
 
-```
-## Error in plot(Wildbook_pts_latlong[1]): object 'Wildbook_pts_latlong' not found
-```
-
 
 
 
 ```r
 Wildbook_pts_utm_df<- st_coordinates(Wildbook_pts_utm)
-```
 
-```
-## Error in st_coordinates(Wildbook_pts_utm): object 'Wildbook_pts_utm' not found
-```
-
-```r
 Wildbook_points_coords<-cbind(Wildbook_points_coords, Wildbook_pts_utm_df)
-```
 
-```
-## Error in cbind(Wildbook_points_coords, Wildbook_pts_utm_df): object 'Wildbook_points_coords' not found
-```
-
-```r
 Wildbook_points<-merge(Wildbook_points_coords, Wildbook_points, by=c("Location.ID", "Latitude", "Longitude"))
-```
-
-```
-## Error in merge(Wildbook_points_coords, Wildbook_points, by = c("Location.ID", : object 'Wildbook_points_coords' not found
 ```
 
 
 ```r
 Wildbook_points$Session<-1
-```
-
-```
-## Error in Wildbook_points$Session <- 1: object 'Wildbook_points' not found
-```
-
-```r
 Wildbook_points$Occassion<-1
-```
-
-```
-## Error in Wildbook_points$Occassion <- 1: object 'Wildbook_points' not found
-```
-
-```r
 Wildbook_points$species = "Snow Leopard"
-```
-
-```
-## Error in Wildbook_points$species = "Snow Leopard": object 'Wildbook_points' not found
 ```
 
 
@@ -392,21 +193,8 @@ Next, we will use the camTrapR package to create a matrix of camera operations. 
 dateormat <- "%Y-%m-%d"
 
 Metadata$Start<-as.Date(Metadata$Start)
-```
-
-```
-## Error in as.Date(Metadata$Start): object 'Metadata' not found
-```
-
-```r
 Metadata$End<-as.Date(Metadata$End)
-```
 
-```
-## Error in as.Date(Metadata$End): object 'Metadata' not found
-```
-
-```r
 # alternatively, use "dmy" (requires package "lubridate")
 library(camtrapR)
 camop_problem <- cameraOperation(CTtable      = Metadata,
@@ -418,10 +206,6 @@ camop_problem <- cameraOperation(CTtable      = Metadata,
 )
 ```
 
-```
-## Error in is.data.frame(df): object 'Metadata' not found
-```
-
 
 The oSCR program requires the data come in a specific format to run the models. Here we will wrangle the data into the proper format. In our case, we will simply subset our dataframe into the necssary columns.
 
@@ -431,19 +215,9 @@ The first dataframe we want to create is a record of the individual occurrences 
 ```r
 #create the subset dataframe
 edf<-Wildbook_points[,c("Marked.Individual", "date_Time","Location.ID","Side","Quality", "Juvenilles")]
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'Wildbook_points' not found
-```
-
-```r
 #convert the dates to date format
 edf$date_Time<-as.Date(edf$date_Time)
-```
-
-```
-## Error in as.Date(edf$date_Time): object 'edf' not found
 ```
 
 
@@ -452,10 +226,6 @@ We will also create a dataframe based on site and GPS coordinates. Here, we want
 
 ```r
 tdf<-unique(Wildbook_points_coords[,c("Location.ID","X", "Y")])
-```
-
-```
-## Error in unique(Wildbook_points_coords[, c("Location.ID", "X", "Y")]): object 'Wildbook_points_coords' not found
 ```
 
 Now, we will create a merged dataframe with all elements both the dataframe with the GPS coordinates and the dataframe with the information for the individual IDs.
@@ -467,10 +237,6 @@ We will save this file for the next lesson.
 edf_tdf<-merge(edf,tdf,by="Location.ID")
 ```
 
-```
-## Error in merge(edf, tdf, by = "Location.ID"): object 'edf' not found
-```
-
 
 Eliminate any duplicated values, this table containes duplicates from the way whiskerbook can create multiple encounters from the same occurrence, so the data are a bit messy in this sense.
 
@@ -478,13 +244,6 @@ Eliminate any duplicated values, this table containes duplicates from the way wh
 ```r
 write.csv(edf_tdf, "edf_tdf.csv")
 ```
-
-```
-## Error in is.data.frame(x): object 'edf_tdf' not found
-```
-
-
-
 The oSCR program requires we append the camera operation matrix to the table with the GPS coordinates.
 
 In order to make this as clear as possible, we will rename our camera operations matrix with numbers for each date, instead of the dates themselves. 
@@ -492,113 +251,44 @@ In order to make this as clear as possible, we will rename our camera operations
 ```r
 #create dataframe objects for the camera operations matrix and the detections.
 camop_problem<-as.data.frame(camop_problem)
-```
-
-```
-## Error in as.data.frame(camop_problem): object 'camop_problem' not found
-```
-
-```r
 detectionDays<-as.data.frame(colnames(camop_problem))
-```
 
-```
-## Error in is.data.frame(x): object 'camop_problem' not found
-```
-
-```r
 #create a sequential numeric vector for the number of detection dates
 detectionDays$Occasion<-1:nrow(detectionDays)
-```
 
-```
-## Error in nrow(detectionDays): object 'detectionDays' not found
-```
-
-```r
 #rename the columns
 colnames(detectionDays)<-c("Dates","Occasion")
-```
 
-```
-## Error in colnames(detectionDays) <- c("Dates", "Occasion"): object 'detectionDays' not found
-```
-
-```r
 #rename the columns with the numeric vector
 colnames(camop_problem)<-detectionDays$Occasion
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'detectionDays' not found
-```
-
-```r
 #make a new column of the trap site names so we can merge the dataframes
 camop_problem$Location.ID<-rownames(camop_problem)
-```
-
-```
-## Error in rownames(camop_problem): object 'camop_problem' not found
 ```
 
 
 ```r
 setdiff(tdf$Location.ID, camop_problem$Location.ID)
 ```
-
-```
-## Error in setdiff(tdf$Location.ID, camop_problem$Location.ID): object 'tdf' not found
-```
-
-
 
 ```r
 setdiff(tdf$Location.ID, edf$Location.ID)
 ```
 
-```
-## Error in setdiff(tdf$Location.ID, edf$Location.ID): object 'tdf' not found
-```
-
-
 ```r
 camop_problem$Location.ID
 ```
-
-```
-## Error in eval(expr, envir, enclos): object 'camop_problem' not found
-```
-
-
 
 ```r
 setdiff(tdf$Location.ID, camop_problem$Location.ID)
 ```
 
-```
-## Error in setdiff(tdf$Location.ID, camop_problem$Location.ID): object 'tdf' not found
-```
-
-
-
-
 ```r
 #merge the GPS coordinates table with the camera operations matrix
 tdf<-merge(tdf, camop_problem, by="Location.ID", all=TRUE)
-```
 
-```
-## Error in merge(tdf, camop_problem, by = "Location.ID", all = TRUE): object 'tdf' not found
-```
-
-```r
 #remove the column with the trap names from the camera operations matrix
 camop_problem<-camop_problem[,-ncol(camop_problem)]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'camop_problem' not found
 ```
 
 
@@ -607,26 +297,11 @@ camop_problem<-camop_problem[,-ncol(camop_problem)]
 edf$ID<-as.integer(as.factor(edf$Marked.Individual))
 ```
 
-```
-## Error in is.factor(x): object 'edf' not found
-```
-
 Check to make sure the names of the Location.ID columns match.
 
 ```r
 setdiff(edf$Location.ID, tdf$Location.ID)
-```
-
-```
-## Error in setdiff(edf$Location.ID, tdf$Location.ID): object 'edf' not found
-```
-
-```r
 setdiff(tdf$Location.ID, edf$Location.ID)
-```
-
-```
-## Error in setdiff(tdf$Location.ID, edf$Location.ID): object 'tdf' not found
 ```
 
 
@@ -635,18 +310,7 @@ Write the files to csv so we can use them later.
 
 ```r
 write.csv(edf, "edf.csv")
-```
-
-```
-## Error in is.data.frame(x): object 'edf' not found
-```
-
-```r
 write.csv(tdf, "tdf.csv")
-```
-
-```
-## Error in is.data.frame(x): object 'tdf' not found
 ```
 
 
