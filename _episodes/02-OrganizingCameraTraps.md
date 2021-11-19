@@ -29,13 +29,6 @@ First, set the working directory for the workshop where the snow leopard data ha
 ```r
 #Set working directory
 setwd("YourWorkingDirectory/")
-```
-
-```
-## Error in setwd("YourWorkingDirectory/"): cannot change working directory
-```
-
-```r
 #Make sure to have ExifTool installed and bring in the camtrapR package
 library(camtrapR)
 ```

@@ -1,87 +1,87 @@
 current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
-/opt/hostedtoolcache/Ruby/2.7.4/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.4/x64/lib/ruby/2.7.0 -r ./siteconf20211119-18530-3vl1ms.rb extconf.rb
+/opt/hostedtoolcache/Ruby/2.7.4/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.4/x64/lib/ruby/2.7.0 -r ./siteconf20211119-18604-8iux60.rb extconf.rb
 creating Makefile
 
 current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
 make "DESTDIR=" clean
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader'
 Makefile:175: warning: overriding recipe for target 'clean'
-@ž¸°wU:175: warning: ignoring old recipe for target 'clean'
+@N–‰U:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-@ž¸°wU:182: warning: ignoring old recipe for target 'distclean'
+@N–‰U:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-@ž¸°wU:190: warning: ignoring old recipe for target 'install-so'
+@N–‰U:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-@ž¸°wU:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+@N–‰U:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.time'
-@ž¸°wU:202: warning: ignoring old recipe for target '.sitearchdir.time'
+@N–‰U:202: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-@ž¸°wU:212: warning: ignoring old recipe for target '.cc.o'
+@N–‰U:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-@ž¸°wU:216: warning: ignoring old recipe for target '.cc.S'
+@N–‰U:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-@ž¸°wU:220: warning: ignoring old recipe for target '.mm.o'
+@N–‰U:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-@ž¸°wU:224: warning: ignoring old recipe for target '.mm.S'
+@N–‰U:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-@ž¸°wU:228: warning: ignoring old recipe for target '.cxx.o'
+@N–‰U:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-@ž¸°wU:232: warning: ignoring old recipe for target '.cxx.S'
+@N–‰U:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-@ž¸°wU:236: warning: ignoring old recipe for target '.cpp.o'
+@N–‰U:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-@ž¸°wU:240: warning: ignoring old recipe for target '.cpp.S'
+@N–‰U:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-@ž¸°wU:244: warning: ignoring old recipe for target '.c.o'
+@N–‰U:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-@ž¸°wU:248: warning: ignoring old recipe for target '.c.S'
+@N–‰U:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-@ž¸°wU:252: warning: ignoring old recipe for target '.m.o'
+@N–‰U:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-@ž¸°wU:256: warning: ignoring old recipe for target '.m.S'
+@N–‰U:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'fastfilereaderext.so'
-@ž¸°wU:260: warning: ignoring old recipe for target 'fastfilereaderext.so'
+@N–‰U:260: warning: ignoring old recipe for target 'fastfilereaderext.so'
 make[1]: Leaving directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader'
 
 current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
 make "DESTDIR="
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader'
 Makefile:175: warning: overriding recipe for target 'clean'
-@~o©U:175: warning: ignoring old recipe for target 'clean'
+@>­sU:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-@~o©U:182: warning: ignoring old recipe for target 'distclean'
+@>­sU:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-@~o©U:190: warning: ignoring old recipe for target 'install-so'
+@>­sU:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-@~o©U:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+@>­sU:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.time'
-@~o©U:202: warning: ignoring old recipe for target '.sitearchdir.time'
+@>­sU:202: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-@~o©U:212: warning: ignoring old recipe for target '.cc.o'
+@>­sU:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-@~o©U:216: warning: ignoring old recipe for target '.cc.S'
+@>­sU:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-@~o©U:220: warning: ignoring old recipe for target '.mm.o'
+@>­sU:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-@~o©U:224: warning: ignoring old recipe for target '.mm.S'
+@>­sU:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-@~o©U:228: warning: ignoring old recipe for target '.cxx.o'
+@>­sU:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-@~o©U:232: warning: ignoring old recipe for target '.cxx.S'
+@>­sU:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-@~o©U:236: warning: ignoring old recipe for target '.cpp.o'
+@>­sU:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-@~o©U:240: warning: ignoring old recipe for target '.cpp.S'
+@>­sU:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-@~o©U:244: warning: ignoring old recipe for target '.c.o'
+@>­sU:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-@~o©U:248: warning: ignoring old recipe for target '.c.S'
+@>­sU:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-@~o©U:252: warning: ignoring old recipe for target '.m.o'
+@>­sU:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-@~o©U:256: warning: ignoring old recipe for target '.m.S'
+@>­sU:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'fastfilereaderext.so'
-@~o©U:260: warning: ignoring old recipe for target 'fastfilereaderext.so'
+@>­sU:260: warning: ignoring old recipe for target 'fastfilereaderext.so'
 compiling mapper.cpp
 compiling rubymain.cpp
 linking shared-object fastfilereaderext.so
@@ -91,40 +91,40 @@ current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ru
 make "DESTDIR=" install
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader'
 Makefile:175: warning: overriding recipe for target 'clean'
-@Îeû-V:175: warning: ignoring old recipe for target 'clean'
+@VZíU:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-@Îeû-V:182: warning: ignoring old recipe for target 'distclean'
+@VZíU:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-@Îeû-V:190: warning: ignoring old recipe for target 'install-so'
+@VZíU:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-@Îeû-V:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+@VZíU:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.time'
-@Îeû-V:202: warning: ignoring old recipe for target '.sitearchdir.time'
+@VZíU:202: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-@Îeû-V:212: warning: ignoring old recipe for target '.cc.o'
+@VZíU:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-@Îeû-V:216: warning: ignoring old recipe for target '.cc.S'
+@VZíU:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-@Îeû-V:220: warning: ignoring old recipe for target '.mm.o'
+@VZíU:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-@Îeû-V:224: warning: ignoring old recipe for target '.mm.S'
+@VZíU:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-@Îeû-V:228: warning: ignoring old recipe for target '.cxx.o'
+@VZíU:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-@Îeû-V:232: warning: ignoring old recipe for target '.cxx.S'
+@VZíU:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-@Îeû-V:236: warning: ignoring old recipe for target '.cpp.o'
+@VZíU:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-@Îeû-V:240: warning: ignoring old recipe for target '.cpp.S'
+@VZíU:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-@Îeû-V:244: warning: ignoring old recipe for target '.c.o'
+@VZíU:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-@Îeû-V:248: warning: ignoring old recipe for target '.c.S'
+@VZíU:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-@Îeû-V:252: warning: ignoring old recipe for target '.m.o'
+@VZíU:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-@Îeû-V:256: warning: ignoring old recipe for target '.m.S'
+@VZíU:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'fastfilereaderext.so'
-@Îeû-V:260: warning: ignoring old recipe for target 'fastfilereaderext.so'
-/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20211119-18530-wb75h8
+@VZíU:260: warning: ignoring old recipe for target 'fastfilereaderext.so'
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20211119-18604-16cfquw
 make[1]: Leaving directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader'

@@ -20,11 +20,9 @@ keypoints:
 
 
 
-Initially, we will load the dplyr library and the edf_tdf.csv that we had produced in an earlier lesson. 
-
-
 
 ```r
+library(dplyr)
 edf_tdf<-read.csv("data/edf_tdf.csv")
 ```
 
