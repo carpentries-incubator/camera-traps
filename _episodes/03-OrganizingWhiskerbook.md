@@ -19,15 +19,15 @@ Set the working directory, and read in the camera trap data compiled in the prev
 
 
 ```r
-setwd("YourWorkingDirectory/")
+setwd("YourWorkingDirectory/WhiskerbookTrainingMaterials/")
 ```
 
 ```
-## Error in setwd("YourWorkingDirectory/"): cannot change working directory
+## Error in setwd("YourWorkingDirectory/WhiskerbookTrainingMaterials/"): cannot change working directory
 ```
 
 ```r
-SnowLeopardBook<-read.csv("data/SnowLeopard_CameraTrap.csv")
+SnowLeopardBook<-read.csv("SnowLeopard_CameraTrap.csv")
 ```
 
 ```
@@ -49,7 +49,7 @@ Load the Whiskerbook template downloaded from the website to assist in preparing
 
 
 ```r
-Whiskerbook_template<-read.csv("data/WildbookStandardFormat.csv")
+Whiskerbook_template<-read.csv("WildbookStandardFormat.csv")
 ```
 
 ```

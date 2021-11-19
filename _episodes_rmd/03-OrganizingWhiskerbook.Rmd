@@ -18,8 +18,8 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 Set the working directory, and read in the camera trap data compiled in the previous lesson into this session.
 
 ```{r}
-setwd("YourWorkingDirectory/")
-SnowLeopardBook<-read.csv("data/SnowLeopard_CameraTrap.csv")
+setwd("YourWorkingDirectory/WhiskerbookTrainingMaterials/")
+SnowLeopardBook<-read.csv("SnowLeopard_CameraTrap.csv")
 ```
 
 
@@ -31,7 +31,7 @@ SnowLeopardBook<-SnowLeopardBook[,c(2,3,4,5,6,12,15,16,17,27,28)]
 Load the Whiskerbook template downloaded from the website to assist in preparing batch import files. This file contains the header column names that are necessary for the program to import the data and fields successfully. 
 
 ```{r}
-Whiskerbook_template<-read.csv("data/WildbookStandardFormat.csv")
+Whiskerbook_template<-read.csv("WildbookStandardFormat.csv")
 ```
 
 
