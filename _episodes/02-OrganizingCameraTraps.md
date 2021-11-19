@@ -28,14 +28,7 @@ First, set the working directory for the workshop where the snow leopard data ha
 
 ```r
 #Set working directory
-setwd("YourWorkingDirectory/CarpentriesforCameraTraps/")
-```
-
-```
-## Error in setwd("YourWorkingDirectory/CarpentriesforCameraTraps/"): cannot change working directory
-```
-
-```r
+setwd("YourWorkingDirectory/")
 #Make sure to have ExifTool installed and bring in the camtrapR package
 library(camtrapR)
 ```
@@ -44,7 +37,7 @@ Set the file path of your image directory
 
 ```r
 # raw image location
-wd_images_raw <- file.path("2012_CTdata")   
+wd_images_raw <- file.path("data/2012_CTdata")   
 ```
 
 One of the first steps that we want to perform is to perform a data quality check. Make sure that each of the file folders has the name of the camera trap station, often including the name and number. In our case we have cameras with names like "C1_Avgarch_SL", which indicates that this camera station was numbered 1, and at a location named Avgarch. These names are consistent across data tables with the GPS coordinates and camera performance information as well making it easier to merge this information. 
@@ -72,7 +65,7 @@ fixDateTimeOriginal(wd_images_raw,recursive = TRUE)
 
 ```
 ## Error: Could not find inDir:
-## 2012_CTdata
+## data/2012_CTdata
 ```
 
 Renaming camera trap files is possible using the imageRename function. Here we specify the input and output directories.
@@ -93,7 +86,7 @@ renaming.table2 <- imageRename(inDir               = wd_images_raw,
 
 ```
 ## Error: Could not find inDir:
-## 2012_CTdata
+## data/2012_CTdata
 ```
 
 Next, we will create a record table or dataframe of the exif information, that includes station, species, date/time, and directory information.
@@ -135,7 +128,7 @@ To save this table to a csv file we can write this to file, so we have the raw e
 
 ```r
 #write the Exif data to file
-write.csv(rec.db.species0, "CameraTrapExifData.csv")
+write.csv(rec.db.species0, "data/CameraTrapExifData.csv")
 ```
 
 ```
@@ -148,7 +141,7 @@ Now we have the exif data finished and in a dataframe format. Next we are going 
 
 ```r
 #load the camera trap GPS and camera function information
-WakhanData<-read.csv("Metadata_CT_2012.csv")
+WakhanData<-read.csv("data/Metadata_CT_2012.csv")
 ```
 
 ```
@@ -369,7 +362,7 @@ Now let's save this file for later.
 
 ```r
 #write the file to csv
-write.csv(final_CameraRecords, "SnowLeopard_CameraTrap.csv")
+write.csv(final_CameraRecords, "data/SnowLeopard_CameraTrap.csv")
 ```
 
 ```
