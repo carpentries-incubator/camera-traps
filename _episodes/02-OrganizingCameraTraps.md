@@ -63,11 +63,6 @@ Some camera trap models (like Reconyx) do not use the standard Exif metadata inf
 fixDateTimeOriginal(wd_images_raw,recursive = TRUE)
 ```
 
-```
-## Error: Could not find inDir:
-## data/2012_CTdata
-```
-
 Renaming camera trap files is possible using the imageRename function. Here we specify the input and output directories.
 
 There are additional parameters for whether the directories contain multiple cameras at the station, like an A and B station opposing each other (hasCameraFolders). In our case, our folders do have subdirectories, but they are not specific to a substation, so we will set this to false. 
@@ -85,8 +80,7 @@ renaming.table2 <- imageRename(inDir               = wd_images_raw,
 ```
 
 ```
-## Error: Could not find inDir:
-## data/2012_CTdata
+## Error: inDir contains no station directories
 ```
 
 Next, we will create a record table or dataframe of the exif information, that includes station, species, date/time, and directory information.
