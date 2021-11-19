@@ -30,8 +30,26 @@ Read in our tdf, edf, and metadata files that we created in the previous lesson.
 
 ```r
 tdf<-read.csv("data/tdf.csv", stringsAsFactors = TRUE)
+```
+
+```
+## Error in file(file, "rt"): cannot open the connection
+```
+
+```r
 edf<-read.csv("data/edf.csv", stringsAsFactors = TRUE)
+```
+
+```
+## Error in file(file, "rt"): cannot open the connection
+```
+
+```r
 Metadata<-read.csv("data/Metadata.csv")
+```
+
+```
+## Error in file(file, "rt"): cannot open the connection
 ```
 
 There are three raster layers that are suitable for this analysis, including the roughness, topographic position index and elevation. To generate these layers, the elevation was downloaded as an SRTM file, the roughness and topographic position index were calculated using the terrain function in the terrain package in program R.
@@ -70,7 +88,18 @@ dateFormat <- "%Y-%m-%d"
 
 #convert the character strings to date formats
 Metadata$Start<-as.Date(Metadata$Start,format= dateFormat)
+```
+
+```
+## Error in as.Date(Metadata$Start, format = dateFormat): object 'Metadata' not found
+```
+
+```r
 Metadata$End<-as.Date(Metadata$End, format=dateFormat)
+```
+
+```
+## Error in as.Date(Metadata$End, format = dateFormat): object 'Metadata' not found
 ```
 
 Next, we will use the cameraOperation function in the camtrapR package to generate a site x date matrix for the dates and sites that the cameras were operational. Notice there are several functions that we are not using, although you may for your data. There are options here for setting cameras which have problems for example and were decommissioned for a certain amount of time.
@@ -87,28 +116,69 @@ camop_problem <- cameraOperation(CTtable      = Metadata,
                                    dateFormat   = dateFormat)
 ```
 
+```
+## Error in is.data.frame(df): object 'Metadata' not found
+```
+
 
 We need to generate the time intervals for our sessions. In this case, our data is around 4 months, which is too long to assume population closure. We will split our data into 2 month sessions by using the dyplyr package.
 
 ```r
 #Extract the dates of our surveys that the cameras were operational and create a dataframe
 date_cameraop<-as.data.frame(colnames(camop_problem))
+```
+
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'as.data.frame': object 'camop_problem' not found
+```
+
+```r
 #name the column of the new dataframe
 colnames(date_cameraop)<-"date_Time"
+```
+
+```
+## Error in colnames(date_cameraop) <- "date_Time": object 'date_cameraop' not found
+```
+
+```r
 #convert the characters to dates again
 date_cameraop$date_Time<-as.Date(date_cameraop$date_Time)
+```
 
+```
+## Error in as.Date(date_cameraop$date_Time): object 'date_cameraop' not found
+```
+
+```r
 #Split the sessions into 2 month time intervals using the "cut" function with 3 month breaks.
 date_cameraop<-date_cameraop %>%
  mutate(Session_3m = cut(date_Time, breaks= "3 months"))
+```
+
+```
+## Error in mutate(., Session_3m = cut(date_Time, breaks = "3 months")): object 'date_cameraop' not found
 ```
 
 
 ```r
 #convert the sessions to factors, and then to numbers
 date_cameraop$Session_3m<-as.factor(date_cameraop$Session_3m)
-date_cameraop$Session_3m<-as.numeric(date_cameraop$Session_3m)
+```
 
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'as.factor': object 'date_cameraop' not found
+```
+
+```r
+date_cameraop$Session_3m<-as.numeric(date_cameraop$Session_3m)
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'date_cameraop' not found
+```
+
+```r
 #count how many days are within each of the two month intervals
 date_cameraop%>%
   group_by(Session_3m)%>%
@@ -116,15 +186,7 @@ date_cameraop%>%
 ```
 
 ```
-## # A tibble: 5 × 2
-## # Groups:   Session_3m [5]
-##   Session_3m     n
-##        <dbl> <int>
-## 1          1    80
-## 2          2    90
-## 3          3    91
-## 4          4    92
-## 5          5    41
+## Error in group_by(., Session_3m): object 'date_cameraop' not found
 ```
 
 ```r
@@ -134,12 +196,27 @@ date_cameraop<-date_cameraop%>%
     mutate(Session_grouped =1:n())
 ```
 
+```
+## Error in group_by(., Session_3m): object 'date_cameraop' not found
+```
+
 
 ```r
 #subset the sessions to only one session that we can model
 dates_f<-date_cameraop[which(date_cameraop$Session_3m==1),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'date_cameraop' not found
+```
+
+```r
 #extract out two columns
 dates_f_sub<-dates_f[,c("date_Time", "Session_grouped")]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'dates_f' not found
 ```
 
 We will subset our camera trap operation matrix to include data that are in session 1, and we can format the data a bit.
@@ -147,19 +224,55 @@ We will subset our camera trap operation matrix to include data that are in sess
 ```r
 #subset the dates of session 1
 camop_problem<-camop_problem[,as.character(dates_f$date_Time)]
+```
 
+```
+## Error in eval(expr, envir, enclos): object 'camop_problem' not found
+```
+
+```r
 #remove any rows with only NA values (because those cameras were not setup during session 1!)
 camop_problem <- camop_problem[rowSums(is.na(camop_problem)) != ncol(camop_problem), ]
+```
 
+```
+## Error in eval(expr, envir, enclos): object 'camop_problem' not found
+```
+
+```r
 #convert back to a dataframe
 camop_problem<-as.data.frame(camop_problem)
+```
+
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'as.data.frame': object 'camop_problem' not found
+```
+
+```r
 #convert NA values to 0 because this will go in our tdf dataframe, which is a list of which cameras were operational.
 camop_problem[is.na(camop_problem)]<-0
+```
+
+```
+## Error in camop_problem[is.na(camop_problem)] <- 0: object 'camop_problem' not found
+```
+
+```r
 #change the dates to factors
 colnames(camop_problem)<-seq(1,length(camop_problem), by=1)
+```
 
+```
+## Error in seq.default(1, length(camop_problem), by = 1): object 'camop_problem' not found
+```
+
+```r
 #create an object with the number of days in the matrix
 K=length(camop_problem)
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'camop_problem' not found
 ```
 
 There are further formatting operations that have to be done on the dataframes for the tdf and edf data that we had prepared earlier. First we start with the tdf dataframe.
@@ -167,7 +280,18 @@ There are further formatting operations that have to be done on the dataframes f
 ```r
 #subset our tdf matrix of GPS located station locations by the cameras that were actually operational during our session.
 tdf2<-tdf[which(tdf$Location.ID %in% rownames(camop_problem)),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'tdf' not found
+```
+
+```r
 tdf2<-cbind(tdf2[,1:4], camop_problem)
+```
+
+```
+## Error in cbind(tdf2[, 1:4], camop_problem): object 'tdf2' not found
 ```
 
 The edf dataframe that can be sorted by the session 1 and we also want to sort only high quality data with no juvenilles (this should be review)
@@ -175,24 +299,75 @@ The edf dataframe that can be sorted by the session 1 and we also want to sort o
 ```r
 #set the edf dataframe dates
 edf$date_Time<-as.Date(edf$date_Time, format= dateFormat)
+```
+
+```
+## Error in as.Date(edf$date_Time, format = dateFormat): object 'edf' not found
+```
+
+```r
 #merge with the table with the 3m session intervals
 edf<-merge(edf, dates_f, by="date_Time")
+```
+
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'merge': object 'edf' not found
+```
+
+```r
 #convert the sessions to factors, and then to numbers
 edf$Session_3m<-as.factor(edf$Session_3m)
-edf$Session_3m<-as.numeric(edf$Session_3m)
+```
 
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'as.factor': object 'edf' not found
+```
+
+```r
+edf$Session_3m<-as.numeric(edf$Session_3m)
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'edf' not found
+```
+
+```r
 #subset to Session 1
 edf_sub = edf[which(edf$Session_3m==1),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'edf' not found
+```
+
+```r
 #subset high quality
 edf_high<-edf_sub[which(edf_sub$Quality == "H"),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'edf_sub' not found
+```
+
+```r
 #remove juvenilles if there are any
 if(sum(edf_high$Juvenilles == "J", na.rm=T)!=0){
   edf_high<-edf_high[-which(edf_high$Juvenilles == "J"),]
 }
+```
 
+```
+## Error in eval(expr, envir, enclos): object 'edf_high' not found
+```
+
+```r
 #merge the dates we had created earlier to get which number from the sequence dates for each of the days in our edf. This column is important for the next step.
 
 edf_high<-edf_high[which(edf_high$Location.ID %in% unique(tdf2$Location.ID)),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'edf_high' not found
 ```
 
 
@@ -210,6 +385,10 @@ data <- data2oscr(edf = edf_high,
                   trap.col = which(colnames(edf_high) %in% "Location.ID"),
                   K = K,
                   ntraps = nrow(tdf2))
+```
+
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function '%in%': object 'edf_high' not found
 ```
 
 Load the park boundary shapefile.
@@ -238,15 +417,31 @@ scrFrame  <- make.scrFrame(caphist=data$y3d,
                            traps=data$traplocs,
                            trapCovs=NULL,
                            trapOperation=data$trapopp)
+```
 
+```
+## Error in data$y3d: object of type 'closure' is not subsettable
+```
+
+```r
 #Use the 1/2 minimum distance removed to generate an inital estimate for sigma
 sigma<-scrFrame$mmdm/2
+```
 
+```
+## Error in eval(expr, envir, enclos): object 'scrFrame' not found
+```
+
+```r
 #The sigma parameter should stay constant through all models, here will we use the dataframe generated sigma. You can experiment with this to see how these parameters may change for each session of your model.
 
 #Eventually, we want to generate a resolution that will stay constant and a buffer mask size that will change.
 
 ss<-make.ssDF(scrFrame, sigma*4, sigma)
+```
+
+```
+## Error in make.ssDF(scrFrame, sigma * 4, sigma): object 'scrFrame' not found
 ```
 
 
@@ -256,6 +451,10 @@ We will use the points from our tdf2 dataframe of the GPS coordinates for the ca
 ```r
 # Assign an initial sigma based on 1/2 minimum distance removed
 buff_sigma <- scrFrame$mmdm/2*4  #change to m
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'scrFrame' not found
 ```
 
 
@@ -268,14 +467,35 @@ Generate the state space object that we will use for the models
 
 #Simply guess a value for a resolution at first, and run the models
 ss<-make.ssDF(scrFrame, buff_sigma, 800)
+```
+
+```
+## Error in make.ssDF(scrFrame, buff_sigma, 800): object 'scrFrame' not found
+```
+
+```r
 # Possible trap locations to 2-column object (dataframe or matrix)
 ss_coords<-as.data.frame(ss[[1]][,1:2])
+```
+
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'as.data.frame': object 'ss' not found
+```
+
+```r
 allpoints <-  st_as_sf(ss_coords, coords=c("X","Y"),crs = crs(buffer) )
+```
+
+```
+## Error in st_as_sf(ss_coords, coords = c("X", "Y"), crs = crs(buffer)): object 'ss_coords' not found
+```
+
+```r
 allpoints<-st_intersection(allpoints, buffer)
 ```
 
 ```
-## Error in UseMethod("st_geometry"): no applicable method for 'st_geometry' applied to an object of class "c('standardGeneric', 'genericFunction', 'function', 'OptionalFunction', 'PossibleMethod', 'optionalMethod')"
+## Error in st_intersection(allpoints, buffer): object 'allpoints' not found
 ```
 
 
@@ -287,7 +507,7 @@ gridDistance_1<-pointDistance(allpoints[1,1:2], allpoints[2,1:2], lonlat=FALSE, 
 ```
 
 ```
-## Error in `[.data.frame`(x, i, j, drop = drop): undefined columns selected
+## Error in .pointsToMatrix(p1): object 'allpoints' not found
 ```
 
 ```r
@@ -342,6 +562,13 @@ Subset the points of the state space object to reasonable biological limits. For
 ```r
 # Subset possible trap locations according to logistic constraints
 allpoints2<-st_coordinates(allpoints)
+```
+
+```
+## Error in st_coordinates(allpoints): object 'allpoints' not found
+```
+
+```r
 alltraps <- allpoints2[allpoints_elev < 5600  &
                         !is.na(allpoints_elev) &
                         !is.na(allpoints_TPI)&
@@ -349,7 +576,7 @@ alltraps <- allpoints2[allpoints_elev < 5600  &
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'allpoints_elev' not found
+## Error in eval(expr, envir, enclos): object 'allpoints2' not found
 ```
 
 Plot the result to see the area of integration for this session
@@ -360,7 +587,9 @@ plot(allpoints2/1000, pch = 16, cex = 0.5, col = "grey",
      asp = 1, axes  =FALSE, xlab = "", ylab = "")
 ```
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19-1.png)
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'plot': object 'allpoints2' not found
+```
 
 ```r
 points(alltraps, pch = 16, cex = 0.5, col = "blue")

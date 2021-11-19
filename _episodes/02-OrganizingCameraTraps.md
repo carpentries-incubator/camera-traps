@@ -124,10 +124,6 @@ WakhanData<-read.csv("data/Metadata_CT_2012.csv")
 WakhanData$Loc_geo[1]
 ```
 
-```
-## [1] "UTM_0293344_4094200"
-```
-
 When we inspect these data, two empty rows have no information, so we'll have to clean this up a bit. There are several ways of doing this, for one, we can use the complete.cases function. 
 
 
@@ -146,11 +142,6 @@ Another factor can see that the location column with the coordinates has a forma
 substr(WakhanData$Loc_geo, 5,11)
 ```
 
-```
-##  [1] "0293344" "0277255" "0271677" "0305274" "0291039" "0304299" "0267955"
-##  [8] "0265003" "0263616" "0254230"
-```
-
 We can assign these new strings to new columns in our dataframe.
 
 ```r
@@ -165,20 +156,7 @@ Great so we have our Latitude and Longitude coordinates. Let's now merge the dat
 ```r
 #add the check the camera trap station names between the two dataframes
 unique(rec.db.species0$Station)
-```
-
-```
-## [1] "C1_Avgarch_SL"
-```
-
-```r
 unique(WakhanData$Trap.site)
-```
-
-```
-##  [1] "C1_Avgarch"       "C4_Paquoy_Shoopk" "C7_Ishmorgh"      "C6_Sast"         
-##  [5] "C10_Avgarch"      "C12_Sast"         "C16_Ishmorgh"     "C17_Yzirk"       
-##  [9] "C19_Khundud"      "C22_Pigish"
 ```
 
 From this result we can see nearly all of the camera traps are different because there is an extra _SL at the end of the names, so we can remove it. We can use the stringr package and function str_remove to apply a removal.
@@ -199,10 +177,6 @@ We can use the setdiff function to determine if any of the trap names are still 
 setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
 ```
 
-```
-## character(0)
-```
-
 We find two cameras have different names. To fix this, we can use the str_replace function in the stringr package
 
 
@@ -211,10 +185,6 @@ We find two cameras have different names. To fix this, we can use the str_replac
 WakhanData$Trap.site<-str_replace(WakhanData$Trap.site,"C5_Ishmorg" , "C5_Ishmorgh")
 WakhanData$Trap.site<-str_replace(WakhanData$Trap.site,"C18_Khandud" , "C18_Khundud")
 setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
-```
-
-```
-## character(0)
 ```
 
 Now, there is one more problem with our dataset, and that is that our coordinates are only in UTM coordinate system, and we actually need them in a Lat/Long coordinate system to upload them to the Whiskerbook format. 
@@ -236,8 +206,6 @@ UTM_crs = "+init=EPSG:32643"
 WakhanData_points<-st_as_sf(WakhanData, coords=c("X","Y"), crs=UTM_crs)
 plot(WakhanData_points[,"Year"])
 ```
-
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18-1.png)
 
 Here we will convert the coordinate system to WGS84.
 

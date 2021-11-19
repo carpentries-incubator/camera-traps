@@ -28,17 +28,37 @@ Initially, we will load the dplyr library and the edf_tdf.csv that we had produc
 edf_tdf<-read.csv("data/edf_tdf.csv")
 ```
 
+```
+## Error in file(file, "rt"): cannot open the connection
+```
+
 Let's start by sorting the juvenilles out of our dataframe.
 
 ```r
 #subset the dataframe for records containing juvenilles
 edf_tdf_J<-edf_tdf[which(edf_tdf$Juvenilles=="J"),]
+```
 
+```
+## Error in eval(expr, envir, enclos): object 'edf_tdf' not found
+```
+
+```r
 #subset the dataframe to identify unique individuals
 edf_tdf_J<-unique(edf_tdf_J[,c("Marked.Individual","date_Time")])
+```
 
+```
+## Error in unique(edf_tdf_J[, c("Marked.Individual", "date_Time")]): object 'edf_tdf_J' not found
+```
+
+```r
 #pull the indiviudal ID out
 edf_tdf_J_ID<-unique(as.character(edf_tdf_J$Marked.Individual))
+```
+
+```
+## Error in unique(as.character(edf_tdf_J$Marked.Individual)): object 'edf_tdf_J' not found
 ```
 
 Lets remove the Juvenilles from our dataframe, since we won't need them for our analysis our our descriptions. 
@@ -48,6 +68,10 @@ Lets remove the Juvenilles from our dataframe, since we won't need them for our 
 edf_tdf<-edf_tdf[-which(edf_tdf$Juvenilles=="J"),]
 ```
 
+```
+## Error in eval(expr, envir, enclos): object 'edf_tdf' not found
+```
+
 Subset the data by distinct fields, since the encounter data can be inflated because the Whiskerbook program can include several unique encounters for the same individual.
 
 ```r
@@ -55,11 +79,26 @@ Subset the data by distinct fields, since the encounter data can be inflated bec
 edf_tdf_d<-edf_tdf %>% distinct(Marked.Individual, date_Time, Side, Location.ID, .keep_all = TRUE)
 ```
 
+```
+## Error in distinct(., Marked.Individual, date_Time, Side, Location.ID, : object 'edf_tdf' not found
+```
+
 Next we can create some dataframes of high quality and low quality encounters.
 
 ```r
 edf_tdf_high<-edf_tdf_d[which(edf_tdf_d$Quality=="H"),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'edf_tdf_d' not found
+```
+
+```r
 edf_tdf_low<-edf_tdf_d[which(edf_tdf_d$Quality %in% c("L","M")),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'edf_tdf_d' not found
 ```
 
 Now we will do some basic descriptions of the left and right hand sides and determine which individuals have left sides and right sides, or only one or the other. 
@@ -69,11 +108,19 @@ ID_left_right<-edf_tdf_high%>%
   group_by(Marked.Individual, Side)%>%
   count()
 ```
+
+```
+## Error in group_by(., Marked.Individual, Side): object 'edf_tdf_high' not found
+```
   
 Let's subset the data that are annotated with either left and right.
 
 ```r
 ID_left_right_sub<-ID_left_right[which(ID_left_right$Side %in% c("L", "R")),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'ID_left_right' not found
 ```
 
 Lets see how many individuals have only the left side or right side by counting the records grouped by ID. 
@@ -84,32 +131,80 @@ ID_left_right_sub_final<-ID_left_right_sub%>%
   count()
 ```
 
+```
+## Error in group_by(., Marked.Individual): object 'ID_left_right_sub' not found
+```
+
 From this,we can find the records which are left only or right only individuals. 
 
 ```r
 OneSided<-ID_left_right_sub_final[which(ID_left_right_sub_final$n==1),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'ID_left_right_sub_final' not found
+```
+
+```r
 TwoSided<-ID_left_right_sub_final[which(ID_left_right_sub_final$n==2),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'ID_left_right_sub_final' not found
 ```
 
 Now we can find which individuals have one side or both sides.
 
 ```r
 ID_oneOnly<-ID_left_right_sub[which(ID_left_right_sub$Marked.Individual %in% OneSided$Marked.Individual),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'ID_left_right_sub' not found
+```
+
+```r
 ID_twoSided<-ID_left_right_sub[which(ID_left_right_sub$Marked.Individual %in% TwoSided$Marked.Individual),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'ID_left_right_sub' not found
 ```
 
 From this we can find the individuals that are one sided and right only or left only.
 
 ```r
 ID_oneOnly_right<-ID_oneOnly[ID_oneOnly$Side=="R",]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'ID_oneOnly' not found
+```
+
+```r
 ID_oneOnly_left<-ID_oneOnly[ID_oneOnly$Side=="L",]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'ID_oneOnly' not found
 ```
 
 Now we can subset the dataframe to remove the records that are right only to create the left only dataframe. Similarly, when we subtract out the left only records, then we have a right only dataframe.
 
 ```r
 edf_left<-edf_tdf_high[-which(edf_tdf_high$Marked.Individual %in% ID_oneOnly_right$Marked.Individual),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'edf_tdf_high' not found
+```
+
+```r
 edf_right<-edf_tdf_high[-which(edf_tdf_high$Marked.Individual %in% ID_oneOnly_left$Marked.Individual),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'edf_tdf_high' not found
 ```
 
 
