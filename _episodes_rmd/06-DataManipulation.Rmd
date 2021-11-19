@@ -22,7 +22,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 ```{r load-libraries, echo = FALSE, results='hide', warning = FALSE, message = FALSE}
 library(dplyr)
-edf_tdf<-read.csv("edf_tdf.csv")
+edf_tdf<-read.csv("data/edf_tdf.csv")
 ```
 
 Let's start by sorting the juvenilles out of our dataframe.
