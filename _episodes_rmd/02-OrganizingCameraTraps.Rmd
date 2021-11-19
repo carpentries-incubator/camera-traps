@@ -25,7 +25,7 @@ In general, if we want to organize our data from raw camera trapping data, there
 
 First, set the working directory for the workshop where the snow leopard data have been downloaded.
 
-```{r}
+```{r, eval = FALSE}
 #Set working directory
 setwd("YourWorkingDirectory/")
 #Make sure to have ExifTool installed and bring in the camtrapR package
