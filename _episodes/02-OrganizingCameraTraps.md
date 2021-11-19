@@ -79,10 +79,6 @@ renaming.table2 <- imageRename(inDir               = wd_images_raw,
                                copyImages          = TRUE)
 ```
 
-```
-## Error: could not read DateTimeOriginal tag of any image. Check if the DateTimeOriginal tag is present in metadata with exifTagNames(). If not, fixDateTimeOriginal() might help.
-```
-
 Next, we will create a record table or dataframe of the exif information, that includes station, species, date/time, and directory information.
 
 There are parameters to allow a record table to include available species information to be sorted within the directory, for example (Station/Species) or (Station/Camera/Species). In our case, we only have one species, snow leopard images, so we will not use these extra settings. 
@@ -94,27 +90,12 @@ rec.db.species0 <- recordTable(inDir  = wd_images_raw_renamed,
                                IDfrom = "directory")
 ```
 
-```
-## Error: inDir contains no station directories
-```
-
 After inspecting the dataframe, we can see there is a Species column with the wrong information in it, so let's fix that
 
 ```r
 #change the species column contents
 rec.db.species0$Species <- "uncia"
-```
-
-```
-## Error in rec.db.species0$Species <- "uncia": object 'rec.db.species0' not found
-```
-
-```r
 rec.db.species0$Genus <- "Pathera"
-```
-
-```
-## Error in rec.db.species0$Genus <- "Pathera": object 'rec.db.species0' not found
 ```
 
 To save this table to a csv file we can write this to file, so we have the raw exif data if we need it. 
@@ -123,10 +104,6 @@ To save this table to a csv file we can write this to file, so we have the raw e
 ```r
 #write the Exif data to file
 write.csv(rec.db.species0, "data/CameraTrapExifData.csv")
-```
-
-```
-## Error in is.data.frame(x): object 'rec.db.species0' not found
 ```
 
 
@@ -184,7 +161,7 @@ unique(rec.db.species0$Station)
 ```
 
 ```
-## Error in unique(rec.db.species0$Station): object 'rec.db.species0' not found
+## [1] "C1_Avgarch_SL"
 ```
 
 ```r
@@ -206,10 +183,6 @@ library(stringr)
 rec.db.species0$Station<-str_remove(rec.db.species0$Station, "_SL")
 ```
 
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'rec.db.species0' not found
-```
-
 
 We can use the setdiff function to determine if any of the trap names are still different. Oftentimes, there are misspellings. 
 
@@ -220,7 +193,7 @@ setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
 ```
 
 ```
-## Error in unique(rec.db.species0$Station): object 'rec.db.species0' not found
+## character(0)
 ```
 
 We find two cameras have different names. To fix this, we can use the str_replace function in the stringr package
@@ -234,7 +207,7 @@ setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
 ```
 
 ```
-## Error in unique(rec.db.species0$Station): object 'rec.db.species0' not found
+## character(0)
 ```
 
 Now, there is one more problem with our dataset, and that is that our coordinates are only in UTM coordinate system, and we actually need them in a Lat/Long coordinate system to upload them to the Whiskerbook format. 
@@ -280,20 +253,12 @@ Now we can merge the two dataframes together using the merge function. We can se
 final_CameraRecords<-merge(rec.db.species0, WakhanData, by.x="Station", by.y="Trap.site", all=TRUE)
 ```
 
-```
-## Error in merge(rec.db.species0, WakhanData, by.x = "Station", by.y = "Trap.site", : object 'rec.db.species0' not found
-```
-
 Now let's save this file for later. 
 
 
 ```r
 #write the file to csv
 write.csv(final_CameraRecords, "data/SnowLeopard_CameraTrap.csv")
-```
-
-```
-## Error in is.data.frame(x): object 'final_CameraRecords' not found
 ```
 
 
