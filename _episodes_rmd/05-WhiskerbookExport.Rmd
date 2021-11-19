@@ -32,8 +32,7 @@ library(stringr)
 We will import the Whiskerbook file that was exported from the website interface. We are finished with the individual identification tasks. These are the raw data that were downloaded and then annotated with labels for whether the photo capture was high or low quality, and if the encounter showed the left or right side of the animal only. 
 
 ```{r}
-setwd("Your Working Directory/WhiskerbookTrainingMaterials/")
-Wildbook<-read.csv("Whiskerbook_export.csv")
+Wildbook<-read.csv("data/Whiskerbook_export.csv")
 ```
 
 Let's do some quick data crunching to find out how many individuals we have in our dataset. 

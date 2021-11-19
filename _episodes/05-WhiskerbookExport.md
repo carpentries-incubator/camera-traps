@@ -29,15 +29,7 @@ We will import the Whiskerbook file that was exported from the website interface
 
 
 ```r
-setwd("Your Working Directory/WhiskerbookTrainingMaterials/")
-```
-
-```
-## Error in setwd("Your Working Directory/WhiskerbookTrainingMaterials/"): cannot change working directory
-```
-
-```r
-Wildbook<-read.csv("Whiskerbook_export.csv")
+Wildbook<-read.csv("data/Whiskerbook_export.csv")
 ```
 
 ```
