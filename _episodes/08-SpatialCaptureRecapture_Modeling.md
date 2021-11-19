@@ -28,7 +28,18 @@ Note that this will take around 5 minutes to run.
 
 ```r
 snowLeopard.1<- oSCR.fit(list(D ~ 1, p0 ~ 1, sig ~ 1), scrFrame, list(alltraps_df))
+```
+
+```
+## Error in oSCR.fit(list(D ~ 1, p0 ~ 1, sig ~ 1), scrFrame, list(alltraps_df)): could not find function "oSCR.fit"
+```
+
+```r
 pred<-predict.oSCR(snowLeopard.1, scrFrame,list(alltraps_df), override.trim =TRUE )
+```
+
+```
+## Error in predict.oSCR(snowLeopard.1, scrFrame, list(alltraps_df), override.trim = TRUE): could not find function "predict.oSCR"
 ```
 
 
@@ -38,14 +49,45 @@ We can plot the estimates for density across the study area to see how it looks
 library(viridis)
 myCol = viridis(7)
 RasterValues_1<-as.matrix(pred$r[[1]])
-MaxRaS<-max(RasterValues_1, na.rm=TRUE)
-MinRaS<-min(RasterValues_1,na.rm=TRUE)
+```
 
+```
+## Error in as.matrix(pred$r[[1]]): object 'pred' not found
+```
+
+```r
+MaxRaS<-max(RasterValues_1, na.rm=TRUE)
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'RasterValues_1' not found
+```
+
+```r
+MinRaS<-min(RasterValues_1,na.rm=TRUE)
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'RasterValues_1' not found
+```
+
+```r
 plot(pred$r[[1]], col=myCol,
      main="Realized density",
      xlab = "UTM Westing Coordinate (m)", 
      ylab = "UTM Northing Coordinate (m)")
+```
+
+```
+## Error in plot(pred$r[[1]], col = myCol, main = "Realized density", xlab = "UTM Westing Coordinate (m)", : object 'pred' not found
+```
+
+```r
 points(tdf2[,3:4], pch=20)
+```
+
+```
+## Error in points(tdf2[, 3:4], pch = 20): object 'tdf2' not found
 ```
 
 
@@ -57,10 +99,18 @@ pred.df.dens <- data.frame(Session = factor(1))
 (pred.dens <- get.real(snowLeopard.1, type = "dens", newdata = pred.df.dens, d.factor = multiplicationfactor))
 ```
 
+```
+## Error in get.real(snowLeopard.1, type = "dens", newdata = pred.df.dens, : could not find function "get.real"
+```
+
 Get the abundance, detection, and sigma parameters
 
 ```r
 (total.abundance <- get.real(snowLeopard.1, type = "dens", newdata = pred.df.dens, d.factor=nrow(snowLeopard.1$ssDF[[1]])))
+```
+
+```
+## Error in get.real(snowLeopard.1, type = "dens", newdata = pred.df.dens, : could not find function "get.real"
 ```
 
 
@@ -68,7 +118,15 @@ Get the abundance, detection, and sigma parameters
 (pred.det <- get.real(snowLeopard.1, type = "det", newdata = pred.df.dens))
 ```
 
+```
+## Error in get.real(snowLeopard.1, type = "det", newdata = pred.df.dens): could not find function "get.real"
+```
+
 
 ```r
 (pred.sig <- get.real(snowLeopard.1, type = "sig", newdata = pred.df.dens))
+```
+
+```
+## Error in get.real(snowLeopard.1, type = "sig", newdata = pred.df.dens): could not find function "get.real"
 ```
