@@ -17,33 +17,33 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 Set the working directory, and read in the camera trap data compiled in the previous lesson into this session.
 
-```{r}
+```{r, eval = FALSE}
 setwd("YourWorkingDirectory/")
 SnowLeopardBook<-read.csv("data/SnowLeopard_CameraTrap.csv")
 ```
 
 
 Subset the data by columns that will be used for the Whiskerbook upload
-```{r}
+```{r, eval = FALSE}
 SnowLeopardBook<-SnowLeopardBook[,c(2,3,4,5,6,12,15,16,17,27,28)]
 ```
 
 Load the Whiskerbook template downloaded from the website to assist in preparing batch import files. This file contains the header column names that are necessary for the program to import the data and fields successfully. 
 
-```{r}
+```{r, eval = FALSE}
 Whiskerbook_template<-read.csv("data/WildbookStandardFormat.csv")
 ```
 
 
 First, we will expand the empty dataframe with NA values to populate the dataframe with as many rows as there are data from our camera trap records. 
-```{r}
+```{r, eval = FALSE}
 #first make sure there are enough rows in the template
 Whiskerbook_template[1:nrow(SnowLeopardBook),]<-NA
 ```
 
 Now, with the template formatted correctly, we can simply add the data from the camera trap dataframe to the template. 
 
-```{r}
+```{r, eval = FALSE}
 #then add data from the camera trap dataframe to the template
 Whiskerbook_template$Encounter.locationID<-SnowLeopardBook$Station
 Whiskerbook_template$Encounter.mediaAssetX<-SnowLeopardBook$FileName
@@ -60,7 +60,7 @@ Whiskerbook_template$Encounter.submitterOrganization<-"WCS Afghanistan"
 
 Since the dates in our camera trap dataset are not formatted properly, we will pull out the information for month and day from the date object and fill in new columns.
 
-```{r}
+```{r, eval = FALSE}
 #fix dates
 SnowLeopardBook$Date<-as.Date(SnowLeopardBook$Date)
 Whiskerbook_template$Encounter.month<- format(SnowLeopardBook$Date, "%m") 
@@ -78,12 +78,12 @@ Here we use the dplyr functions for group_by to group the camera trap photos by 
 
 The mutate function within dplyr allows us to create a new row of data based on some function or command, in this case, we will use the cur_group_id() to ID each of the rows according to which group they are in. 
 
-```{r load-libraries, echo = FALSE, results='hide', warning = FALSE, message = FALSE}
+```{r load-libraries, echo = FALSE, results='hide', warning = FALSE, message = FALSE, eval = FALSE}
 #load the dplyr library
 library(dplyr)
 }
 
-```{r}
+```{r, eval = FALSE}
 Whiskerbook_template<-Whiskerbook_template%>%
   group_by(Encounter.locationID, Encounter.year, Encounter.month, Encounter.day,Encounter.hour)%>%
   mutate(Encounter.occurrenceID = cur_group_id())
@@ -91,7 +91,7 @@ Whiskerbook_template<-Whiskerbook_template%>%
 
 Next, we have to sequentially number each of the images within that group to create the Encounter.mediaAsset information that Whiskerbook needs to have. Now, within each group we are numbering each photo within that group. There may be 10 photos in an occurrence so they would be numbered 1-10, or there may be 40 photos within the occurrence, so we name those 1-40.
 
-```{r}
+```{r, eval = FALSE}
 Whiskerbook_template<-Whiskerbook_template%>%
   group_by(Encounter.occurrenceID)%>%
   mutate(Encounter.mediaAsset = 1:n())
@@ -99,7 +99,7 @@ Whiskerbook_template<-Whiskerbook_template%>%
 
 The numbers we just created are actually going to become column names, and so we need to add the characters "Encounter.mediaAsset" before these numbers. To do this, we can use the paste function to paste together our character string and the number we generated. 
 
-```{r}
+```{r, eval = FALSE}
 Whiskerbook_template$Encounter.mediaAsset<-paste("Encounter.mediaAsset", Whiskerbook_template$Encounter.mediaAsset, sep="_")
 ```
 
@@ -107,7 +107,7 @@ Now, we will cast the Encounter.mediaAsset column out. Which means we will take 
 
 We are calling this new template Whiskerbook_template2
 
-```{r}
+```{r, eval = FALSE}
 library(reshape2)
 Whiskerbook_template2<-dcast(Whiskerbook_template,Encounter.occurrenceID~Encounter.mediaAsset, value.var ="Encounter.mediaAssetX")
 ```
@@ -115,7 +115,7 @@ Whiskerbook_template2<-dcast(Whiskerbook_template,Encounter.occurrenceID~Encount
 
 As you can see, the columns are not sorted sequentially, so we need to sort them by ascending order. The str_sort function in the stringr can sort the columns.
 
-```{r}
+```{r, eval = FALSE}
 library(stringr)
 Whiskerbook_template2_cols<-str_sort(colnames(Whiskerbook_template2), numeric = TRUE)
 Whiskerbook_template2<-Whiskerbook_template2[,Whiskerbook_template2_cols]
@@ -125,7 +125,7 @@ Next, we have to actually rename all of the Encounter.mediaAsset columns startin
 
 First, we can create a vector of numbers for the number of occurrences that we have. Then, we add the characters "Encounter.mediaAsset" to these numbers. Then we add one more column name for the "Encounter.occurrenceID" that is already in our dataframe. Now we have a vector of character strings that will be our new column names. Now, we can simply rename our dataframe columns.
 
-```{r}
+```{r, eval = FALSE}
 #the columns have to be renamed from 0 so we subtract one from the length
 #the final column is the Encounter.occurrenceID column so we subtract one
 col_vec<-0:(length(Whiskerbook_template2)-2)
@@ -141,7 +141,7 @@ Then, we will take only the unique records within this template, and remove all 
 
 Finally, we can remove the Encounter.mediaAsset column, which contained the numbers assigned to the photos. 
 
-```{r}
+```{r, eval = FALSE}
 Whiskerbook_template<-Whiskerbook_template[,-1]
 Whiskerbook_template<-unique(Whiskerbook_template)
 Whiskerbook_template<-Whiskerbook_template[,colSums(is.na(Whiskerbook_template))<nrow(Whiskerbook_template)]
@@ -150,14 +150,14 @@ Whiskerbook_template <-Whiskerbook_template[,-ncol(Whiskerbook_template)]
 
 Now our original Whiskerbook template is formatted so we can merge the Whiskerbook_template2 with our filenames to it. To do this, we can merge the templates together using the merge function, and then select only the unique rows.
 
-```{r}
+```{r, eval = FALSE}
 Whiskerbook<-merge(Whiskerbook_template,Whiskerbook_template2, by="Encounter.occurrenceID", all.x=FALSE, all.y=TRUE)
 Whiskerbook<-unique(Whiskerbook)
 ```
 
 Finally, we are left with a template with our occurrences with the filenames cast into rows. We will write this to file for batch import into Whiskerbook. 
 
-```{r}
+```{r, eval = FALSE}
 write.csv(Whiskerbook, "Whiskerbook.csv")
 ```
 
