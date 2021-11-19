@@ -56,7 +56,7 @@ Whiskerbook_template$Encounter.decimalLongitude<-SnowLeopardBook$Long
 Whiskerbook_template$Encounter.year<-SnowLeopardBook$Year
 Whiskerbook_template$Encounter.genus<-SnowLeopardBook$Genus
 Whiskerbook_template$Encounter.specificEpithet<-SnowLeopardBook$Species
-Whiskerbook_template$Encounter.submitterID<-"Eve Bohnett"
+Whiskerbook_template$Encounter.submitterID<-"YOUR_WHISKERBOOK_USERNAME"
 Whiskerbook_template$Encounter.country<-"Afghanistan"
 Whiskerbook_template$Encounter.submitterOrganization<-"WCS Afghanistan"
 ```
