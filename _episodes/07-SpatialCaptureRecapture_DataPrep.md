@@ -29,7 +29,7 @@ Read in our tdf, edf, and metadata files that we created in the previous lesson.
 
 
 ```r
-tdf<-read.csv("tdf.csv", stringsAsFactors = TRUE)
+tdf<-read.csv("data/tdf.csv", stringsAsFactors = TRUE)
 ```
 
 ```
@@ -37,7 +37,7 @@ tdf<-read.csv("tdf.csv", stringsAsFactors = TRUE)
 ```
 
 ```r
-edf<-read.csv("edf.csv", stringsAsFactors = TRUE)
+edf<-read.csv("data/edf.csv", stringsAsFactors = TRUE)
 ```
 
 ```
@@ -45,7 +45,7 @@ edf<-read.csv("edf.csv", stringsAsFactors = TRUE)
 ```
 
 ```r
-Metadata<-read.csv("Metadata.csv")
+Metadata<-read.csv("data/Metadata.csv")
 ```
 
 ```
@@ -56,7 +56,7 @@ There are three raster layers that are suitable for this analysis, including the
 
 
 ```r
-roughness<-raster("Rasters/roughness.tif")
+roughness<-raster("data/Rasters/roughness.tif")
 ```
 
 ```
@@ -64,7 +64,7 @@ roughness<-raster("Rasters/roughness.tif")
 ```
 
 ```r
-TPI<-raster("Rasters/TPI2.tif")
+TPI<-raster("data/Rasters/TPI2.tif")
 ```
 
 ```
@@ -72,7 +72,7 @@ TPI<-raster("Rasters/TPI2.tif")
 ```
 
 ```r
-elev<-raster("Rasters/elev.tif")
+elev<-raster("data/Rasters/elev.tif")
 ```
 
 ```
