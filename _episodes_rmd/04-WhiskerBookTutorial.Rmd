@@ -24,76 +24,73 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 Here the instructor will show you how to use the Whiskerbook interface using an account already setup. You will also have access to this account. Please do not change or delete anything in this instructional account. It mainly serves as to orient you to using the platform and seeing how it works. This webpage are notes as reference for future dates when you come back to using the Whiskerbook portal, in case you forgot something. 
 
 When you are ready to upload an your data formally, please email me @ evebohnett@yahoo.com as I am a volunteer Project Director for the Whiskerbook and first point of contact for any support issues you may have. 
+![Extent image](../images/Whiskerbook/Slide1.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide1.JPG)
+![Extent image](../images/Whiskerbook/Slide2.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide2.JPG)
+![Extent image](../images/Whiskerbook/Slide3.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide3.JPG)
+![Extent image](../images/Whiskerbook/Slide4.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide4.JPG)
+![Extent image](../images/Whiskerbook/Slide5.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide5.JPG)
+![Extent image](../images/Whiskerbook/Slide6.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide6.JPG)
+![Extent image](../images/Whiskerbook/Slide7.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide7.JPG)
+![Extent image](../images/Whiskerbook/Slide8.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide8.JPG)
+![Extent image](../images/Whiskerbook/Slide9.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide9.JPG)
+![Extent image](../images/Whiskerbook/Slide10.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide10.JPG)
+![Extent image](../images/Whiskerbook/Slide11.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide11.JPG)
+![Extent image](../images/Whiskerbook/Slide12.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide12.JPG)
+![Extent image](../images/Whiskerbook/Slide13.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide13.JPG)
+![Extent image](../images/Whiskerbook/Slide14.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide14.JPG)
+![Extent image](../images/Whiskerbook/Slide15.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide15.JPG)
+![Extent image](../images/Whiskerbook/Slide16.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide16.JPG)
+![Extent image](../images/Whiskerbook/Slide17.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide17.JPG)
+![Extent image](../images/Whiskerbook/Slide18.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide18.JPG)
+![Extent image](../images/Whiskerbook/Slide19.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide19.JPG)
+![Extent image](../images/Whiskerbook/Slide20.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide20.JPG)
+![Extent image](../images/Whiskerbook/Slide21.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide21.JPG)
+![Extent image](../images/Whiskerbook/Slide22.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide22.JPG)
+![Extent image](../images/Whiskerbook/Slide23.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide23.JPG)
+![Extent image](../images/Whiskerbook/Slide24.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide24.JPG)
+![Extent image](../images/Whiskerbook/Slide25.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide25.JPG)
+![Extent image](../images/Whiskerbook/Slide26.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide26.JPG)
+![Extent image](../images/Whiskerbook/Slide27.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide27.JPG)
+![Extent image](../images/Whiskerbook/Slide28.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide28.JPG)
+![Extent image](../images/Whiskerbook/Slide29.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide29.JPG)
+![Extent image](../images/Whiskerbook/Slide30.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide30.JPG)
+![Extent image](../images/Whiskerbook/Slide31.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide31.JPG)
+![Extent image](../images/Whiskerbook/Slide32.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide32.JPG)
+![Extent image](../images/Whiskerbook/Slide33.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide33.JPG)
+![Extent image](../images/Whiskerbook/Slide34.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide34.JPG)
+![Extent image](../images/Whiskerbook/Slide35.JPG)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-![Image Stretch](images/Whiskerbook/Slide35.JPG)
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
