@@ -19,7 +19,6 @@ Set the working directory, and read in the camera trap data compiled in the prev
 
 
 ```r
-setwd("YourWorkingDirectory/")
 SnowLeopardBook<-read.csv("data/SnowLeopard_CameraTrap.csv")
 ```
 
