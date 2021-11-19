@@ -32,6 +32,10 @@ We will import the Whiskerbook file that was exported from the website interface
 Wildbook<-read.csv("data/Whiskerbook_export.csv")
 ```
 
+```
+## Error in file(file, "rt"): cannot open the connection
+```
+
 Let's do some quick data crunching to find out how many individuals we have in our dataset. 
 
 
@@ -39,11 +43,27 @@ Let's do some quick data crunching to find out how many individuals we have in o
 #To find the number of individuals that are in the dataset
 IndividualsCount<-Wildbook%>%
   count(Name0.value, sort = TRUE) 
+```
 
+```
+## Error in count(., Name0.value, sort = TRUE): object 'Wildbook' not found
+```
+
+```r
 IndividualsCount2<-IndividualsCount%>%
   count(n, sort = TRUE) 
+```
 
+```
+## Error in count(., n, sort = TRUE): object 'IndividualsCount' not found
+```
+
+```r
 Individuals<-unique(Wildbook$Name0.value)
+```
+
+```
+## Error in unique(Wildbook$Name0.value): object 'Wildbook' not found
 ```
 
 
@@ -55,6 +75,10 @@ Individuals<-unique(Wildbook$Name0.value)
 Sides<-Wildbook%>%
   group_by(Side, Quality)%>%
   count(sort = TRUE) 
+```
+
+```
+## Error in group_by(., Side, Quality): object 'Wildbook' not found
 ```
  
 
@@ -73,9 +97,20 @@ Sides<-Wildbook%>%
 > > Individuals_Date<-Wildbook%>%
 > >     group_by(Encounter.year)%>%
 > >     count(Name0.value, sort = TRUE) 
+> > ```
+> > 
+> > ```
+> > ## Error in group_by(., Encounter.year): object 'Wildbook' not found
+> > ```
+> > 
+> > ```r
 > > Individuals_Date_Totals<-Individuals_Date%>%
 > >       group_by(Encounter.year)%>%
 > >      count() 
+> > ```
+> > 
+> > ```
+> > ## Error in group_by(., Encounter.year): object 'Individuals_Date' not found
 > > ```
 > {: .solution}
 {: .challenge}
@@ -85,9 +120,27 @@ Sides<-Wildbook%>%
 ```r
 #To format dates into a date object we have to combine the month, day and year columns together
 Wildbook$date_Time<-paste(Wildbook$Encounter.year, Wildbook$Encounter.month, sep="-")
+```
+
+```
+## Error in paste(Wildbook$Encounter.year, Wildbook$Encounter.month, sep = "-"): object 'Wildbook' not found
+```
+
+```r
 Wildbook$date_Time<-paste(Wildbook$date_Time, Wildbook$Encounter.day, sep="-")
+```
+
+```
+## Error in paste(Wildbook$date_Time, Wildbook$Encounter.day, sep = "-"): object 'Wildbook' not found
+```
+
+```r
 dateFormat<-"%Y-%m-%d"
 Wildbook$date_Time<-as.Date(Wildbook$date_Time,format= dateFormat)
+```
+
+```
+## Error in as.Date(Wildbook$date_Time, format = dateFormat): object 'Wildbook' not found
 ```
 
 
@@ -107,7 +160,7 @@ setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site)
 ```
 
 ```
-## Error in as.vector(y): object 'Metadata' not found
+## Error in setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site): object 'Wildbook' not found
 ```
 
 ```r
@@ -189,7 +242,7 @@ setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site)
 ```
 
 ```
-## Error in as.vector(y): object 'Metadata' not found
+## Error in setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site): object 'Wildbook' not found
 ```
 
 
