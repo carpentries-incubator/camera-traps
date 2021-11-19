@@ -36,17 +36,17 @@ library(camtrapR)
 Read in our tdf, edf, and metadata files that we created in the previous lesson.
 
 ```{r}
-tdf<-read.csv("tdf.csv", stringsAsFactors = TRUE)
-edf<-read.csv("edf.csv", stringsAsFactors = TRUE)
-Metadata<-read.csv("Metadata.csv")
+tdf<-read.csv("data/tdf.csv", stringsAsFactors = TRUE)
+edf<-read.csv("data/edf.csv", stringsAsFactors = TRUE)
+Metadata<-read.csv("data/Metadata.csv")
 ```
 
 There are three raster layers that are suitable for this analysis, including the roughness, topographic position index and elevation. To generate these layers, the elevation was downloaded as an SRTM file, the roughness and topographic position index were calculated using the terrain function in the terrain package in program R.
 
 ```{r}
-roughness<-raster("Rasters/roughness.tif")
-TPI<-raster("Rasters/TPI2.tif")
-elev<-raster("Rasters/elev.tif")
+roughness<-raster("data/Rasters/roughness.tif")
+TPI<-raster("data/Rasters/TPI2.tif")
+elev<-raster("data/Rasters/elev.tif")
 ```
 
 First, we have to change the date formats to be suitable for the dates to be recognized. Right now, they are in character string format.
