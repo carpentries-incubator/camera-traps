@@ -45,10 +45,6 @@ Load the Whiskerbook template downloaded from the website to assist in preparing
 Whiskerbook_template<-read.csv("data/WildbookStandardFormat.csv")
 ```
 
-```
-## Error in file(file, "rt"): cannot open the connection
-```
-
 
 First, we will expand the empty dataframe with NA values to populate the dataframe with as many rows as there are data from our camera trap records. 
 
@@ -58,7 +54,7 @@ Whiskerbook_template[1:nrow(SnowLeopardBook),]<-NA
 ```
 
 ```
-## Error in Whiskerbook_template[1:nrow(SnowLeopardBook), ] <- NA: object 'Whiskerbook_template' not found
+## Error in nrow(SnowLeopardBook): object 'SnowLeopardBook' not found
 ```
 
 Now, with the template formatted correctly, we can simply add the data from the camera trap dataframe to the template. 
@@ -126,7 +122,7 @@ Whiskerbook_template$Encounter.submitterID<-"Eve Bohnett"
 ```
 
 ```
-## Error in Whiskerbook_template$Encounter.submitterID <- "Eve Bohnett": object 'Whiskerbook_template' not found
+## Error in `$<-.data.frame`(`*tmp*`, Encounter.submitterID, value = "Eve Bohnett"): replacement has 1 row, data has 0
 ```
 
 ```r
@@ -134,7 +130,7 @@ Whiskerbook_template$Encounter.country<-"Afghanistan"
 ```
 
 ```
-## Error in Whiskerbook_template$Encounter.country <- "Afghanistan": object 'Whiskerbook_template' not found
+## Error in `$<-.data.frame`(`*tmp*`, Encounter.country, value = "Afghanistan"): replacement has 1 row, data has 0
 ```
 
 ```r
@@ -142,7 +138,7 @@ Whiskerbook_template$Encounter.submitterOrganization<-"WCS Afghanistan"
 ```
 
 ```
-## Error in Whiskerbook_template$Encounter.submitterOrganization <- "WCS Afghanistan": object 'Whiskerbook_template' not found
+## Error in `$<-.data.frame`(`*tmp*`, Encounter.submitterOrganization, value = "WCS Afghanistan"): replacement has 1 row, data has 0
 ```
 
 Since the dates in our camera trap dataset are not formatted properly, we will pull out the information for month and day from the date object and fill in new columns.
@@ -229,7 +225,7 @@ Whiskerbook_template$Encounter.mediaAsset<-paste("Encounter.mediaAsset", Whisker
 ```
 
 ```
-## Error in paste("Encounter.mediaAsset", Whiskerbook_template$Encounter.mediaAsset, : object 'Whiskerbook_template' not found
+## Error in `$<-.data.frame`(`*tmp*`, Encounter.mediaAsset, value = "Encounter.mediaAsset_"): replacement has 1 row, data has 0
 ```
 
 Now, we will cast the Encounter.mediaAsset column out. Which means we will take one column of data, and generate numerous columns. Check to see the result of this if you are unsure what just happened.
@@ -243,7 +239,7 @@ Whiskerbook_template2<-dcast(Whiskerbook_template,Encounter.occurrenceID~Encount
 ```
 
 ```
-## Error in value.var %in% names(data): object 'Whiskerbook_template' not found
+## Error in FUN(X[[i]], ...): object 'Encounter.mediaAsset' not found
 ```
 
 
@@ -316,34 +312,9 @@ Finally, we can remove the Encounter.mediaAsset column, which contained the numb
 
 ```r
 Whiskerbook_template<-Whiskerbook_template[,-1]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'Whiskerbook_template' not found
-```
-
-```r
 Whiskerbook_template<-unique(Whiskerbook_template)
-```
-
-```
-## Error in unique(Whiskerbook_template): object 'Whiskerbook_template' not found
-```
-
-```r
 Whiskerbook_template<-Whiskerbook_template[,colSums(is.na(Whiskerbook_template))<nrow(Whiskerbook_template)]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'Whiskerbook_template' not found
-```
-
-```r
 Whiskerbook_template <-Whiskerbook_template[,-ncol(Whiskerbook_template)]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'Whiskerbook_template' not found
 ```
 
 Now our original Whiskerbook template is formatted so we can merge the Whiskerbook_template2 with our filenames to it. To do this, we can merge the templates together using the merge function, and then select only the unique rows.
@@ -354,7 +325,7 @@ Whiskerbook<-merge(Whiskerbook_template,Whiskerbook_template2, by="Encounter.occ
 ```
 
 ```
-## Error in merge(Whiskerbook_template, Whiskerbook_template2, by = "Encounter.occurrenceID", : object 'Whiskerbook_template' not found
+## Error in as.data.frame(y): object 'Whiskerbook_template2' not found
 ```
 
 ```r

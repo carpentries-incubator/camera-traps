@@ -142,19 +142,12 @@ Now we have the exif data finished and in a dataframe format. Next we are going 
 ```r
 #load the camera trap GPS and camera function information
 WakhanData<-read.csv("data/Metadata_CT_2012.csv")
-```
-
-```
-## Error in file(file, "rt"): cannot open the connection
-```
-
-```r
 #look at the synatx of the geometry column for GPS coordinates
 WakhanData$Loc_geo[1]
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'WakhanData' not found
+## [1] "UTM_0293344_4094200"
 ```
 
 When we inspect these data, two empty rows have no information, so we'll have to clean this up a bit. There are several ways of doing this, for one, we can use the complete.cases function. 
@@ -164,10 +157,6 @@ When we inspect these data, two empty rows have no information, so we'll have to
 ```r
 #remove the two rows with missing data
 WakhanData<-WakhanData[complete.cases(WakhanData),]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'WakhanData' not found
 ```
 
 
@@ -180,7 +169,8 @@ substr(WakhanData$Loc_geo, 5,11)
 ```
 
 ```
-## Error in substr(WakhanData$Loc_geo, 5, 11): object 'WakhanData' not found
+##  [1] "0293344" "0277255" "0271677" "0305274" "0291039" "0304299" "0267955"
+##  [8] "0265003" "0263616" "0254230"
 ```
 
 We can assign these new strings to new columns in our dataframe.
@@ -188,18 +178,7 @@ We can assign these new strings to new columns in our dataframe.
 ```r
 #add the Easting and Northing data to new X and Y columns
 WakhanData$X<-substr(WakhanData$Loc_geo, 5,11)
-```
-
-```
-## Error in substr(WakhanData$Loc_geo, 5, 11): object 'WakhanData' not found
-```
-
-```r
 WakhanData$Y<-substr(WakhanData$Loc_geo, 13,nchar(WakhanData$Loc_geo[1]))
-```
-
-```
-## Error in substr(WakhanData$Loc_geo, 13, nchar(WakhanData$Loc_geo[1])): object 'WakhanData' not found
 ```
 
 Great so we have our Latitude and Longitude coordinates. Let's now merge the dataframe with the exif data and the dataframe with the GPS coordinates and camera infromation together. Before we can do that, we need to make sure that there is a column in both that match completely. So let's have a check and see if the trap names in the record table are the same in the GPS coordinates table. 
@@ -219,7 +198,9 @@ unique(WakhanData$Trap.site)
 ```
 
 ```
-## Error in unique(WakhanData$Trap.site): object 'WakhanData' not found
+##  [1] "C1_Avgarch"       "C4_Paquoy_Shoopk" "C7_Ishmorgh"      "C6_Sast"         
+##  [5] "C10_Avgarch"      "C12_Sast"         "C16_Ishmorgh"     "C17_Yzirk"       
+##  [9] "C19_Khundud"      "C22_Pigish"
 ```
 
 From this result we can see nearly all of the camera traps are different because there is an extra _SL at the end of the names, so we can remove it. We can use the stringr package and function str_remove to apply a removal.
@@ -254,21 +235,7 @@ We find two cameras have different names. To fix this, we can use the str_replac
 ```r
 #replace bad station names with correct spellings
 WakhanData$Trap.site<-str_replace(WakhanData$Trap.site,"C5_Ishmorg" , "C5_Ishmorgh")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'WakhanData' not found
-```
-
-```r
 WakhanData$Trap.site<-str_replace(WakhanData$Trap.site,"C18_Khandud" , "C18_Khundud")
-```
-
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'WakhanData' not found
-```
-
-```r
 setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
 ```
 
@@ -293,19 +260,10 @@ UTM_crs = "+init=EPSG:32643"
 ```r
 #convert the GPS coordinates into shapefile points
 WakhanData_points<-st_as_sf(WakhanData, coords=c("X","Y"), crs=UTM_crs)
-```
-
-```
-## Error in st_as_sf(WakhanData, coords = c("X", "Y"), crs = UTM_crs): object 'WakhanData' not found
-```
-
-```r
 plot(WakhanData_points[,"Year"])
 ```
 
-```
-## Error in plot(WakhanData_points[, "Year"]): object 'WakhanData_points' not found
-```
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18-1.png)
 
 Here we will convert the coordinate system to WGS84.
 
@@ -313,34 +271,9 @@ Here we will convert the coordinate system to WGS84.
 ```r
 #convert the coordinate system from UTM to lat long WGS84
 WakhanData_points_latlong<-st_transform(WakhanData_points, crs=wgs84_crs)
-```
-
-```
-## Error in st_transform(WakhanData_points, crs = wgs84_crs): object 'WakhanData_points' not found
-```
-
-```r
 WakhanData_points_latlong_df<- st_coordinates(WakhanData_points_latlong)
-```
-
-```
-## Error in st_coordinates(WakhanData_points_latlong): object 'WakhanData_points_latlong' not found
-```
-
-```r
 colnames(WakhanData_points_latlong_df)<-c("Lat","Long")
-```
-
-```
-## Error in colnames(WakhanData_points_latlong_df) <- c("Lat", "Long"): object 'WakhanData_points_latlong_df' not found
-```
-
-```r
 WakhanData <-cbind(WakhanData, WakhanData_points_latlong_df)
-```
-
-```
-## Error in cbind(WakhanData, WakhanData_points_latlong_df): object 'WakhanData' not found
 ```
 
 
