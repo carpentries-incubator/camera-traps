@@ -210,3 +210,5 @@ You are now ready for the workshop!
 >{: .language-bash}
 >
 {: .solution}
+
+{% include links.md %}
