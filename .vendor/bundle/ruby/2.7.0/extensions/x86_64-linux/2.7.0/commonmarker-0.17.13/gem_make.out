@@ -1,87 +1,87 @@
 current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.17.13/ext/commonmarker
-/opt/hostedtoolcache/Ruby/2.7.4/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.4/x64/lib/ruby/2.7.0 -r ./siteconf20211119-18643-1l2uwfq.rb extconf.rb
+/opt/hostedtoolcache/Ruby/2.7.4/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.4/x64/lib/ruby/2.7.0 -r ./siteconf20211119-18609-6hn8cy.rb extconf.rb
 creating Makefile
 
 current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.17.13/ext/commonmarker
 make "DESTDIR=" clean
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.17.13/ext/commonmarker'
 Makefile:175: warning: overriding recipe for target 'clean'
-@n'’~U:175: warning: ignoring old recipe for target 'clean'
+@þbR€U:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-@n'’~U:182: warning: ignoring old recipe for target 'distclean'
+@þbR€U:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-@n'’~U:190: warning: ignoring old recipe for target 'install-so'
+@þbR€U:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-@n'’~U:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+@þbR€U:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.-.commonmarker.time'
-@n'’~U:202: warning: ignoring old recipe for target '.sitearchdir.-.commonmarker.time'
+@þbR€U:202: warning: ignoring old recipe for target '.sitearchdir.-.commonmarker.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-@n'’~U:212: warning: ignoring old recipe for target '.cc.o'
+@þbR€U:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-@n'’~U:216: warning: ignoring old recipe for target '.cc.S'
+@þbR€U:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-@n'’~U:220: warning: ignoring old recipe for target '.mm.o'
+@þbR€U:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-@n'’~U:224: warning: ignoring old recipe for target '.mm.S'
+@þbR€U:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-@n'’~U:228: warning: ignoring old recipe for target '.cxx.o'
+@þbR€U:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-@n'’~U:232: warning: ignoring old recipe for target '.cxx.S'
+@þbR€U:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-@n'’~U:236: warning: ignoring old recipe for target '.cpp.o'
+@þbR€U:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-@n'’~U:240: warning: ignoring old recipe for target '.cpp.S'
+@þbR€U:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-@n'’~U:244: warning: ignoring old recipe for target '.c.o'
+@þbR€U:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-@n'’~U:248: warning: ignoring old recipe for target '.c.S'
+@þbR€U:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-@n'’~U:252: warning: ignoring old recipe for target '.m.o'
+@þbR€U:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-@n'’~U:256: warning: ignoring old recipe for target '.m.S'
+@þbR€U:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'commonmarker.so'
-@n'’~U:260: warning: ignoring old recipe for target 'commonmarker.so'
+@þbR€U:260: warning: ignoring old recipe for target 'commonmarker.so'
 make[1]: Leaving directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.17.13/ext/commonmarker'
 
 current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.17.13/ext/commonmarker
 make "DESTDIR="
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.17.13/ext/commonmarker'
 Makefile:175: warning: overriding recipe for target 'clean'
-@¾#Ž¦U:175: warning: ignoring old recipe for target 'clean'
+@î~´U:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-@¾#Ž¦U:182: warning: ignoring old recipe for target 'distclean'
+@î~´U:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-@¾#Ž¦U:190: warning: ignoring old recipe for target 'install-so'
+@î~´U:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-@¾#Ž¦U:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+@î~´U:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.-.commonmarker.time'
-@¾#Ž¦U:202: warning: ignoring old recipe for target '.sitearchdir.-.commonmarker.time'
+@î~´U:202: warning: ignoring old recipe for target '.sitearchdir.-.commonmarker.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-@¾#Ž¦U:212: warning: ignoring old recipe for target '.cc.o'
+@î~´U:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-@¾#Ž¦U:216: warning: ignoring old recipe for target '.cc.S'
+@î~´U:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-@¾#Ž¦U:220: warning: ignoring old recipe for target '.mm.o'
+@î~´U:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-@¾#Ž¦U:224: warning: ignoring old recipe for target '.mm.S'
+@î~´U:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-@¾#Ž¦U:228: warning: ignoring old recipe for target '.cxx.o'
+@î~´U:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-@¾#Ž¦U:232: warning: ignoring old recipe for target '.cxx.S'
+@î~´U:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-@¾#Ž¦U:236: warning: ignoring old recipe for target '.cpp.o'
+@î~´U:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-@¾#Ž¦U:240: warning: ignoring old recipe for target '.cpp.S'
+@î~´U:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-@¾#Ž¦U:244: warning: ignoring old recipe for target '.c.o'
+@î~´U:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-@¾#Ž¦U:248: warning: ignoring old recipe for target '.c.S'
+@î~´U:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-@¾#Ž¦U:252: warning: ignoring old recipe for target '.m.o'
+@î~´U:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-@¾#Ž¦U:256: warning: ignoring old recipe for target '.m.S'
+@î~´U:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'commonmarker.so'
-@¾#Ž¦U:260: warning: ignoring old recipe for target 'commonmarker.so'
+@î~´U:260: warning: ignoring old recipe for target 'commonmarker.so'
 compiling arena.c
 compiling autolink.c
 compiling blocks.c
@@ -135,40 +135,40 @@ current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ru
 make "DESTDIR=" install
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.17.13/ext/commonmarker'
 Makefile:175: warning: overriding recipe for target 'clean'
-@N™MV:175: warning: ignoring old recipe for target 'clean'
+@îÁmU:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-@N™MV:182: warning: ignoring old recipe for target 'distclean'
+@îÁmU:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-@N™MV:190: warning: ignoring old recipe for target 'install-so'
+@îÁmU:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-@N™MV:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+@îÁmU:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.-.commonmarker.time'
-@N™MV:202: warning: ignoring old recipe for target '.sitearchdir.-.commonmarker.time'
+@îÁmU:202: warning: ignoring old recipe for target '.sitearchdir.-.commonmarker.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-@N™MV:212: warning: ignoring old recipe for target '.cc.o'
+@îÁmU:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-@N™MV:216: warning: ignoring old recipe for target '.cc.S'
+@îÁmU:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-@N™MV:220: warning: ignoring old recipe for target '.mm.o'
+@îÁmU:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-@N™MV:224: warning: ignoring old recipe for target '.mm.S'
+@îÁmU:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-@N™MV:228: warning: ignoring old recipe for target '.cxx.o'
+@îÁmU:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-@N™MV:232: warning: ignoring old recipe for target '.cxx.S'
+@îÁmU:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-@N™MV:236: warning: ignoring old recipe for target '.cpp.o'
+@îÁmU:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-@N™MV:240: warning: ignoring old recipe for target '.cpp.S'
+@îÁmU:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-@N™MV:244: warning: ignoring old recipe for target '.c.o'
+@îÁmU:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-@N™MV:248: warning: ignoring old recipe for target '.c.S'
+@îÁmU:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-@N™MV:252: warning: ignoring old recipe for target '.m.o'
+@îÁmU:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-@N™MV:256: warning: ignoring old recipe for target '.m.S'
+@îÁmU:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'commonmarker.so'
-@N™MV:260: warning: ignoring old recipe for target 'commonmarker.so'
-/usr/bin/install -c -m 0755 commonmarker.so ./.gem.20211119-18643-n9m4g/commonmarker
+@îÁmU:260: warning: ignoring old recipe for target 'commonmarker.so'
+/usr/bin/install -c -m 0755 commonmarker.so ./.gem.20211119-18609-secdoa/commonmarker
 make[1]: Leaving directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.17.13/ext/commonmarker'
