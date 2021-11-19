@@ -25,12 +25,12 @@ Initially, we will load the dplyr library and the edf_tdf.csv that we had produc
 library(dplyr)
 ```
 
-```{r}
+```{r, eval = FALSE}
 edf_tdf<-read.csv("data/edf_tdf.csv")
 ```
 
 Let's start by sorting the juvenilles out of our dataframe.
-```{r}
+```{r, eval = FALSE}
 #subset the dataframe for records containing juvenilles
 edf_tdf_J<-edf_tdf[which(edf_tdf$Juvenilles=="J"),]
 
@@ -43,62 +43,62 @@ edf_tdf_J_ID<-unique(as.character(edf_tdf_J$Marked.Individual))
 ```
 
 Lets remove the Juvenilles from our dataframe, since we won't need them for our analysis our our descriptions. 
-```{r}
+```{r, eval = FALSE}
 #Remove juvenilles from the dataframe
 edf_tdf<-edf_tdf[-which(edf_tdf$Juvenilles=="J"),]
 ```
 
 Subset the data by distinct fields, since the encounter data can be inflated because the Whiskerbook program can include several unique encounters for the same individual.
-```{r}
+```{r, eval = FALSE}
 #get unique records by several fields using distinct
 edf_tdf_d<-edf_tdf %>% distinct(Marked.Individual, date_Time, Side, Location.ID, .keep_all = TRUE)
 ```
 
 Next we can create some dataframes of high quality and low quality encounters.
-```{r}
+```{r, eval = FALSE}
 edf_tdf_high<-edf_tdf_d[which(edf_tdf_d$Quality=="H"),]
 edf_tdf_low<-edf_tdf_d[which(edf_tdf_d$Quality %in% c("L","M")),]
 ```
 
 Now we will do some basic descriptions of the left and right hand sides and determine which individuals have left sides and right sides, or only one or the other. 
-```{r}
+```{r, eval = FALSE}
 ID_left_right<-edf_tdf_high%>%
   group_by(Marked.Individual, Side)%>%
   count()
 ```
   
 Let's subset the data that are annotated with either left and right.
-```{r}
+```{r, eval = FALSE}
 ID_left_right_sub<-ID_left_right[which(ID_left_right$Side %in% c("L", "R")),]
 ```
 
 Lets see how many individuals have only the left side or right side by counting the records grouped by ID. 
-```{r}
+```{r, eval = FALSE}
 ID_left_right_sub_final<-ID_left_right_sub%>%
   group_by(Marked.Individual)%>%
   count()
 ```
 
 From this,we can find the records which are left only or right only individuals. 
-```{r}
+```{r, eval = FALSE}
 OneSided<-ID_left_right_sub_final[which(ID_left_right_sub_final$n==1),]
 TwoSided<-ID_left_right_sub_final[which(ID_left_right_sub_final$n==2),]
 ```
 
 Now we can find which individuals have one side or both sides.
-```{r}
+```{r, eval = FALSE}
 ID_oneOnly<-ID_left_right_sub[which(ID_left_right_sub$Marked.Individual %in% OneSided$Marked.Individual),]
 ID_twoSided<-ID_left_right_sub[which(ID_left_right_sub$Marked.Individual %in% TwoSided$Marked.Individual),]
 ```
 
 From this we can find the individuals that are one sided and right only or left only.
-```{r}
+```{r, eval = FALSE}
 ID_oneOnly_right<-ID_oneOnly[ID_oneOnly$Side=="R",]
 ID_oneOnly_left<-ID_oneOnly[ID_oneOnly$Side=="L",]
 ```
 
 Now we can subset the dataframe to remove the records that are right only to create the left only dataframe. Similarly, when we subtract out the left only records, then we have a right only dataframe.
-```{r}
+```{r, eval = FALSE}
 edf_left<-edf_tdf_high[-which(edf_tdf_high$Marked.Individual %in% ID_oneOnly_right$Marked.Individual),]
 edf_right<-edf_tdf_high[-which(edf_tdf_high$Marked.Individual %in% ID_oneOnly_left$Marked.Individual),]
 ```
