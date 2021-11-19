@@ -21,6 +21,10 @@ keypoints:
 
 
 
+```r
+library(dplyr)
+edf_tdf<-read.csv("data/edf_tdf.csv")
+```
 
 Let's start by sorting the juvenilles out of our dataframe.
 
