@@ -80,7 +80,7 @@ renaming.table2 <- imageRename(inDir               = wd_images_raw,
 ```
 
 ```
-## Error: inDir contains no station directories
+## Error: could not read DateTimeOriginal tag of any image. Check if the DateTimeOriginal tag is present in metadata with exifTagNames(). If not, fixDateTimeOriginal() might help.
 ```
 
 Next, we will create a record table or dataframe of the exif information, that includes station, species, date/time, and directory information.
