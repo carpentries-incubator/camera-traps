@@ -18,19 +18,21 @@ keypoints:
 ---
   
 
+
 In camera trapping studies, it's common to have a lot of camera photos, sometimes thousands or even millions of images that need to be processed and formatted for analysis tasks. Camera trap data organization requires careful management and data extraction that can be greatly assisted by the use of programming tools, like program R and Python. 
 
 In general, if we want to organize our data from raw camera trapping data, there will also be other files including GPS locations, and camera start-times and end times. 
 
 First, set the working directory for the workshop where the snow leopard data have been downloaded.
 
-```{r}
+
+```r
 #Set working directory
 setwd("YourWorkingDirectory/CarpentriesforCameraTraps/")
 ```
 
 ```
-## Error in setwd("C:/Users/evebo/OneDrive/Desktop/WhiskerbookTrainingMaterials/"): cannot change working directory
+## Error in setwd("YourWorkingDirectory/CarpentriesforCameraTraps/"): cannot change working directory
 ```
 
 ```r
@@ -55,14 +57,6 @@ To create a new directory for our copied data we can use the dir.create function
 ```r
 #create directory
 dir.create("2012CameraData_renamed")
-```
-
-```
-## Warning in dir.create("2012CameraData_renamed"): '2012CameraData_renamed'
-## already exists
-```
-
-```r
 #get the file path for the new directory and store in an object
 wd_images_raw_renamed <- file.path("2012CameraData_renamed")  
 ```
@@ -77,7 +71,8 @@ fixDateTimeOriginal(wd_images_raw,recursive = TRUE)
 ```
 
 ```
-## Error: cannot find ExifTool
+## Error: Could not find inDir:
+## 2012_CTdata
 ```
 
 Renaming camera trap files is possible using the imageRename function. Here we specify the input and output directories.
@@ -113,7 +108,7 @@ rec.db.species0 <- recordTable(inDir  = wd_images_raw_renamed,
 ```
 
 ```
-## Error: cannot find ExifTool
+## Error: inDir contains no station directories
 ```
 
 After inspecting the dataframe, we can see there is a Species column with the wrong information in it, so let's fix that
@@ -154,11 +149,6 @@ Now we have the exif data finished and in a dataframe format. Next we are going 
 ```r
 #load the camera trap GPS and camera function information
 WakhanData<-read.csv("Metadata_CT_2012.csv")
-```
-
-```
-## Warning in file(file, "rt"): cannot open file 'Metadata_CT_2012.csv': No such
-## file or directory
 ```
 
 ```
