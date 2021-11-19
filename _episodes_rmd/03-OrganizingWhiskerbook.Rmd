@@ -18,7 +18,6 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 Set the working directory, and read in the camera trap data compiled in the previous lesson into this session.
 
 ```{r, eval = FALSE}
-setwd("YourWorkingDirectory/")
 SnowLeopardBook<-read.csv("data/SnowLeopard_CameraTrap.csv")
 ```
 
