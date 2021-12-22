@@ -28,12 +28,23 @@ Initially, we will load the dplyr library and the edf_tdf.csv that we had produc
 edf_tdf<-read.csv("data/edf_tdf.csv")
 ```
 
-Let's start by sorting the juvenilles out of our dataframe.
+We had previously manually labeled our encounters with information about Juvenilles. 
+
+Lets check this information by looking at the dataframe with ONLY Juvenilles. 
+
 
 ```r
-#subset the dataframe for records containing juvenilles
+#subset the dataframe for records containing juvenilles. These are the 
 edf_tdf_J<-edf_tdf[which(edf_tdf$Juvenilles=="J"),]
+```
 
+Now, we want to subset only the unique juvenilles from our dataframe based on the individual ID and the date_time signature. 
+We do not want to include more than one encounter from each day. For our purposes, we only need one per day. 
+
+We can check the unique individual ID of the juvenilles to find out how many we had encountered during our study. 
+
+
+```r
 #subset the dataframe to identify unique individuals
 edf_tdf_J<-unique(edf_tdf_J[,c("Marked.Individual","date_Time")])
 
@@ -41,14 +52,20 @@ edf_tdf_J<-unique(edf_tdf_J[,c("Marked.Individual","date_Time")])
 edf_tdf_J_ID<-unique(as.character(edf_tdf_J$Marked.Individual))
 ```
 
-Lets remove the Juvenilles from our dataframe, since we won't need them for our analysis our our descriptions. 
+Lets remove the Juvenilles from our dataframe, since we won't need them for our analysis or our descriptions. 
+
+In our analysis, we will not include juvenilles for estimates of density or abundance. 
+
 
 ```r
 #Remove juvenilles from the dataframe
 edf_tdf<-edf_tdf[-which(edf_tdf$Juvenilles=="J"),]
 ```
 
-Subset the data by distinct fields, since the encounter data can be inflated because the Whiskerbook program can include several unique encounters for the same individual.
+Subset the data by distinct fields, since the encounter data can include several encounters from one day. 
+. 
+For this, we will use dplyr to subset based on distinct ID, date_time, Side, and location ID. That way, we have a complete case of records and nothing extra. 
+
 
 ```r
 #get unique records by several fields using distinct
