@@ -20,9 +20,11 @@ keypoints:
 
 In camera trapping studies, it's common to have a lot of camera photos, sometimes thousands or even millions of images that need to be processed and formatted for analysis tasks. Camera trap data organization requires careful management and data extraction that can be greatly assisted by the use of programming tools, like program R and Python. 
 
-In general, if we want to organize our data from raw camera trapping data, there will also be other files including GPS locations, and camera start-times and end times. 
+In general, if we want to organize our data from raw camera trapping data, there will also be other files including GPS locations, and camera operations data including start-times, end times and any issues encountered that may have interrupted camera data capture such as repairs. 
 
-First, set the working directory for the workshop where the snow leopard data have been downloaded.
+We will begin this module by first organizing and formatting our camera trap data. 
+
+First, set the working directory for the workshop where the snow leopard data have been downloaded, which is essentially a folder of your camera trap imagery.
 
 ```{r}
 #Set working directory
@@ -45,12 +47,13 @@ Set the file path of your image directory
 wd_images_raw <- file.path("2012_CTdata")   
 ```
 
-One of the first steps that we want to perform is to perform a data quality check. Make sure that each of the file folders has the name of the camera trap station, often including the name and number. In our case we have cameras with names like "C1_Avgarch_SL", which indicates that this camera station was numbered 1, and at a location named Avgarch. These names are consistent across data tables with the GPS coordinates and camera performance information as well making it easier to merge this information. 
+One of the first steps that we want to perform is a data quality check. Make sure that each of the file folders has the name of the camera trap station, often including the name and number. In our case we have cameras with names like "C1_Avgarch_SL", which indicates that this camera station was numbered 1, and at a location named Avgarch. These names are consistent across data tables such as the GPS coordinates and camera operations information, making it easier to merge this information. 
 
-Since SD cards often name files sequentially like "IMG_1245.jpg", then there may be more than one file with this name. Our goal is to give each image a unique filename that uses the location, date/time, and a sequential number, so that the photo filenames are unique. To do this, the folder names have to have the location information.
+Since SD cards often name files sequentially like "IMG_1245.jpg", then there may be more than one file with this name. Our goal is to give each image a unique filename that uses the location, date/time, and a sequential number, so that the photo filenames are unique. To do this, the folder names have to have the location information because the new image names will have the camera trap location as an identifier.
 
-To create a new directory for our copied data we can use the dir.create function and set the file.path for a new directory renamed images to be copied to.
+To create a new directory for our copied data we can use the dir.create function.
 
+In our case, we will name the new folder 2012CameraData_renamed
 
 ```r
 #create directory
@@ -61,15 +64,14 @@ dir.create("2012CameraData_renamed")
 ## Warning in dir.create("2012CameraData_renamed"): '2012CameraData_renamed'
 ## already exists
 ```
-
+Then, set the file.path to an object, which eventually will be used for adding the renamed images.
 ```r
 #get the file path for the new directory and store in an object
 wd_images_raw_renamed <- file.path("2012CameraData_renamed")  
 ```
 
-
+A quick fix before we rename
 Some camera trap models (like Reconyx) do not use the standard Exif metadata information for the date and time, which makes it not possible to read directly, so we use the fixDateTimeOriginal function in the camTrapR package. 
-
 
 ```r
 #fix date time objects that may not be in standard Exif format
@@ -103,8 +105,24 @@ renaming.table2 <- imageRename(inDir               = wd_images_raw,
 
 Next, we will create a record table or dataframe of the exif information, that includes station, species, date/time, and directory information.
 
-There are parameters to allow a record table to include available species information to be sorted within the directory, for example (Station/Species) or (Station/Camera/Species). In our case, we only have one species, snow leopard images, so we will not use these extra settings. 
+If you followed the setup instructions carefully, then you should have no issues with ExifTool which has the backbone tools for extracting exifs.
+However, you may need to install it. 
+https://exiftool.org/
 
+First you can check if you have the tool installed:
+```r
+Sys.which("exiftool")
+```
+
+If not, then you can configure it using the path information for where the tool was placed on your computer. It does not need installation, but it does need to be found on your computer.
+```r
+# this is a dummy example assuming the directory structure: C:/Path/To/Exiftool/exiftool.exe
+exiftool_dir <- "C:/Path/To/Exiftool"        
+exiftoolPath(exiftoolDir = exiftool_dir)
+```
+
+Moving onto our exif extraction. 
+There are parameters to allow the extracted exif dataframe to include available species information, to be sorted from the directory, for example your data may be sorted with this structure: (Station/Species) or (Station/Camera/Species). In our case, we only have one species, snow leopard images, so we will not use these extra settings, although the parameters are available if your data has species folders. 
 
 ```r
 #create a dataframe from exif data that includes date and time
@@ -116,7 +134,7 @@ rec.db.species0 <- recordTable(inDir  = wd_images_raw_renamed,
 ## Error: cannot find ExifTool
 ```
 
-After inspecting the dataframe, we can see there is a Species column with the wrong information in it, so let's fix that
+After inspecting the dataframe, we can see there is a Species column with the wrong information in it, so let's tell the dataframe which species and genus we are working with.
 
 ```r
 #change the species column contents
@@ -148,7 +166,9 @@ write.csv(rec.db.species0, "CameraTrapExifData.csv")
 ```
 
 
-Now we have the exif data finished and in a dataframe format. Next we are going to bring in the data from the GPS coordinates. By loading the dataframe into the program.
+Now we have the exif data finished and in a dataframe format. 
+
+Next we are going to bring in the data from the GPS coordinates. By loading the Metadata with the GPS coordinates and camera function dataframe into the program.
 
 
 ```r
@@ -165,6 +185,7 @@ WakhanData<-read.csv("Metadata_CT_2012.csv")
 ## Error in file(file, "rt"): cannot open the connection
 ```
 
+We can check out the syntax of the geometry column of our metadata
 ```r
 #look at the synatx of the geometry column for GPS coordinates
 WakhanData$Loc_geo[1]
@@ -174,7 +195,9 @@ WakhanData$Loc_geo[1]
 ## Error in eval(expr, envir, enclos): object 'WakhanData' not found
 ```
 
-When we inspect these data, two empty rows have no information, so we'll have to clean this up a bit. There are several ways of doing this, for one, we can use the complete.cases function. 
+When we inspect these data, two empty rows have no information, so we'll have to clean this up a bit. There are several ways of doing this, for one, we can use the complete.cases function. This will remove any rows with NA values anywhere in the matrix. 
+
+If your data are complete, this is fine. If they are not then this will subset your dataframe.  For our purposes this is fine. 
 
 
 
@@ -219,7 +242,7 @@ WakhanData$Y<-substr(WakhanData$Loc_geo, 13,nchar(WakhanData$Loc_geo[1]))
 ## Error in substr(WakhanData$Loc_geo, 13, nchar(WakhanData$Loc_geo[1])): object 'WakhanData' not found
 ```
 
-Great so we have our Latitude and Longitude coordinates. Let's now merge the dataframe with the exif data and the dataframe with the GPS coordinates and camera infromation together. Before we can do that, we need to make sure that there is a column in both that match completely. So let's have a check and see if the trap names in the record table are the same in the GPS coordinates table. 
+Great so we have our Latitude and Longitude coordinates. Let's now we want to merge the dataframe with the exif data and the dataframe with the GPS coordinates and camera infromation together. Before we can do that, we need to make sure that there is a column in both that match completely. So let's have a check and see if the trap names in the record table are the same in the GPS coordinates table. 
 
 
 ```r
@@ -301,11 +324,13 @@ To work with the spatial formats and convert these coordinates, we will use the 
 ```r
 #load sf package and set coordinate systems to objects
 library(sf)
+#The coordinate information for Lat/Long is  EPSG:4326
 wgs84_crs = "+init=EPSG:4326"
+#The coordinate information for UTM is  EPSG:32643
 UTM_crs = "+init=EPSG:32643"
 ```
 
-
+Next, we want to create a shapefile of points of our GPS coordinates that is in the UTM coordinate system.
 
 ```r
 #convert the GPS coordinates into shapefile points
@@ -316,6 +341,7 @@ WakhanData_points<-st_as_sf(WakhanData, coords=c("X","Y"), crs=UTM_crs)
 ## Error in st_as_sf(WakhanData, coords = c("X", "Y"), crs = UTM_crs): object 'WakhanData' not found
 ```
 
+Lets plot them to make sure we did it right and that we did not confuse our X and Y coordinates. 
 ```r
 plot(WakhanData_points[,"Year"])
 ```
@@ -324,8 +350,7 @@ plot(WakhanData_points[,"Year"])
 ## Error in plot(WakhanData_points[, "Year"]): object 'WakhanData_points' not found
 ```
 
-Here we will convert the coordinate system to WGS84.
-
+Here we will convert the coordinate system to WGS84 using the st_transform function, which is our handy function for transforming coordinate systems.
 
 ```r
 #convert the coordinate system from UTM to lat long WGS84
@@ -336,6 +361,7 @@ WakhanData_points_latlong<-st_transform(WakhanData_points, crs=wgs84_crs)
 ## Error in st_transform(WakhanData_points, crs = wgs84_crs): object 'WakhanData_points' not found
 ```
 
+Now, we will extract the coordinates from the new transformed points, and put them into an dataframe object named WakhanData_points_latlong_df
 ```r
 WakhanData_points_latlong_df<- st_coordinates(WakhanData_points_latlong)
 ```
@@ -343,7 +369,7 @@ WakhanData_points_latlong_df<- st_coordinates(WakhanData_points_latlong)
 ```
 ## Error in st_coordinates(WakhanData_points_latlong): object 'WakhanData_points_latlong' not found
 ```
-
+We will rename the columns of the new dataframe object, Lat and Long.
 ```r
 colnames(WakhanData_points_latlong_df)<-c("Lat","Long")
 ```
@@ -351,6 +377,8 @@ colnames(WakhanData_points_latlong_df)<-c("Lat","Long")
 ```
 ## Error in colnames(WakhanData_points_latlong_df) <- c("Lat", "Long"): object 'WakhanData_points_latlong_df' not found
 ```
+
+Then, we can simply add these columns back to the original dataframe. 
 
 ```r
 WakhanData <-cbind(WakhanData, WakhanData_points_latlong_df)
@@ -361,9 +389,10 @@ WakhanData <-cbind(WakhanData, WakhanData_points_latlong_df)
 ```
 
 
-Now we can merge the two dataframes together using the merge function. We can set the columns we want to match on using the by.x and by.y arguments, and then set the all=FALSE because some of the records in the datatable with the GPS coordinates we do not have camera data for, so we do not need them in the final dataframe. The all argument can be set to true to include all records in both tables, but in this case we only want to merge the data from the first table that matches the second table. 
+Now that we have the coordinates in the format that we want, then we can merge the two dataframes (for the exif data and the metadata) together using the merge function. We can set the columns we want to match on using the by.x and by.y arguments, and in our case, the column name in the exif data for "Station" is the same as the column name in the metadata for "Trap.site". They have the same location names in these two columns that will match exactly. We are simply telling the program what those station names are.
 
-
+Then set the all=FALSE because some of the records in the datatable with the GPS coordinates, we do not have camera data for so we do not need them in the final dataframe. 
+The all argument can be set to true to include all records in both tables, but in this case we only want to merge the data from the first table that matches the second table.
 
 ```r
 #merge the record table to the GPS coordinates
@@ -393,7 +422,7 @@ write.csv(final_CameraRecords, "SnowLeopard_CameraTrap.csv")
 > 
 > Answer the following questions:
 > 
-> 1. What would we do for renaming our files if we had different camera stations?
+> 1. What would we do for renaming our files if we had A and B camera stations or species names subfolders? What would our code look like 
 > 
 > 2. What if our data were in the Namdapha National Park? What CRS would we use, and how would we code this in R?
 > 
