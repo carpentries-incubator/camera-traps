@@ -15,17 +15,14 @@ keypoints:
 knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 ```
 
-Set the working directory, and read in the camera trap data compiled in the previous lesson into this session.
+First, set the working directory to the tutorial directory.  
+
+Then, read in the camera trap data compiled in the previous lesson into this session.
 
 ```{r, eval = FALSE}
 SnowLeopardBook<-read.csv("data/SnowLeopard_CameraTrap.csv")
 ```
 
-
-Subset the data by columns that will be used for the Whiskerbook upload
-```{r, eval = FALSE}
-SnowLeopardBook<-SnowLeopardBook[,c(2,3,4,5,6,12,15,16,17,27,28)]
-```
 
 Load the Whiskerbook template downloaded from the website to assist in preparing batch import files. This file contains the header column names that are necessary for the program to import the data and fields successfully. 
 
@@ -33,12 +30,31 @@ Load the Whiskerbook template downloaded from the website to assist in preparing
 Whiskerbook_template<-read.csv("data/WildbookStandardFormat.csv")
 ```
 
-
-First, we will expand the empty dataframe with NA values to populate the dataframe with as many rows as there are data from our camera trap records. 
+We will expand the empty dataframe with NA values to populate the dataframe with as many rows as there are data from our camera trap records. 
 ```{r, eval = FALSE}
 #first make sure there are enough rows in the template
 Whiskerbook_template[1:nrow(SnowLeopardBook),]<-NA
 ```
+
+> ## Challenge: Whiskerbook 
+
+> 
+> Answer the following questions:
+> 
+> 1. What are some of the original fields in this Whiskerbook template that may be useful?
+> > 
+> {: .solution}
+{: .challenge}
+
+
+
+Using our camera trap data, subset the data by columns that will be used for the Whiskerbook upload. There are some obvious things in the template and some not so obvious. We will go through which ones are needed below, first lets make a subset of the camera trap data and metadata to use.
+```{r, eval = FALSE}
+SnowLeopardBook<-SnowLeopardBook[,c(2,3,4,5,6,12,15,16,17,27,28)]
+```
+
+
+
 
 Now, with the template formatted correctly, we can simply add the data from the camera trap dataframe to the template. 
 
@@ -57,7 +73,9 @@ Whiskerbook_template$Encounter.submitterOrganization<-"WCS Afghanistan"
 
 ```
 
-Since the dates in our camera trap dataset are not formatted properly, we will pull out the information for month and day from the date object and fill in new columns.
+Since the dates in our camera trap dataset are not formatted properly for the Whiskerbook template, then we need to fix it a bit.
+
+We will pull out the information for month and day from the date objects and fill in new columns withg the name Encounter.month and Encounter.day.
 
 ```{r, eval = FALSE}
 #fix dates
@@ -75,7 +93,7 @@ For animal encounter data, it depends on the length of time you would like to su
 
 Here we use the dplyr functions for group_by to group the camera trap photos by location ID of the camera station, and the year, month, day, and hour. Then, after they are grouped, we simply sequentially number each individual photo and assign it to which group it is in. 
 
-The mutate function within dplyr allows us to create a new row of data based on some function or command, in this case, we will use the cur_group_id() to ID each of the rows according to which group they are in. 
+The mutate function within dplyr allows us to create a new row of data based on some function or command, in this case, we will use the cur_group_id() to ID each of the rows according to which group they are in. The group will then denote the hourly intervals, which are our occurrences. 
 
 ```{r load-libraries, echo = FALSE, results='hide', warning = FALSE, message = FALSE, eval = FALSE}
 #load the dplyr library
@@ -88,7 +106,20 @@ Whiskerbook_template<-Whiskerbook_template%>%
   mutate(Encounter.occurrenceID = cur_group_id())
 ```
 
-Next, we have to sequentially number each of the images within that group to create the Encounter.mediaAsset information that Whiskerbook needs to have. Now, within each group we are numbering each photo within that group. There may be 10 photos in an occurrence so they would be numbered 1-10, or there may be 40 photos within the occurrence, so we name those 1-40.
+> ## Challenge: group_by function  
+
+> 
+> Answer the following questions:
+> 
+> 1. What happens when you group by different columns? Experiment with grouping by fewer or more columns to see the result. 
+>    What happens to the group_ids?
+> > 
+> {: .solution}
+{: .challenge}
+
+
+
+Next, we have to sequentially number each of the images within that group or "occurrence" to create the Encounter.mediaAsset information that Whiskerbook needs to have. Now, within each group we are numbering each photo within that group. There may be 10 photos in an occurrence so they would be numbered 1-10, or there may be 40 photos within the occurrence, so we name those 1-40. Thankfully, dplyr has all of the necessary functions to allow us to name the photos within each group. 
 
 ```{r, eval = FALSE}
 Whiskerbook_template<-Whiskerbook_template%>%
@@ -96,7 +127,7 @@ Whiskerbook_template<-Whiskerbook_template%>%
   mutate(Encounter.mediaAsset = 1:n())
 ```
 
-The numbers we just created are actually going to become column names, and so we need to add the characters "Encounter.mediaAsset" before these numbers. To do this, we can use the paste function to paste together our character string and the number we generated. 
+The image numbers we just created are actually going to become column names, and so we need to add the characters "Encounter.mediaAsset" before these numbers. To do this, we can use the paste function to paste together our character string and the number we generated. 
 
 ```{r, eval = FALSE}
 Whiskerbook_template$Encounter.mediaAsset<-paste("Encounter.mediaAsset", Whiskerbook_template$Encounter.mediaAsset, sep="_")
@@ -111,7 +142,6 @@ library(reshape2)
 Whiskerbook_template2<-dcast(Whiskerbook_template,Encounter.occurrenceID~Encounter.mediaAsset, value.var ="Encounter.mediaAssetX")
 ```
 
-
 As you can see, the columns are not sorted sequentially, so we need to sort them by ascending order. The str_sort function in the stringr can sort the columns.
 
 ```{r, eval = FALSE}
@@ -122,7 +152,9 @@ Whiskerbook_template2<-Whiskerbook_template2[,Whiskerbook_template2_cols]
 
 Next, we have to actually rename all of the Encounter.mediaAsset columns starting with 0. They start with 1 now because  the dply package requires we number starting with 1 not 0. It's a bit of a glitch for us, but we can fix this. 
 
-First, we can create a vector of numbers for the number of occurrences that we have. Then, we add the characters "Encounter.mediaAsset" to these numbers. Then we add one more column name for the "Encounter.occurrenceID" that is already in our dataframe. Now we have a vector of character strings that will be our new column names. Now, we can simply rename our dataframe columns.
+First, we can create a vector of numbers for the number of occurrences that we have. Then, we add the characters "Encounter.mediaAsset" to these numbers. Then we add one more column name for the "Encounter.occurrenceID" that is already in our dataframe. Now we have a vector of character strings that will be our new column names. 
+
+Now, we can simply rename our dataframe columns using the new names we have created.
 
 ```{r, eval = FALSE}
 #the columns have to be renamed from 0 so we subtract one from the length
@@ -133,21 +165,29 @@ Media_assets<-c(col_vec, "Encounter.occurrenceID")
 names(Whiskerbook_template2)<-Media_assets
 ```
 
+The next thing we need to do is clean up our original Whiskerbook template so that we can merge these new cast Encounter.mediaAsset data. 
 
-The next thing we need to do is clean up our original Whiskerbook template so that we can import this data. Right now, we have all the filenames in an Encounter.mediaAssetX column, and we need to remove that. 
+In the original template, now, we have all the filenames in an Encounter.mediaAssetX column, and we need to remove that. That was there originally before we went through the trouble of reorganizing it. 
 
-Then, we will take only the unique records within this template, and remove all of the columns which are filled with only NA values. We do not need these columns if they have no information and the file can still be uploaded. 
-
-Finally, we can remove the Encounter.mediaAsset column, which contained the numbers assigned to the photos. 
+Finally, we can remove the Encounter.mediaAsset column, which contained the numbers assigned to the individual images. 
 
 ```{r, eval = FALSE}
 Whiskerbook_template<-Whiskerbook_template[,-1]
+```
+
+Then, we will take only the unique records within this template.
+
+```{r, eval = FALSE}
 Whiskerbook_template<-unique(Whiskerbook_template)
+```
+
+Then, remove all of the columns which are filled with only NA values. We do not need these columns if they have no information and the file can still be uploaded. 
+```{r, eval = FALSE}
 Whiskerbook_template<-Whiskerbook_template[,colSums(is.na(Whiskerbook_template))<nrow(Whiskerbook_template)]
 Whiskerbook_template <-Whiskerbook_template[,-ncol(Whiskerbook_template)]
 ```
 
-Now our original Whiskerbook template is formatted so we can merge the Whiskerbook_template2 with our filenames to it. To do this, we can merge the templates together using the merge function, and then select only the unique rows.
+Now our original Whiskerbook template is formatted so we can merge the Whiskerbook_template2 with our cast Encounter.mediaAsset filenames to it. To do this, we can merge the templates together using the merge function, and then select only the unique rows.
 
 ```{r, eval = FALSE}
 Whiskerbook<-merge(Whiskerbook_template,Whiskerbook_template2, by="Encounter.occurrenceID", all.x=FALSE, all.y=TRUE)
@@ -161,17 +201,5 @@ write.csv(Whiskerbook, "Whiskerbook.csv")
 ```
 
 
-
-
-
-> ## Challenge: Whiskerbook 
-
-> 
-> Answer the following questions:
-> 
-> 1. What are some of the original fields in this Whiskerbook template that may be useful that we did not use?
-> > 
-> {: .solution}
-{: .challenge}
 
 {% include links.md %}
