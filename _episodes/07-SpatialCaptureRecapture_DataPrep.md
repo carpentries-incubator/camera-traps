@@ -70,7 +70,7 @@ camop_problem <- cameraOperation(CTtable      = Metadata,
 ```
 
 
-We need to generate the time intervals for our sessions. In this case, our data is around 4 months, which is too long to assume population closure. We will split our data into 2 month sessions by using the dyplyr package.
+We need to generate the time intervals for our sessions. In this case, our data is around 4 months, which is too long to assume population closure. We will split our data into 3 month sessions by using the dyplyr package.
 
 ```r
 #Extract the dates of our surveys that the cameras were operational and create a dataframe
@@ -102,6 +102,8 @@ date_cameraop<-date_cameraop%>%
     mutate(Session_grouped =1:n())
 ```
 
+Now, we want to only model a single session, so we will subset our dates to only those in session 1. 
+
 
 ```r
 #subset the sessions to only one session that we can model
@@ -110,10 +112,10 @@ dates_f<-date_cameraop[which(date_cameraop$Session_3m==1),]
 dates_f_sub<-dates_f[,c("date_Time", "Session_grouped")]
 ```
 
-We will subset our camera trap operation matrix to include data that are in session 1, and we can format the data a bit.
+Next, we will subset the dates of session one from the camera operability matrix. 
 
 ```r
-#subset the dates of session 1
+#subset the dates of session 1 from the camera operability matrix. 
 camop_problem<-camop_problem[,as.character(dates_f$date_Time)]
 
 #remove any rows with only NA values (because those cameras were not setup during session 1!)
@@ -121,8 +123,11 @@ camop_problem <- camop_problem[rowSums(is.na(camop_problem)) != ncol(camop_probl
 
 #convert back to a dataframe
 camop_problem<-as.data.frame(camop_problem)
+
+
 #convert NA values to 0 because this will go in our tdf dataframe, which is a list of which cameras were operational.
 camop_problem[is.na(camop_problem)]<-0
+
 #change the dates to factors
 colnames(camop_problem)<-seq(1,length(camop_problem), by=1)
 
@@ -130,10 +135,13 @@ colnames(camop_problem)<-seq(1,length(camop_problem), by=1)
 K=length(camop_problem)
 ```
 
-There are further formatting operations that have to be done on the dataframes for the tdf and edf data that we had prepared earlier. First we start with the tdf dataframe.
+There are further formatting operations that have to be done on the dataframes for the tdf and edf data that we had prepared earlier. 
+
+
+First we start with the tdf dataframe.
 
 ```r
-#subset our tdf matrix of GPS located station locations by the cameras that were actually operational during our session.
+#subset our tdf matrix of GPS located station locations by the cameras that were actually operational during our session 1.
 tdf2<-tdf[which(tdf$Location.ID %in% rownames(camop_problem)),]
 tdf2<-cbind(tdf2[,1:4], camop_problem)
 ```
