@@ -34,7 +34,9 @@ edf<-read.csv("data/edf.csv", stringsAsFactors = TRUE)
 Metadata<-read.csv("data/Metadata.csv")
 ```
 
-There are three raster layers that are suitable for this analysis, including the roughness, topographic position index and elevation. To generate these layers, the elevation was downloaded as an SRTM file, the roughness and topographic position index were calculated using the terrain function in the terrain package in program R.
+There are three raster layers that are suitable for this analysis, including the roughness, topographic position index and elevation. 
+To generate these layers, the elevation was downloaded as an SRTM file, the roughness and topographic position index were calculated 
+using the terrain function in the terrain package in program R.
 
 
 ```r
@@ -55,7 +57,9 @@ Metadata$Start<-as.Date(Metadata$Start,format= dateFormat)
 Metadata$End<-as.Date(Metadata$End, format=dateFormat)
 ```
 
-Next, we will use the cameraOperation function in the camtrapR package to generate a site x date matrix for the dates and sites that the cameras were operational. Notice there are several functions that we are not using, although you may for your data. There are options here for setting cameras which have problems for example and were decommissioned for a certain amount of time.
+Next, we will use the cameraOperation function in the camtrapR package to generate a site x date matrix for the dates and sites that the cameras were operational. 
+Notice there are several functions that we are not using, although you may for your data. 
+There are options here for setting cameras which have problems for example and were decommissioned for a certain amount of time.
 
 
 ```r
@@ -70,7 +74,8 @@ camop_problem <- cameraOperation(CTtable      = Metadata,
 ```
 
 
-We need to generate the time intervals for our sessions. In this case, our data is around 4 months, which is too long to assume population closure. We will split our data into 3 month sessions by using the dyplyr package.
+We need to generate the time intervals for our sessions. In this case, our data is around 4 months, which is too long to assume population closure. 
+We will split our data into 3 month sessions by using the dyplyr package.
 
 ```r
 #Extract the dates of our surveys that the cameras were operational and create a dataframe
@@ -166,7 +171,7 @@ if(sum(edf_high$Juvenilles == "J", na.rm=T)!=0){
   edf_high<-edf_high[-which(edf_high$Juvenilles == "J"),]
 }
 
-#merge the dates we had created earlier to get which number from the sequence dates for each of the days in our edf. This column is important for the next step.
+#merge the dates we had created earlier to get which number from the sequence dates for each of the days in our edf.This column is important for the next step.
 
 edf_high<-edf_high[which(edf_high$Location.ID %in% unique(tdf2$Location.ID)),]
 ```
@@ -174,7 +179,9 @@ edf_high<-edf_high[which(edf_high$Location.ID %in% unique(tdf2$Location.ID)),]
 
 
 
-Next we will use the data2oscr function to format the data for our model to an oSCR data object. We can use
+Next we will use the data2oscr function to format the data for our model to an oSCR data object. We can use data2oscr with our edf_high data object, and the tdf2 object. 
+You will see that we can select the columns by name for Session, ID, Occurrence, and Trap.Col. K was the number of days in our survey. 
+
 
 ```r
 #format the data from our edf_high and tdf2 dataframes and input into the data2oscr function
@@ -235,23 +242,32 @@ buff_sigma <- scrFrame$mmdm/2*4  #change to m
 ```
 
 
-Generate the state space object that we will use for the models
+Generate the state space object that we will use for the models. 
+
+The buffer size will change every session, although the 800 resolution will stay the same for every session. 
+
+If you run the models for all of your sessions with the same buffer size for every model and allow the resolution to change, you should see that the resolution will be roughly the same between sessions. If you are unsure of your resolution, then simply run all of your sessions with the same fixed buffer size and you can find the resolution that the program suggests.
+
+In our case, we want to buffer size to change depending on our camera array per session, and we fix the resolution of the grid size. 
+
+
 
 ```r
-#The buffer size will change every session, although the 800 model resolution will stay the same for every session. If you run the models for all of your sessions with the same buffer size for every model and allow the resolution to change, you should see that the resolution will be roughly the same between sessions.
-
 #In SECR models, it's customary to allow the buffer mask size to vary and keep the resolution constant.
 
-#Simply guess a value for a resolution at first, and run the models
 ss<-make.ssDF(scrFrame, buff_sigma, 800)
+
 # Possible trap locations to 2-column object (dataframe or matrix)
 ss_coords<-as.data.frame(ss[[1]][,1:2])
+
 allpoints <-  st_as_sf(ss_coords, coords=c("X","Y"),crs = crs(buffer) )
+
 allpoints<-st_intersection(allpoints, buffer)
 ```
 
 
 Once our models are run, we will need some important information about the grid size and resolution of the SECR inputted data, so that we can backtransform the estimates to 100km2.
+
 
 ```r
 #find out how far apart the points are in terms of distance
