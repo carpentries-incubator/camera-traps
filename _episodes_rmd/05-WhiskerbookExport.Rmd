@@ -29,7 +29,7 @@ library(dplyr)
 library(stringr)
 ```
 
-We will import the Whiskerbook file that was exported from the website interface. We are finished with the individual identification tasks. These are the raw data that were downloaded and then annotated with labels for whether the photo capture was high or low quality, and if the encounter showed the left or right side of the animal only. 
+We will import the Whiskerbook file that was exported from the website interface. We are finished with the individual identification tasks. These are the raw data that were downloaded and then annotated with labels for whether the photo capture was high or low quality, and if the encounter showed the left, right, or both sides of the animal. You may choose to label head and tail only images as well. These labels had to be placed manually and are at the discretion of the researcher. 
 
 ```{r, eval = FALSE}
 Wildbook<-read.csv("data/Whiskerbook_export.csv")
@@ -51,6 +51,7 @@ Individuals<-unique(Wildbook$Name0.value)
 
 
 
+Next, we can check to see how many encounters we had on each side of the animal and whether they were low or high quality images. 
 
 ```{r, eval = FALSE}
 #To find the number of encounters on each side of the animal and quality
@@ -83,6 +84,10 @@ Sides<-Wildbook%>%
 {: .challenge}
 
 
+In this next part, we are beginning our construction of a data matrix that we can use for Spatial Capture recapture. The oSCR package requires a certain format for the data, and to get it into the format that oSCR wants, we have to change a few things. 
+
+First, we would like to reconstruct a full date object. Remember our data were previously parsed into year, month and day columns, and now we want a full date again.
+
 ```{r, eval = FALSE}
 #To format dates into a date object we have to combine the month, day and year columns together
 Wildbook$date_Time<-paste(Wildbook$Encounter.year, Wildbook$Encounter.month, sep="-")
@@ -92,12 +97,13 @@ Wildbook$date_Time<-as.Date(Wildbook$date_Time,format= dateFormat)
 ```
 
 
-Load the metadata
+Next, we will reload the metadata file that we had used previously with our GPS and camera functionality information.
 
 ```{r, eval = FALSE}
 Metadata<-read.csv("Metadata_CT_2012_2.csv")
+
+#check whether the location names are exactly the same in the Wildbook download and the metadata
 setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site)
-Wildbook2<-merge(Metadata, Wildbook, by="Trap.site", by.y="Encounter.locationID", all=TRUE)
 ```
 
 Challenge how to fix these missed entries? From a previous lesson we learned how to manipulate the data to have matching file names. 
@@ -118,32 +124,49 @@ Metadata$Trap.site<-str_replace(Metadata$Trap.site
 ,"C5_Ishmorg" ,"C5_Ishmorgh")
 ```
 
+Check again whether the names are all exactly the same by using setdiff. 
+
 ```{r, eval = FALSE}
 setdiff(Wildbook$Encounter.locationID, Metadata$Trap.site)
 ```
+
+
+Then, we can merge the metadata into our Wildbook download. 
+```{r, eval = FALSE}
+Wildbook2<-merge(Metadata, Wildbook, by="Trap.site", by.y="Encounter.locationID", all=TRUE)
+```
+
+Our metadata has more locations then we actually need for these data. 
+So, we can subset the dataframe to include only those locations that are actually in the Wildbook. 
 
 ```{r, eval = FALSE}
 Metadata<-Metadata[which(Metadata$Trap.site %in% Wildbook$Encounter.locationID),]
 ```
 
+Let's save our subset Metadata for later. 
 
 ```{r, eval = FALSE}
 write.csv(Metadata, "Metadata.csv")
 ```
 
+Now, we only will need certain columns of our Wildbook data. We can easily subset these needed columns and rename them. 
 
+We will also subset the GPS coordinates for our locations into a separate object called Wildbook_points_coords. 
 
-Create a subset of data to work with
 ```{r, eval = FALSE}
 
 Wildbook_points<-Wildbook2[,c("Name0.value","Encounter.decimalLongitude", "Encounter.decimalLatitude", "Trap.site", "date_Time", "Side","Quality", "Juvenilles") ]
 
+#rename the columns to more recognizable names
 colnames(Wildbook_points)<-c("Marked.Individual", "Latitude", "Longitude", "Location.ID","date_Time" ,"Side", "Quality","Juvenilles")
 
+#subset the coordinates.
 Wildbook_points_coords<-unique(Wildbook_points[,c(2,3,4)])
 
 ```
 
+
+Now, we will need to transform the lat/long coordinates in the Wildbook back to UTM. 
 
 ```{r, eval = FALSE}
 library(sf)
@@ -154,26 +177,33 @@ Wildbook_points_coords<-Wildbook_points_coords[complete.cases(Wildbook_points_co
 
 Wildbook_pts_latlong<-st_as_sf(Wildbook_points_coords, coords = c("Latitude","Longitude"), crs = wgs84_crs)
 
-Wildbook_pts_utm<-st_transform(Wildbook_pts_latlong, crs = UTM_crs)
+#We can plot the coordinates to make sure they are correctly configured. 
 
-```
-
-
-```{r, eval = FALSE}
 plot(Wildbook_pts_latlong[1])
 ```
 
 
+Then we can transform the points back into UTM. 
+```{r, eval = FALSE}
+Wildbook_pts_utm<-st_transform(Wildbook_pts_latlong, crs = UTM_crs)
+```
+
+
 
 ```{r, eval = FALSE}
+#extract the UTM coordinates
 Wildbook_pts_utm_df<- st_coordinates(Wildbook_pts_utm)
 
+#add the UTM coordinates bto the Wildbook_points_coords object
 Wildbook_points_coords<-cbind(Wildbook_points_coords, Wildbook_pts_utm_df)
 
+#merge the coordinates back to the Wildbook dataframe. 
 Wildbook_points<-merge(Wildbook_points_coords, Wildbook_points, by=c("Location.ID", "Latitude", "Longitude"))
 
 ```
 
+
+A few more pieces of data are needed, mainly the Session information and the Occassion. In our case, for modeling purposes this time, these will initially be set to 1. We will change these later. 
 ```{r, eval = FALSE}
 Wildbook_points$Session<-1
 Wildbook_points$Occassion<-1
@@ -181,7 +211,15 @@ Wildbook_points$species = "Snow Leopard"
 ```
 
 
-Next, we will use the camTrapR package to create a matrix of camera operations. We will use our metadata with the dates the cameras were intially deployed and then taken down. The package can also accommodate any problems with the cameras during the session, for example, if one camera had a technical issue and had to be taken down and replaced a month later, that would be included in separate columns for problems. The result of this function is a site x dates matrix of which days the cameras were operational.
+Next, we will use the camTrapR package to create a matrix of camera operations.
+
+We will use our metadata with the dates the cameras were intially deployed and then taken down. 
+
+The package can also accommodate any problems with the cameras during the session, for example, if one camera had a technical issue 
+and had to be taken down and replaced a month later, that would be included in separate columns for problems. 
+In our case, we do not have any data about problems, so we set this parameter to FALSE.
+
+The result of this function is a site x dates matrix of which days the cameras were operational.
 
 ```{r, eval = FALSE}
 
@@ -197,8 +235,7 @@ camop_problem <- cameraOperation(CTtable      = Metadata,
                                  setupCol     = "Start",
                                  retrievalCol = "End",
                                  hasProblems  = FALSE,
-                                 dateFormat   = dateFormat
-)
+                                 dateFormat   = dateFormat)
 
 ```
 
@@ -230,13 +267,12 @@ We will save this file for the next lesson.
 edf_tdf<-merge(edf,tdf,by="Location.ID")
 ```
 
-
-Eliminate any duplicated values, this table containes duplicates from the way whiskerbook can create multiple encounters from the same occurrence, so the data are a bit messy in this sense.
+Eliminate any duplicated values, this table containes duplicates from the way whiskerbook can create multiple encounters from the same occurrence, so the data are a bit messy.
 
 ```{r, eval = FALSE}
 write.csv(edf_tdf, "edf_tdf.csv")
 ```
-The oSCR program requires we append the camera operation matrix to the table with the GPS coordinates.
+The oSCR program requires we append the camera operation matrix to the tdf table with the GPS coordinates.
 
 In order to make this as clear as possible, we will rename our camera operations matrix with numbers for each date, instead of the dates themselves. 
 ```{r, eval = FALSE}
@@ -257,18 +293,19 @@ colnames(camop_problem)<-detectionDays$Occasion
 camop_problem$Location.ID<-rownames(camop_problem)
 ```
 
+Next, we will check whether the locations in the GPS coordinates columns exactly match the camera operability matrix. 
 ```{r, eval = FALSE}
 setdiff(tdf$Location.ID, camop_problem$Location.ID)
 ```
+
+Next, we will check whether the locations in the tdf dataframe with the GPS coordinates columns exactly match the edf dataframe about the individuals.
+
 ```{r, eval = FALSE}
 setdiff(tdf$Location.ID, edf$Location.ID)
 ```
-```{r, eval = FALSE}
-camop_problem$Location.ID
-```
-```{r, eval = FALSE}
-setdiff(tdf$Location.ID, camop_problem$Location.ID)
-```
+
+
+Now we can merge our camera operability matrix to our tdf dataframe with the camera operability matrix. 
 ```{r, eval = FALSE}
 #merge the GPS coordinates table with the camera operations matrix
 tdf<-merge(tdf, camop_problem, by="Location.ID", all=TRUE)
@@ -278,12 +315,14 @@ camop_problem<-camop_problem[,-ncol(camop_problem)]
 
 ```
 
+In our edf dataframe about the individuals, then we need to convert our individual names to sequential numbers for clarity. 
+
 ```{r, eval = FALSE}
 #convert the individual ID's and locations to sequential numbers for clarity.
 edf$ID<-as.integer(as.factor(edf$Marked.Individual))
 ```
 
-Check to make sure the names of the Location.ID columns match.
+Check again to make sure the names of the Location.ID columns match.
 ```{r, eval = FALSE}
 setdiff(edf$Location.ID, tdf$Location.ID)
 setdiff(tdf$Location.ID, edf$Location.ID)
