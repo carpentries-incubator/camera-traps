@@ -13,6 +13,7 @@ keypoints:
 - "Rename photos according to trap location and date, then copy to a new folder"
 - "When character strings between two dataframes do not match the str_replace() function can replace or change parts of the strings for a column in a dataframe"
 - "Spatial objects can be projected using the st_transform() function"
+source: Rmd
 ---
   
 
