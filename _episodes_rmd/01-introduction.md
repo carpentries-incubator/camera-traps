@@ -18,8 +18,7 @@ keypoints:
 - "Format the data frame that includes encounters of individual identities into a data format for spatial capture recapture"
 - "Create buffer masks for the spatial recapture format"
 - "run models using the oSCR package in program R"
-
-
+source: Rmd
 ---
 Camera traps provide a non-invasive survey method for detecting animals. Downloading and analyzing camera trap data can be faster and more organized with knowledge of R programming to preprocess data prior to species or individual identification tasks, understanding software options and how to use them, and postprocess spreadsheet datasets in preparation for modeling.
 
