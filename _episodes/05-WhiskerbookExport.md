@@ -16,7 +16,7 @@ source: Rmd
 keypoints:
 - "Use dplyr to get basic descriptive information about the number of individuals"
 - "organize encounters and stations in the correct format for oSCR"
-
+source: Rmd
 ---
 
 
