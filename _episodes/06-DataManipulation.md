@@ -15,7 +15,7 @@ keypoints:
 - "Subset left and right only individuals"
 - "Subset individuals that have encounters that include both left and right sides"
 - "Subset dataframes that include left only and both sides, and right and both sides"
-source: Rmd
+
 ---
 
 
