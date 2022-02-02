@@ -11,6 +11,7 @@ exercises: 30
 keypoints:
 - "Whiskerbook takes a specific format for data upload"
 - "Casting the file names into long format for Encounter.mediaAsset"
+source: Rmd
 ---
 
 
