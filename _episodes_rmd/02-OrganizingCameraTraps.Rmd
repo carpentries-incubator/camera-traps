@@ -25,7 +25,7 @@ We will begin this module by first organizing and formatting our camera trap dat
 
 First, set the working directory for the workshop where the snow leopard data have been downloaded, which is essentially a folder of your camera trap imagery.
 
-```{r, message=FALSE, eval = FALSE}
+```{r, message=FALSE, eval = FALSE, error=TRUE}
 #Set working directory
 setwd("YourWorkingDirectory/CarpentriesforCameraTraps/")
 ```
@@ -34,14 +34,14 @@ setwd("YourWorkingDirectory/CarpentriesforCameraTraps/")
 ## Error in setwd("C:/Users/evebo/OneDrive/Desktop/WhiskerbookTrainingMaterials/"): cannot change working directory
 ```
 
-```{r, message=FALSE, eval = FALSE}
+```{r, message=FALSE, eval = FALSE, error=TRUE}
 #Make sure to have ExifTool installed and bring in the camtrapR package
 library(camtrapR)
 ```
 
 Set the file path of your image directory
 
-```{r, message=FALSE, eval = FALSE}
+```{r, message=FALSE, eval = FALSE, error=TRUE}
 # raw image location
 wd_images_raw <- file.path("2012_CTdata")   
 ```
