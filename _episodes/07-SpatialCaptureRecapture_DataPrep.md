@@ -237,10 +237,6 @@ We will use the points from our tdf2 dataframe of the GPS coordinates for the ca
 buff_sigma <- scrFrame$mmdm/2*4  #change to m
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'scrFrame' not found
-```
-
 
 Generate the state space object that we will use for the models. 
 

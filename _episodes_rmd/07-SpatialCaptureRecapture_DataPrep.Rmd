@@ -237,7 +237,7 @@ ss<-make.ssDF(scrFrame, sigma*4, sigma)
 
 We will use the points from our tdf2 dataframe of the GPS coordinates for the camera traps used during the duration of our study.
 
-```{r}
+```{r, eval = FALSE}
 # Assign an initial sigma based on 1/2 minimum distance removed
 buff_sigma <- scrFrame$mmdm/2*4  #change to m
 ```
