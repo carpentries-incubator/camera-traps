@@ -22,7 +22,7 @@ Then, read in the camera trap data compiled in the previous lesson into this ses
 
 
 ```r
-SnowLeopardBook<-read.csv("data/SnowLeopard_CameraTrap.csv")
+SnowLeopardBook<-read.csv("SnowLeopard_CameraTrap.csv")
 ```
 
 
@@ -30,7 +30,7 @@ Load the Whiskerbook template downloaded from the website to assist in preparing
 
 
 ```r
-Whiskerbook_template<-read.csv("data/WildbookStandardFormat.csv")
+Whiskerbook_template<-read.csv("WildbookStandardFormat.csv")
 ```
 
 We will expand the empty dataframe with NA values to populate the dataframe with as many rows as there are data from our camera trap records. 
