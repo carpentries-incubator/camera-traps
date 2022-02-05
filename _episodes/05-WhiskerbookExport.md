@@ -29,7 +29,7 @@ We will import the Whiskerbook file that was exported from the website interface
 
 
 ```r
-Wildbook<-read.csv("data/Whiskerbook_export.csv")
+Wildbook<-read.csv("Whiskerbook_export.csv")
 ```
 
 Let's do some quick data crunching to find out how many individuals we have in our dataset. 
