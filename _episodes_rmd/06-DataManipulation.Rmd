@@ -26,7 +26,7 @@ library(dplyr)
 ```
 
 ```{r, eval = FALSE}
-edf_tdf<-read.csv("edf_tdf.csv")
+edf_tdf<-read.csv("data/edf_tdf.csv")
 ```
 
 We had previously manually labeled our encounters with information about Juvenilles. 

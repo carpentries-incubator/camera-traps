@@ -25,7 +25,7 @@ Initially, we will load the dplyr library and the edf_tdf.csv that we had produc
 
 
 ```r
-edf_tdf<-read.csv("edf_tdf.csv")
+edf_tdf<-read.csv("data/edf_tdf.csv")
 ```
 
 We had previously manually labeled our encounters with information about Juvenilles. 
