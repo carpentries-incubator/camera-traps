@@ -113,20 +113,14 @@ rec.db.species0 <- recordTable(inDir  = wd_images_raw_renamed,
                                IDfrom = "directory")
 ```
 
-```
-## Error: cannot find ExifTool
-```
 
 After inspecting the dataframe, we can see there is a Species column with the wrong information in it, so let's tell the dataframe which species and genus we are working with.
 
-```{r, message=FALSE, eval = FALSE}
+```{r results='hide', message=FALSE, warning=FALSE, eval=FALSE}
 #change the species column contents
 rec.db.species0$Species <- "uncia"
 ```
 
-```
-## Error in rec.db.species0$Species <- "uncia": object 'rec.db.species0' not found
-```
 
 ```{r results='hide', message=FALSE, warning=FALSE, eval=FALSE}
 rec.db.species0$Genus <- "Pathera"
