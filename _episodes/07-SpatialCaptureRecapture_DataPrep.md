@@ -29,9 +29,9 @@ Read in our tdf, edf, and metadata files that we created in the previous lesson.
 
 
 ```r
-tdf<-read.csv("data/tdf.csv", stringsAsFactors = TRUE)
-edf<-read.csv("data/edf.csv", stringsAsFactors = TRUE)
-Metadata<-read.csv("data/Metadata.csv")
+tdf<-read.csv("tdf.csv", stringsAsFactors = TRUE)
+edf<-read.csv("edf.csv", stringsAsFactors = TRUE)
+Metadata<-read.csv("Metadata.csv")
 ```
 
 There are three raster layers that are suitable for this analysis, including the roughness, topographic position index and elevation. 
@@ -40,9 +40,9 @@ using the terrain function in the terrain package in program R.
 
 
 ```r
-roughness<-raster("data/Rasters/roughness.tif")
-TPI<-raster("data/Rasters/TPI2.tif")
-elev<-raster("data/Rasters/elev.tif")
+roughness<-raster("GeospatialData/roughness.tif")
+TPI<-raster("GeospatialData/TPI2.tif")
+elev<-raster("GeospatialData/elev.tif")
 ```
 
 First, we have to change the date formats to be suitable for the dates to be recognized. Right now, they are in character string format.
@@ -202,7 +202,7 @@ library(sf)
 
 #read in the shapefile for the park boundary that we created earlier to reflect the hard boundaries of a river in the north part of the study area. This was a manually created shapefile for precision, using a drawing create polygon shapefile feature in GIS.
 
-buffer<-st_read("Shapefiles/Wakhan_ParkBoundary_Largest.shp")
+buffer<-st_read("GeospatialData/Wakhan_ParkBoundary_Largest.shp")
 ```
 
 
