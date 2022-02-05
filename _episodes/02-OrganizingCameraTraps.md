@@ -17,7 +17,7 @@ keypoints:
 - "Spatial objects can be projected using the st_transform() function"
 source: Rmd
 ---
-  
+
 
 In camera trapping studies, it's common to have a lot of camera photos, sometimes thousands or even millions of images that need to be processed and formatted for analysis tasks. Camera trap data organization requires careful management and data extraction that can be greatly assisted by the use of programming tools, like program R and Python. 
 
@@ -31,10 +31,6 @@ First, set the working directory for the workshop where the snow leopard data ha
 ```r
 #Set working directory
 setwd("YourWorkingDirectory/CarpentriesforCameraTraps/")
-```
-
-```
-## Error in setwd("C:/Users/evebo/OneDrive/Desktop/WhiskerbookTrainingMaterials/"): cannot change working directory
 ```
 
 
@@ -64,11 +60,6 @@ In our case, we will name the new folder 2012CameraData_renamed
 #create directory
 dir.create("2012CameraData_renamed")
 ```
-
-```
-## Warning in dir.create("2012CameraData_renamed"): '2012CameraData_renamed'
-## already exists
-```
 Then, set the file.path to an object, which eventually will be used for adding the renamed images.
 
 ```r
@@ -83,10 +74,6 @@ Some camera trap models (like Reconyx) do not use the standard Exif metadata inf
 ```r
 #fix date time objects that may not be in standard Exif format
 fixDateTimeOriginal(wd_images_raw,recursive = TRUE)
-```
-
-```
-## Error: cannot find ExifTool
 ```
 
 Renaming camera trap files is possible using the imageRename function. Here we specify the input and output directories.
@@ -104,11 +91,6 @@ renaming.table2 <- imageRename(inDir               = wd_images_raw,
                                hasCameraFolders    = FALSE,
                                keepCameraSubfolders = FALSE,
                                copyImages          = TRUE)
-```
-
-```
-## Error: Could not find inDir:
-## 2012_CTdata
 ```
 
 Next, we will create a record table or dataframe of the exif information, that includes station, species, date/time, and directory information.
@@ -141,9 +123,6 @@ rec.db.species0 <- recordTable(inDir  = wd_images_raw_renamed,
                                IDfrom = "directory")
 ```
 
-```
-## Error: cannot find ExifTool
-```
 
 After inspecting the dataframe, we can see there is a Species column with the wrong information in it, so let's tell the dataframe which species and genus we are working with.
 
@@ -153,18 +132,12 @@ After inspecting the dataframe, we can see there is a Species column with the wr
 rec.db.species0$Species <- "uncia"
 ```
 
-```
-## Error in rec.db.species0$Species <- "uncia": object 'rec.db.species0' not found
-```
 
 
 ```r
 rec.db.species0$Genus <- "Pathera"
 ```
 
-```
-## Error in rec.db.species0$Genus <- "Pathera": object 'rec.db.species0' not found
-```
 
 To save this table to a csv file we can write this to file, so we have the raw exif data if we need it. 
 
@@ -173,10 +146,6 @@ To save this table to a csv file we can write this to file, so we have the raw e
 ```r
 #write the Exif data to file
 write.csv(rec.db.species0, "CameraTrapExifData.csv")
-```
-
-```
-## Error in is.data.frame(x): object 'rec.db.species0' not found
 ```
 
 
@@ -191,24 +160,11 @@ Next we are going to bring in the data from the GPS coordinates. By loading the 
 WakhanData<-read.csv("Metadata_CT_2012.csv")
 ```
 
-```
-## Warning in file(file, "rt"): cannot open file 'Metadata_CT_2012.csv': No such
-## file or directory
-```
-
-```
-## Error in file(file, "rt"): cannot open the connection
-```
-
 We can check out the syntax of the geometry column of our metadata
 
 ```r
 #look at the synatx of the geometry column for GPS coordinates
 WakhanData$Loc_geo[1]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'WakhanData' not found
 ```
 
 When we inspect these data, two empty rows have no information, so we'll have to clean this up a bit. There are several ways of doing this, for one, we can use the complete.cases function. This will remove any rows with NA values anywhere in the matrix. 
@@ -223,11 +179,6 @@ If your data are complete, this is fine. If they are not then this will subset y
 WakhanData<-WakhanData[complete.cases(WakhanData),]
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'WakhanData' not found
-```
-
-
 Another factor can see that the location column with the coordinates has a format with the coordinates in one string. So, to fix this we need to do a bit of work to get it into the format that we want. To do this we can use the substr function to get a substring of the data out of the string. Since they are all the same format we can simply pull out the numbers that we want using the place of the characters in the string. For example, to get the lattitude coordinates, we need to pull out the 5th to 11th characters in the string.
 
 
@@ -237,9 +188,6 @@ Another factor can see that the location column with the coordinates has a forma
 substr(WakhanData$Loc_geo, 5,11)
 ```
 
-```
-## Error in substr(WakhanData$Loc_geo, 5, 11): object 'WakhanData' not found
-```
 
 We can assign these new strings to new columns in our dataframe.
 
@@ -249,19 +197,10 @@ We can assign these new strings to new columns in our dataframe.
 WakhanData$X<-substr(WakhanData$Loc_geo, 5,11)
 ```
 
-```
-## Error in substr(WakhanData$Loc_geo, 5, 11): object 'WakhanData' not found
-```
-
 
 ```r
 WakhanData$Y<-substr(WakhanData$Loc_geo, 13,nchar(WakhanData$Loc_geo[1]))
 ```
-
-```
-## Error in substr(WakhanData$Loc_geo, 13, nchar(WakhanData$Loc_geo[1])): object 'WakhanData' not found
-```
-
 Great so we have our Latitude and Longitude coordinates. Let's now we want to merge the dataframe with the exif data and the dataframe with the GPS coordinates and camera infromation together. Before we can do that, we need to make sure that there is a column in both that match completely. So let's have a check and see if the trap names in the record table are the same in the GPS coordinates table. 
 
 
@@ -271,17 +210,9 @@ Great so we have our Latitude and Longitude coordinates. Let's now we want to me
 unique(rec.db.species0$Station)
 ```
 
-```
-## Error in unique(rec.db.species0$Station): object 'rec.db.species0' not found
-```
-
 
 ```r
 unique(WakhanData$Trap.site)
-```
-
-```
-## Error in unique(WakhanData$Trap.site): object 'WakhanData' not found
 ```
 
 From this result we can see nearly all of the camera traps are different because there is an extra _SL at the end of the names, so we can remove it. We can use the stringr package and function str_remove to apply a removal.
@@ -294,10 +225,6 @@ library(stringr)
 rec.db.species0$Station<-str_remove(rec.db.species0$Station, "_SL")
 ```
 
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'rec.db.species0' not found
-```
-
 
 We can use the setdiff function to determine if any of the trap names are still different. Oftentimes, there are misspellings. 
 
@@ -307,11 +234,6 @@ We can use the setdiff function to determine if any of the trap names are still 
 #check if the site names are the same
 setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
 ```
-
-```
-## Error in unique(rec.db.species0$Station): object 'rec.db.species0' not found
-```
-
 We find two cameras have different names. To fix this, we can use the str_replace function in the stringr package
 
 
@@ -321,26 +243,15 @@ We find two cameras have different names. To fix this, we can use the str_replac
 WakhanData$Trap.site<-str_replace(WakhanData$Trap.site,"C5_Ishmorg" , "C5_Ishmorgh")
 ```
 
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'WakhanData' not found
-```
 
 
 ```r
 WakhanData$Trap.site<-str_replace(WakhanData$Trap.site,"C18_Khandud" , "C18_Khundud")
 ```
 
-```
-## Error in stri_replace_first_regex(string, pattern, fix_replacement(replacement), : object 'WakhanData' not found
-```
-
 
 ```r
 setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
-```
-
-```
-## Error in unique(rec.db.species0$Station): object 'rec.db.species0' not found
 ```
 
 Now, there is one more problem with our dataset, and that is that our coordinates are only in UTM coordinate system, and we actually need them in a Lat/Long coordinate system to upload them to the Whiskerbook format. 
@@ -366,19 +277,12 @@ Next, we want to create a shapefile of points of our GPS coordinates that is in 
 WakhanData_points<-st_as_sf(WakhanData, coords=c("X","Y"), crs=UTM_crs)
 ```
 
-```
-## Error in st_as_sf(WakhanData, coords = c("X", "Y"), crs = UTM_crs): object 'WakhanData' not found
-```
-
 Lets plot them to make sure we did it right and that we did not confuse our X and Y coordinates. 
 
 ```r
 plot(WakhanData_points[,"Year"])
 ```
 
-```
-## Error in plot(WakhanData_points[, "Year"]): object 'WakhanData_points' not found
-```
 
 Here we will convert the coordinate system to WGS84 using the st_transform function, which is our handy function for transforming coordinate systems.
 
@@ -388,9 +292,6 @@ Here we will convert the coordinate system to WGS84 using the st_transform funct
 WakhanData_points_latlong<-st_transform(WakhanData_points, crs=wgs84_crs)
 ```
 
-```
-## Error in st_transform(WakhanData_points, crs = wgs84_crs): object 'WakhanData_points' not found
-```
 
 Now, we will extract the coordinates from the new transformed points, and put them into an dataframe object named WakhanData_points_latlong_df
 
@@ -398,17 +299,10 @@ Now, we will extract the coordinates from the new transformed points, and put th
 WakhanData_points_latlong_df<- st_coordinates(WakhanData_points_latlong)
 ```
 
-```
-## Error in st_coordinates(WakhanData_points_latlong): object 'WakhanData_points_latlong' not found
-```
 We will rename the columns of the new dataframe object, Lat and Long.
 
 ```r
 colnames(WakhanData_points_latlong_df)<-c("Lat","Long")
-```
-
-```
-## Error in colnames(WakhanData_points_latlong_df) <- c("Lat", "Long"): object 'WakhanData_points_latlong_df' not found
 ```
 
 Then, we can simply add these columns back to the original dataframe. 
@@ -416,10 +310,6 @@ Then, we can simply add these columns back to the original dataframe.
 
 ```r
 WakhanData <-cbind(WakhanData, WakhanData_points_latlong_df)
-```
-
-```
-## Error in cbind(WakhanData, WakhanData_points_latlong_df): object 'WakhanData' not found
 ```
 
 
@@ -434,10 +324,6 @@ The all argument can be set to true to include all records in both tables, but i
 final_CameraRecords<-merge(rec.db.species0, WakhanData, by.x="Station", by.y="Trap.site", all=TRUE)
 ```
 
-```
-## Error in merge(rec.db.species0, WakhanData, by.x = "Station", by.y = "Trap.site", : object 'rec.db.species0' not found
-```
-
 Now let's save this file for later. 
 
 
@@ -445,10 +331,6 @@ Now let's save this file for later.
 ```r
 #write the file to csv
 write.csv(final_CameraRecords, "SnowLeopard_CameraTrap.csv")
-```
-
-```
-## Error in is.data.frame(x): object 'final_CameraRecords' not found
 ```
 
 
