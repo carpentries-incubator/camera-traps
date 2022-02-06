@@ -1,5 +1,5 @@
 current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8/ext/unf_ext
-/opt/hostedtoolcache/Ruby/2.7.5/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.5/x64/lib/ruby/2.7.0 -r ./siteconf20220205-9520-5thcbd.rb extconf.rb
+/opt/hostedtoolcache/Ruby/2.7.5/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.5/x64/lib/ruby/2.7.0 -r ./siteconf20220206-9604-g0lsab.rb extconf.rb
 checking for -lstdc++... yes
 creating Makefile
 
@@ -7,82 +7,82 @@ current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ru
 make "DESTDIR=" clean
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8/ext/unf_ext'
 Makefile:175: warning: overriding recipe for target 'clean'
-à`ëU:175: warning: ignoring old recipe for target 'clean'
+àH·ÁU:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-à`ëU:182: warning: ignoring old recipe for target 'distclean'
+àH·ÁU:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-à`ëU:190: warning: ignoring old recipe for target 'install-so'
+àH·ÁU:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-à`ëU:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+àH·ÁU:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.time'
-à`ëU:202: warning: ignoring old recipe for target '.sitearchdir.time'
+àH·ÁU:202: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-à`ëU:212: warning: ignoring old recipe for target '.cc.o'
+àH·ÁU:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-à`ëU:216: warning: ignoring old recipe for target '.cc.S'
+àH·ÁU:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-à`ëU:220: warning: ignoring old recipe for target '.mm.o'
+àH·ÁU:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-à`ëU:224: warning: ignoring old recipe for target '.mm.S'
+àH·ÁU:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-à`ëU:228: warning: ignoring old recipe for target '.cxx.o'
+àH·ÁU:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-à`ëU:232: warning: ignoring old recipe for target '.cxx.S'
+àH·ÁU:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-à`ëU:236: warning: ignoring old recipe for target '.cpp.o'
+àH·ÁU:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-à`ëU:240: warning: ignoring old recipe for target '.cpp.S'
+àH·ÁU:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-à`ëU:244: warning: ignoring old recipe for target '.c.o'
+àH·ÁU:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-à`ëU:248: warning: ignoring old recipe for target '.c.S'
+àH·ÁU:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-à`ëU:252: warning: ignoring old recipe for target '.m.o'
+àH·ÁU:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-à`ëU:256: warning: ignoring old recipe for target '.m.S'
+àH·ÁU:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'unf_ext.so'
-à`ëU:260: warning: ignoring old recipe for target 'unf_ext.so'
+àH·ÁU:260: warning: ignoring old recipe for target 'unf_ext.so'
 make[1]: Leaving directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8/ext/unf_ext'
 
 current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8/ext/unf_ext
 make "DESTDIR="
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8/ext/unf_ext'
 Makefile:175: warning: overriding recipe for target 'clean'
-àıñì7V:175: warning: ignoring old recipe for target 'clean'
+à-Î/V:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-àıñì7V:182: warning: ignoring old recipe for target 'distclean'
+à-Î/V:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-àıñì7V:190: warning: ignoring old recipe for target 'install-so'
+à-Î/V:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-àıñì7V:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+à-Î/V:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.time'
-àıñì7V:202: warning: ignoring old recipe for target '.sitearchdir.time'
+à-Î/V:202: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-àıñì7V:212: warning: ignoring old recipe for target '.cc.o'
+à-Î/V:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-àıñì7V:216: warning: ignoring old recipe for target '.cc.S'
+à-Î/V:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-àıñì7V:220: warning: ignoring old recipe for target '.mm.o'
+à-Î/V:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-àıñì7V:224: warning: ignoring old recipe for target '.mm.S'
+à-Î/V:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-àıñì7V:228: warning: ignoring old recipe for target '.cxx.o'
+à-Î/V:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-àıñì7V:232: warning: ignoring old recipe for target '.cxx.S'
+à-Î/V:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-àıñì7V:236: warning: ignoring old recipe for target '.cpp.o'
+à-Î/V:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-àıñì7V:240: warning: ignoring old recipe for target '.cpp.S'
+à-Î/V:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-àıñì7V:244: warning: ignoring old recipe for target '.c.o'
+à-Î/V:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-àıñì7V:248: warning: ignoring old recipe for target '.c.S'
+à-Î/V:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-àıñì7V:252: warning: ignoring old recipe for target '.m.o'
+à-Î/V:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-àıñì7V:256: warning: ignoring old recipe for target '.m.S'
+à-Î/V:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'unf_ext.so'
-àıñì7V:260: warning: ignoring old recipe for target 'unf_ext.so'
+à-Î/V:260: warning: ignoring old recipe for target 'unf_ext.so'
 compiling unf.cc
 linking shared-object unf_ext.so
 make[1]: Leaving directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8/ext/unf_ext'
@@ -91,40 +91,40 @@ current directory: /home/runner/work/camera-traps/camera-traps/.vendor/bundle/ru
 make "DESTDIR=" install
 make[1]: Entering directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8/ext/unf_ext'
 Makefile:175: warning: overriding recipe for target 'clean'
-àİ:175: warning: ignoring old recipe for target 'clean'
+àı¶€¿U:175: warning: ignoring old recipe for target 'clean'
 Makefile:182: warning: overriding recipe for target 'distclean'
-àİ:182: warning: ignoring old recipe for target 'distclean'
+àı¶€¿U:182: warning: ignoring old recipe for target 'distclean'
 Makefile:190: warning: overriding recipe for target 'install-so'
-àİ:190: warning: ignoring old recipe for target 'install-so'
+àı¶€¿U:190: warning: ignoring old recipe for target 'install-so'
 Makefile:200: warning: overriding recipe for target 'pre-install-rb-default'
-àİ:200: warning: ignoring old recipe for target 'pre-install-rb-default'
+àı¶€¿U:200: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:202: warning: overriding recipe for target '.sitearchdir.time'
-àİ:202: warning: ignoring old recipe for target '.sitearchdir.time'
+àı¶€¿U:202: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:212: warning: overriding recipe for target '.cc.o'
-àİ:212: warning: ignoring old recipe for target '.cc.o'
+àı¶€¿U:212: warning: ignoring old recipe for target '.cc.o'
 Makefile:216: warning: overriding recipe for target '.cc.S'
-àİ:216: warning: ignoring old recipe for target '.cc.S'
+àı¶€¿U:216: warning: ignoring old recipe for target '.cc.S'
 Makefile:220: warning: overriding recipe for target '.mm.o'
-àİ:220: warning: ignoring old recipe for target '.mm.o'
+àı¶€¿U:220: warning: ignoring old recipe for target '.mm.o'
 Makefile:224: warning: overriding recipe for target '.mm.S'
-àİ:224: warning: ignoring old recipe for target '.mm.S'
+àı¶€¿U:224: warning: ignoring old recipe for target '.mm.S'
 Makefile:228: warning: overriding recipe for target '.cxx.o'
-àİ:228: warning: ignoring old recipe for target '.cxx.o'
+àı¶€¿U:228: warning: ignoring old recipe for target '.cxx.o'
 Makefile:232: warning: overriding recipe for target '.cxx.S'
-àİ:232: warning: ignoring old recipe for target '.cxx.S'
+àı¶€¿U:232: warning: ignoring old recipe for target '.cxx.S'
 Makefile:236: warning: overriding recipe for target '.cpp.o'
-àİ:236: warning: ignoring old recipe for target '.cpp.o'
+àı¶€¿U:236: warning: ignoring old recipe for target '.cpp.o'
 Makefile:240: warning: overriding recipe for target '.cpp.S'
-àİ:240: warning: ignoring old recipe for target '.cpp.S'
+àı¶€¿U:240: warning: ignoring old recipe for target '.cpp.S'
 Makefile:244: warning: overriding recipe for target '.c.o'
-àİ:244: warning: ignoring old recipe for target '.c.o'
+àı¶€¿U:244: warning: ignoring old recipe for target '.c.o'
 Makefile:248: warning: overriding recipe for target '.c.S'
-àİ:248: warning: ignoring old recipe for target '.c.S'
+àı¶€¿U:248: warning: ignoring old recipe for target '.c.S'
 Makefile:252: warning: overriding recipe for target '.m.o'
-àİ:252: warning: ignoring old recipe for target '.m.o'
+àı¶€¿U:252: warning: ignoring old recipe for target '.m.o'
 Makefile:256: warning: overriding recipe for target '.m.S'
-àİ:256: warning: ignoring old recipe for target '.m.S'
+àı¶€¿U:256: warning: ignoring old recipe for target '.m.S'
 Makefile:260: warning: overriding recipe for target 'unf_ext.so'
-àİ:260: warning: ignoring old recipe for target 'unf_ext.so'
-/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20220205-9520-1i9dta9
+àı¶€¿U:260: warning: ignoring old recipe for target 'unf_ext.so'
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20220206-9604-fpxtgz
 make[1]: Leaving directory '/home/runner/work/camera-traps/camera-traps/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8/ext/unf_ext'
