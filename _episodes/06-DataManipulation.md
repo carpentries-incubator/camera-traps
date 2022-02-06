@@ -138,15 +138,17 @@ edf_right<-edf_tdf_high[-which(edf_tdf_high$Marked.Individual %in% ID_oneOnly_le
 > Answer the following questions:
 > 
 > 1. How many individuals were back only?
-> >ID_back_final<-ID_left_right%>%
-  group_by(Side)%>%
-  count()
-  
->>From this result, we can see that 9 detections were back, and 3 were tail only.
-
-
-```
-
+> {: .source}
+> 
+> > 
+> > ```r
+> >   ID_back_final<-ID_left_right%>%
+> >  group_by(Side)%>%
+> >  count()
+> > ```
+> >From this result, we can see that 9 detections were back, and 3 were tail only.
+> >
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
