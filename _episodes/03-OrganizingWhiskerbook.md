@@ -41,15 +41,17 @@ Whiskerbook_template[1:nrow(SnowLeopardBook),]<-NA
 ```
 
 > ## Challenge: Whiskerbook 
-
 > 
 > Answer the following questions:
-> 
-> 1. What are some of the original fields in this Whiskerbook template that may be useful?
 > > 
+> 1. What are some of the original fields in this Whiskerbook template that may be useful?
+> 
+> {: .source}
+> 
+> > 
+> > {: .output}
 > {: .solution}
 {: .challenge}
-
 
 
 Using our camera trap data, subset the data by columns that will be used for the Whiskerbook upload. There are some obvious things in the template and some not so obvious. We will go through which ones are needed below, first lets make a subset of the camera trap data and metadata to use.
@@ -104,22 +106,22 @@ The mutate function within dplyr allows us to create a new row of data based on 
 
 
 ```r
-Whiskerbook_template<-Whiskerbook_template%>%
+  Whiskerbook_template<-Whiskerbook_template%>%
   group_by(Encounter.locationID, Encounter.year, Encounter.month, Encounter.day,Encounter.hour)%>%
   mutate(Encounter.occurrenceID = cur_group_id())
 ```
 
 > ## Challenge: group_by function  
-
 > 
 > Answer the following questions:
 > 
 > 1. What happens when you group by different columns? Experiment with grouping by fewer or more columns to see the result. 
 >    What happens to the group_ids?
-> > 
+> {: .source}
+>
+> > {: .output}
 > {: .solution}
 {: .challenge}
-
 
 
 Next, we have to sequentially number each of the images within that group or "occurrence" to create the Encounter.mediaAsset information that Whiskerbook needs to have. Now, within each group we are numbering each photo within that group. There may be 10 photos in an occurrence so they would be numbered 1-10, or there may be 40 photos within the occurrence, so we name those 1-40. Thankfully, dplyr has all of the necessary functions to allow us to name the photos within each group. 
