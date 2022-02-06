@@ -63,21 +63,25 @@ Sides<-Wildbook%>%
 
 
 > ## Challenge: Individuals and Sides 
-
-> 
+>
 > Answer the following questions:
 > 
 > 1. How many individuals do we have that were detected once? How many individuals were detected more than once?
-> > All of the individuals were detected more than once. There were two individuals detected twice. 
 >
 > 1. What if we wanted to find out how many individuals were detected in each of the years 2012 and 2013?
+>
+> > ## Solution
+> > 
+> > 1. All of the individuals were detected more than once. There were two individuals detected twice. 
+> > 
+> > 1.
 > > ```{r, eval = FALSE}
 > > Individuals_Date<-Wildbook%>%
-    group_by(Encounter.year)%>%
-    count(Name0.value, sort = TRUE) 
+> >   group_by(Encounter.year)%>%
+> >   count(Name0.value, sort = TRUE) 
 > > Individuals_Date_Totals<-Individuals_Date%>%
-      group_by(Encounter.year)%>%
-     count() 
+> >    group_by(Encounter.year)%>%
+> >    count() 
 > > 
 > > ```
 > {: .solution}
@@ -340,13 +344,16 @@ write.csv(tdf, "tdf.csv")
 
 
 > ## Challenge: Camera Operability Matrix
-
+>
 > 
 > Answer the following questions:
 > 
 > 1. How do we format our data if our camera traps had an issue and were not running for several weeks? 
+> 
+> > ## Solution
+> > 
 > > The cameraOperation matrix has a field called hasProblems that would be set equal to TRUE. The fields in the CTtable would be changed to include fields "Problem_from" and "Problem_to"
-
+> >
 > {: .solution}
 {: .challenge}
 
