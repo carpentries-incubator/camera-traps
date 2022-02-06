@@ -67,6 +67,8 @@ Sides<-Wildbook%>%
 > 1. How many individuals do we have that were detected once? How many individuals were detected more than once?
 >
 > 1. What if we wanted to find out how many individuals were detected in each of the years 2012 and 2013?
+> 
+>{: .source}
 >
 > > ## Solution
 > > 
@@ -82,8 +84,10 @@ Sides<-Wildbook%>%
 > >    group_by(Encounter.year)%>%
 > >    count() 
 > > ```
+> > {: .output}
 > {: .solution}
 {: .challenge}
+
 
 
 In this next part, we are beginning our construction of a data matrix that we can use for Spatial Capture recapture. The oSCR package requires a certain format for the data, and to get it into the format that oSCR wants, we have to change a few things. 
@@ -366,12 +370,16 @@ write.csv(tdf, "tdf.csv")
 > 
 > 1. How do we format our data if our camera traps had an issue and were not running for several weeks? 
 > 
+> > {: .source}
+> > 
 > > ## Solution
 > > 
 > > The cameraOperation matrix has a field called hasProblems that would be set equal to TRUE. The fields in the CTtable would be changed to include fields "Problem_from" and "Problem_to"
 > >
+> > {: .output}
 > {: .solution}
 {: .challenge}
+
 
 {% include links.md %}
 
