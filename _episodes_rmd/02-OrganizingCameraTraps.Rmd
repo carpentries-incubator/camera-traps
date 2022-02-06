@@ -301,7 +301,6 @@ write.csv(final_CameraRecords, "SnowLeopard_CameraTrap.csv")
 
 
 > ## Challenge: Renaming Files and changing CRS
-
 > 
 > Answer the following questions:
 >
