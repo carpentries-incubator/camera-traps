@@ -304,19 +304,24 @@ write.csv(final_CameraRecords, "SnowLeopard_CameraTrap.csv")
 
 > 
 > Answer the following questions:
-> 
+>
 > 1. What would we do for renaming our files if we had A and B camera stations or species names subfolders? What would our code look like 
 > 
 > 2. What if our data were in the Namdapha National Park? What CRS would we use, and how would we code this in R?
 > 
+>  {: .source}
+>  
 > > 
 > > ## Answers
 > > 
-> > The imageRename function in the camtrapR function allows for subdirectory folders to be organized separately. See the help for imageRename function ?imageRename to find out the station directories can have subdirectories "inDir/StationA/Camera1" to organize two cameras per station. 
-
+> > The imageRename function in the camtrapR function allows for subdirectory folders to be organized separately. 
+> > See the help for imageRename function ?imageRename to find out the station directories can have subdirectories "inDir/StationA/Camera1" 
+> > to organize two cameras per station. 
+> >
 > >
 > > The  Namdapha National Park is in Northeastern India, and is WGS 1984 UTM Zone 4N
->> the EPSG code is 32604 "+init=EPSG:32643"
+> >the EPSG code is 32604 "+init=EPSG:32643"
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
