@@ -315,10 +315,15 @@ st_crs(alltraps_sp) <- "+proj=utm +zone=43 +ellps=WGS84 +datum=WGS84 +units=m +n
 ```
 
 > ## Challenge: Second three month session
-
 >
 > Perform the following tasks
->
 > 1. Save your R file and then save another one for the second session.
 >2. Edit the entire file to create a uniquely named tdf and alltraps_df for the second >session only. These objects should not overwrite the ones you made for the first >session.
 >3. If you're able to, edit your R code to run a loop that will automatically create a >list of tdf objects, and a list of alltraps_df objects, a list of camera trap days, and >a list of number of traps per sessions for the two sessions.
+> {: .source}
+> > 
+> > 
+> > 
+> > {: .output}
+> {: .solution}
+{: .challenge}
