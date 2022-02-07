@@ -10,6 +10,7 @@ The episodes in this lesson cover how to open, work with, and model camera trapp
 Additional topics include Whiskerbook for individual identification and Spatial Capture Recapture Modeling Data Preparation
 
 Interested in teaching these materials? Please contact [evebohnett@yahoo.com](mailto:evebohnett@yahoo.com) so that we can discuss a workshop.
+The workshop materials are available in video format.
 
 
 > ## Getting Started
@@ -29,9 +30,9 @@ Interested in teaching these materials? Please contact [evebohnett@yahoo.com](ma
 > The data and lessons in this workshop were originally collected by WCS Afghanistan
 > for a field project located inthe Wakhan Corridor.
 > for snow leopard detections:
-> There is one data set included, which are available  on figshare
+> There is one data set included, which are available  on figshare that is shared by request
 > * Wakhan Corridor Snow Leopard Data ()
-> under a CC-BY-04 license. You can download all of the data used in this workshop by clicking
+>  under a CC-BY-04 license. You can download all of the data used in this workshop by clicking
 > Clicking the download link will download all of the files as a single compressed
 > (`.zip`) file. To expand this file, double click the folder icon in your file navigator application (for Macs, this is the Finder
 > application).
@@ -43,9 +44,12 @@ Interested in teaching these materials? Please contact [evebohnett@yahoo.com](ma
 > | Camera trap images |  2012_CTdata.zip | Raw camera trap data for 294 images of a subset of data
 > | Camera Trap Metadata | Metadata_CT_2012.csv | Metadata that accompanys the camera trap images only|
 > | Whiskerbook export | Whiskerbook_export.csv | A subset of raw data downloaded from the Wildbook interface after the data have been 
->   individually identified and labeled by side (left, right, back, front) and quality (high, medium, and low)
+ individually identified and labeled by side (left, right, back, front) and quality (high, medium, and low)
 > | Camera Trap Metadata | Metadata_CT_2012_2.csv | Metadata that accompanys the Whiskerbook export file|
 > | Geospatial Data Files | GeospatialData.zip | Rasters including elevation, roughness, and topographical position index, and the 
->   shapefile of the park boundary for the study area|
+ shapefile of the park boundary for the study area|
 >  | Wildbook Template | WildbookStandardFormat.csv and .xlsx | Whiskerbook template file|
+>
+>
+>
 {: .prereq}
