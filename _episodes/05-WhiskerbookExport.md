@@ -24,6 +24,11 @@ source: Rmd
 Here are a few of the packages we will be using in this session. Let's load them first thing. 
 
 
+```r
+library(sf)
+library(dplyr)
+library(stringr)
+```
 
 We will import the Whiskerbook file that was exported from the website interface. We are finished with the individual identification tasks. These are the raw data that were downloaded and then annotated with labels for whether the photo capture was high or low quality, and if the encounter showed the left, right, or both sides of the animal. You may choose to label head and tail only images as well. These labels had to be placed manually and are at the discretion of the researcher. 
 
