@@ -211,22 +211,7 @@ We can use the setdiff function to determine if any of the trap names are still 
 #check if the site names are the same
 setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
 ```
-We find two cameras have different names. To fix this, we can use the str_replace function in the stringr package
 
-
-```{r results='hide', message=FALSE, warning=FALSE, eval=FALSE}
-#replace bad station names with correct spellings
-WakhanData$Trap.site<-str_replace(WakhanData$Trap.site,"C5_Ishmorg" , "C5_Ishmorgh")
-```
-
-
-```{r results='hide', message=FALSE, warning=FALSE, eval=FALSE}
-WakhanData$Trap.site<-str_replace(WakhanData$Trap.site,"C18_Khandud" , "C18_Khundud")
-```
-
-```{r results='hide', message=FALSE, warning=FALSE, eval=FALSE}
-setdiff(unique(rec.db.species0$Station), unique(WakhanData$Trap.site))
-````
 
 Now, there is one more problem with our dataset, and that is that our coordinates are only in UTM coordinate system, and we actually need them in a Lat/Long coordinate system to upload them to the Whiskerbook format. 
 
