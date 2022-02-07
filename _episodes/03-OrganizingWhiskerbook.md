@@ -182,11 +182,12 @@ The next thing we need to do is clean up our original Whiskerbook template so th
 
 In the original template, now, we have all the filenames in an Encounter.mediaAssetX column, and we need to remove that. That was there originally before we went through the trouble of reorganizing it. 
 
-Finally, we can remove the Encounter.mediaAsset column, which contained the numbers assigned to the individual images. 
+Finally, we can remove the Encounter.mediaAsset column, which contained the numbers assigned to the individual images, we will also remove the final column for the original numbered images within the hourly subsets. 
 
 
 ```r
 Whiskerbook_template<-Whiskerbook_template[,-1]
+Whiskerbook_template <-Whiskerbook_template[,-ncol(Whiskerbook_template)]
 ```
 
 Then, we will take only the unique records within this template.
@@ -200,7 +201,6 @@ Then, remove all of the columns which are filled with only NA values. We do not 
 
 ```r
 Whiskerbook_template<-Whiskerbook_template[,colSums(is.na(Whiskerbook_template))<nrow(Whiskerbook_template)]
-Whiskerbook_template <-Whiskerbook_template[,-ncol(Whiskerbook_template)]
 ```
 
 Now our original Whiskerbook template is formatted so we can merge the Whiskerbook_template2 with our cast Encounter.mediaAsset filenames to it. To do this, we can merge the templates together using the merge function, and then select only the unique rows.
