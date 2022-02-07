@@ -23,7 +23,7 @@ In camera trapping studies, it's common to have a lot of camera photos, sometime
 
 In general, if we want to organize our data from raw camera trapping data, there will also be other files including GPS locations, and camera operations data including start-times, end times and any issues encountered that may have interrupted camera data capture such as repairs. 
 
-We will begin this module by first organizing and formatting our camera trap data. 
+We will begin this module by first organizing and formatting our camera trap data that have already been sorted for the snow leopard species. Our goal is to sort these images by individual, and so our first steps will be processing and organizing the raw camera trap information. 
 
 First, set the working directory for the workshop where the snow leopard data have been downloaded, which is essentially a folder of your camera trap imagery.
 
