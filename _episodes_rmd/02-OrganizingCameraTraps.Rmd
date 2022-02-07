@@ -62,7 +62,7 @@ Then, set the file.path to an object, which eventually will be used for adding t
 wd_images_raw_renamed <- file.path("2012CameraData_renamed")  
 ```
 
-A quick fix before we rename
+A quick fix before we rename.
 Some camera trap models (like Reconyx) do not use the standard Exif metadata information for the date and time, which makes it not possible to read directly, so we use the fixDateTimeOriginal function in the camTrapR package. 
 
 ```{r results='hide', message=FALSE, warning=FALSE, eval=FALSE}
