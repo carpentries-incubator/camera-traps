@@ -23,7 +23,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 Here are a few of the packages we will be using in this session. Let's load them first thing. 
 
-```{r load-libraries, echo = FALSE, results='hide', warning = FALSE, message = FALSE, eval = FALSE}
+```{r load-libraries, eval = FALSE}
 library(sf)
 library(dplyr)
 library(stringr)
