@@ -46,7 +46,7 @@ wd_images_raw <- file.path("2012_CTdata")
 
 One of the first steps that we want to perform is a data quality check. Make sure that each of the file folders has the name of the camera trap station, often including the name and number. In our case we have cameras with names like "C1_Avgarch_SL", which indicates that this camera station was numbered 1, and at a location named Avgarch. These names are consistent across data tables such as the GPS coordinates and camera operations information, making it easier to merge this information. 
 
-Since SD cards often name files sequentially like "IMG_1245.jpg", then there may be more than one file with this name. Our goal is to give each image a unique filename that uses the location, date/time, and a sequential number, so that the photo filenames are unique. To do this, the folder names have to have the location information because the new image names will have the camera trap location as an identifier.
+Since SD cards often name files sequentially like "IMG_1245.jpg", then there may be more than one file with this name within the multitude of camera trap photos we have captured. Our goal is to give each image a unique filename that uses the location, date/time, and a sequential number, so that the photo filenames are unique. To do this, the folder names have to have the location information because the new image names will have the camera trap location as an identifier.
 
 To create a new directory for our copied data we can use the dir.create function.
 
