@@ -95,9 +95,12 @@ Whiskerbook_template$Encounter.day<- format(SnowLeopardBook$Date, "%d")
 Whiskerbook_template$Encounter.hour<-substr(SnowLeopardBook$Time, 1,2) 
 ```
 
-The Whiskerbook template requires that the data are put into a format with the image names of each occurrence in one row. An occurrence is a set of images that are normally associated to one time span, like an hour where the same animals were passing in front of the camera. An encounter is a sighting of one animal within that time span. It is possible to encounter more than one individual over the course of an hour, although that hour is still called an occurrence. 
+The Whiskerbook template requires that the data are put into a format with the image names of each encounter in one row. 
+1. An occurrence is a set of images that are normally associated to one time span, like an hour where the same animals were passing in front of the camera. 
+2. An encounter is a sighting of one animal within that time span. 
+It is possible to encounter more than one individual over the course of an hour, although that hour is still called an occurrence and the single animals within are called the encounter. 
 
-For animal encounter data, it depends on the length of time you would like to subset the data. For the purposes of this lesson, we will group the data into occurences by hour. 
+For animal encounter data, it depends on the length of time you would like to subset the data. For the purposes of this lesson, we will group the data into occurences by hour. Each row of our whiskerbook dataframe will represent an encounter. Although at this early stage, we likely do not know if there are multiple individuals within the hour. To start, we will break up our data into hourly subsets and work with that. If possible, going through the data carefully to understand where there are multiple individuals and sorting it out early can be an advantage. It will keep the data clean and avoid problems later. Although, in the Whiskerbook program it is fairly easy to delete images from one encounter and create a new encounter with images from the second individual. It is up to you how you will deal with this issue. However time consuming it may be to sort the data by individual early on may save time later.   
 
 Here we use the dplyr functions for group_by to group the camera trap photos by location ID of the camera station, and the year, month, day, and hour. Then, after they are grouped, we simply sequentially number each individual photo and assign it to which group it is in. 
 
